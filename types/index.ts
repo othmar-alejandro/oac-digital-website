@@ -5,6 +5,7 @@ export interface NavItem {
 }
 
 export interface ServiceItem {
+  id: string; // Add the required id field
   title: string;
   description: string;
   icon: string;
@@ -18,6 +19,7 @@ export interface ProcessStep {
 }
 
 export interface ProjectItem {
+  id: string; // Add id for keying and potentially linking
   title: string;
   description: string;
   image: string;

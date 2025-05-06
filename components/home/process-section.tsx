@@ -1,41 +1,41 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { useTranslations } from "next-intl"; // Import useTranslations
 import { ProcessStep } from "@/types";
 import { SectionWrapper } from "@/components/common/section-wrapper";
 import { cn } from "@/lib/utils";
 
-interface ProcessSectionProps {
-  title?: string;
-  subtitle?: string;
-  steps?: ProcessStep[];
-}
-
-const defaultSteps: ProcessStep[] = [
+// Function to generate steps using translations
+const getSteps = (t: Function): ProcessStep[] => [
   {
-    title: "Understand",
-    description: "We start by deeply understanding your business goals, target audience, and market position through comprehensive research and analysis.",
-    icon: "🔍",
+    icon: "🔍", // Icons can remain hardcoded or be made configurable
+    title: t('steps.listen.title'),
+    description: t('steps.listen.description'),
   },
   {
-    title: "Plan",
-    description: "With insights gathered, we create a tailored strategy that aligns with your objectives and outlines the path to achieving measurable results.",
-    icon: "📝",
+    icon: "⚡", // Changed icon for Rapid Deployment
+    title: t('steps.deploy.title'),
+    description: t('steps.deploy.description'),
   },
   {
-    title: "Design",
-    description: "Our expert team designs beautiful, functional solutions that embody your brand identity while providing exceptional user experiences.",
-    icon: "✏️",
+    icon: "🤝", // Changed icon for Collaborative Growth
+    title: t('steps.collaborate.title'),
+    description: t('steps.collaborate.description'),
+  },
+  {
+    icon: "🌱", // Changed icon for Ongoing Evolution
+    title: t('steps.evolve.title'),
+    description: t('steps.evolve.description'),
   },
 ];
 
-export function ProcessSection({
-  title = "Our Process",
-  subtitle = "We solve people's problems and make them happy.",
-  steps = defaultSteps,
-}: ProcessSectionProps) {
+
+export function ProcessSection() { // Removed props
+  const t = useTranslations("HomePage.process"); // Initialize translations
+  const steps = getSteps(t); // Get translated steps
   const sectionRef = useRef<HTMLDivElement>(null);
-  
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -48,10 +48,10 @@ export function ProcessSection({
       },
       { threshold: 0.1 }
     );
-    
+
     const stepElements = document.querySelectorAll(".process-step");
     stepElements.forEach((el) => observer.observe(el));
-    
+
     return () => {
       stepElements.forEach((el) => observer.unobserve(el));
     };
@@ -60,14 +60,15 @@ export function ProcessSection({
   return (
     <SectionWrapper bgColor="dark" id="process">
       <div ref={sectionRef} className="text-center mb-16">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl mb-4">{title}</h2>
-        <p className="text-lg text-gray-300 max-w-3xl mx-auto">{subtitle}</p>
+        <h2 className="text-3xl md:text-4xl lg:text-5xl mb-4">{t('title')}</h2> {/* Use translation */}
+        <p className="text-lg text-gray-300 max-w-3xl mx-auto">{t('subtitle')}</p> {/* Use translation */}
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16">
+      {/* Adjusted grid columns for 4 steps */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
         {steps.map((step, index) => (
           <div
-            key={index}
+            key={step.title} // Use title as key (assuming titles are unique)
             className={cn(
               "process-step opacity-0 text-center",
               "transform transition-all duration-500"

@@ -2,28 +2,23 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
+import { useTranslations } from "next-intl"; // Import useTranslations
 import { SectionWrapper } from "@/components/common/section-wrapper";
 import { cn } from "@/lib/utils";
 
-interface AboutAtmospherePreviewProps {
-  title?: string;
-  subtitle?: string;
-  images?: string[];
-}
-
+// Keep images hardcoded for now, ideally from CMS/data source
 const defaultImages = [
   "https://images.pexels.com/photos/7176026/pexels-photo-7176026.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
   "https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
   "https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
 ];
 
-export function AboutAtmospherePreview({
-  title = "See claw",
-  subtitle = "creative atmosphere",
-  images = defaultImages,
-}: AboutAtmospherePreviewProps) {
+
+export function AboutAtmospherePreview() { // Removed props
+  const t = useTranslations("HomePage.atmosphere"); // Initialize translations
+  const images = defaultImages; // Use default images for now
   const sectionRef = useRef<HTMLDivElement>(null);
-  
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -36,14 +31,14 @@ export function AboutAtmospherePreview({
       },
       { threshold: 0.1 }
     );
-    
+
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
-    
+
     const imageElements = document.querySelectorAll(".image-item");
     imageElements.forEach((el) => observer.observe(el));
-    
+
     return () => {
       if (sectionRef.current) observer.unobserve(sectionRef.current);
       imageElements.forEach((el) => observer.unobserve(el));
@@ -53,8 +48,8 @@ export function AboutAtmospherePreview({
   return (
     <SectionWrapper bgColor="dark" id="atmosphere">
       <div ref={sectionRef} className="text-center mb-16 opacity-0">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl mb-4">{title}</h2>
-        <p className="text-2xl text-accent">{subtitle}</p>
+        <h2 className="text-3xl md:text-4xl lg:text-5xl mb-4">{t('title')}</h2> {/* Use translation */}
+        <p className="text-2xl text-accent">{t('subtitle')}</p> {/* Use translation */}
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -69,7 +64,7 @@ export function AboutAtmospherePreview({
           >
             <Image
               src={image}
-              alt={`Creative atmosphere ${index + 1}`}
+              alt={t('imageAlt', { index: index + 1 })} // Use translation for alt text
               fill
               className="object-cover"
             />

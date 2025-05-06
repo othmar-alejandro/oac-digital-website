@@ -3,7 +3,6 @@ import type { Config } from 'tailwindcss';
 const config: Config = {
   darkMode: ['class'],
   content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
@@ -16,11 +15,7 @@ const config: Config = {
       colors: {
         'primary-dark': '#121212',
         'primary-light': '#ffffff',
-        'accent': {
-          DEFAULT: '#D4AF37',
-          light: '#F0E68C',
-          dark: '#B8860B',
-        },
+        // Removed redundant hex accent colors, using HSL var below
         'text-light': '#F8F9FA',
         'text-dark': '#212529',
         background: 'hsl(var(--background))',

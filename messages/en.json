@@ -1,0 +1,430 @@
+{
+    "Navigation": {
+        "home": "Home",
+        "services": "Services",
+        "portfolio": "Portfolio",
+        "about": "About",
+        "blog": "Blog",
+        "contact": "Contact",
+        "getAQuote": "Get a Quote",
+        "logoAlt": "OAC Digital Innovations Logo",
+        "openMenu": "Open Menu",
+        "closeMenu": "Close Menu"
+    },
+    "Footer": {
+        "logoAlt": "OAC Digital Innovations Logo",
+        "description": "Driving digital transformation through innovative web solutions, marketing automation, and SEO strategies.",
+        "facebookAria": "Visit our Facebook page",
+        "twitterAria": "Visit our Twitter profile",
+        "instagramAria": "Visit our Instagram profile",
+        "linkedinAria": "Visit our LinkedIn profile",
+        "githubAria": "Visit our Github profile",
+        "sections": {
+            "company": {
+                "title": "Company",
+                "items": {
+                    "about": "About",
+                    "services": "Services",
+                    "portfolio": "Portfolio",
+                    "blog": "Blog",
+                    "contact": "Contact"
+                }
+            },
+            "services": {
+                "title": "Services",
+                "items": {
+                    "webDevelopment": "Website Development",
+                    "marketingAutomation": "Marketing Automation",
+                    "seo": "SEO Optimization",
+                    "saasDevelopment": "SaaS Development",
+                    "digitalStrategy": "Digital Strategy"
+                }
+            },
+            "resources": {
+                "title": "Resources",
+                "items": {
+                    "caseStudies": "Case Studies",
+                    "documentation": "Documentation",
+                    "faqs": "FAQs",
+                    "privacyPolicy": "Privacy Policy",
+                    "termsOfService": "Terms of Service"
+                }
+            }
+        },
+        "copyright": "© {year} OAC Digital Innovations. All rights reserved.",
+        "privacyPolicy": "Privacy Policy",
+        "termsOfService": "Terms of Service",
+        "sitemap": "Sitemap"
+    },
+    "ServicesPage": {
+        "title": "Our Services",
+        "description": "We provide comprehensive digital solutions tailored to your specific needs, helping your business thrive in the digital landscape.",
+        "webDev": {
+            "title": "AI-Enhanced Websites & Chatbots",
+            "description": "Experience the OAC difference: intelligent websites delivered in half the industry standard time, with AI chatbots that turn visitors into valued customers from day one.",
+            "features": [
+                "Customized template designs",
+                "Responsive design for all devices",
+                "Content Management System (CMS) integration",
+                "Basic SEO setup",
+                "Fast turnaround time"
+            ]
+        },
+        "seo": {
+            "title": "Intelligent SEO Solutions",
+            "description": "Our values-driven approach prioritizes sustainable, ethical SEO strategies that deliver lasting results and adapt intelligently to market changes.",
+            "features": [
+                "Keyword research and analysis",
+                "On-page and off-page optimization",
+                "Content strategy recommendations",
+                "Technical SEO audits",
+                "Performance reporting"
+            ]
+        },
+        "saas": {
+            "title": "Tailored SaaS Solutions",
+            "description": "Your challenges are unique—your software should be too. We deliver custom AI applications in record time, turning your business vision into digital reality within weeks, not months.",
+            "features": [
+                "Requirement analysis and architecture design",
+                "Frontend and backend development",
+                "Database design and integration",
+                "Cloud deployment and scaling",
+                "Ongoing maintenance and support"
+            ]
+        },
+        "marketingAutomation": {
+            "title": "Smart Content Automation",
+            "description": "We believe your story deserves to be heard. Our rapid content deployment systems ensure your voice reaches your audience consistently, authentically, and effortlessly.",
+            "features": [
+                "Email marketing campaign automation",
+                "Lead generation and nurturing workflows",
+                "CRM integration (e.g., HubSpot, Salesforce)",
+                "Customer journey mapping",
+                "Performance analytics"
+            ]
+        }
+    },
+    "ServicesOverview": {
+        "title": "Core Services",
+        "subtitle": "At OAC Digital Innovations, we don't just build digital assets—we create intelligent business accelerators that deliver immediate value while scaling with your growth.",
+        "learnMore": "Learn More",
+        "viewAllServices": "View All Services"
+    },
+    "HomePage": {
+        "hero": {
+            "headline": "Accelerate Your Success with AI-Powered Digital Solutions",
+            "subHeadline": "OAC Digital Innovations delivers tomorrow's technology today. We transform businesses with lightning-fast AI implementation, unwavering commitment to excellence, and results you can measure.",
+            "viewWorkButton": "Transform Now",
+            "getInTouchButton": "Talk to Our Experts"
+        },
+        "process": {
+            "title": "The OAC Approach",
+            "subtitle": "We deliver exceptional results through our values-driven process:",
+            "steps": {
+                "listen": {
+                    "title": "Listen & Understand",
+                    "description": "We take the time to deeply understand your vision, values, and voice—because the best AI solutions amplify what makes your business unique."
+                },
+                "deploy": {
+                    "title": "Rapid Deployment",
+                    "description": "Our streamlined processes and AI-enhanced workflows mean you'll see results in days or weeks, not months."
+                },
+                "collaborate": {
+                    "title": "Collaborative Growth",
+                    "description": "We work alongside you, ensuring knowledge transfer and building internal capabilities that empower your team."
+                },
+                "evolve": {
+                    "title": "Ongoing Evolution",
+                    "description": "Our solutions grow smarter over time, continuously adapting to new challenges and opportunities in your business."
+                }
+            }
+        },
+        "portfolio": {
+            "title": "Our Works",
+            "subtitle": "Explore our latest projects showcasing our expertise and creative solutions.",
+            "viewAllButton": "View All Projects",
+            "projects": {
+                "foodApp": {
+                    "title": "Food Delivery App",
+                    "description": "A modern mobile app for ordering food from local restaurants with real-time tracking.",
+                    "services": [
+                        "UI/UX Design",
+                        "Mobile Development",
+                        "Backend API"
+                    ]
+                },
+                "digitalWallet": {
+                    "title": "Digital Wallet",
+                    "description": "A secure financial platform enabling users to manage transactions and investments.",
+                    "services": [
+                        "Fintech",
+                        "Security",
+                        "Blockchain"
+                    ]
+                }
+            }
+        },
+        "locations": {
+            "title": "OAC is now available",
+            "subtitle": "in {count} cities",
+            "locations": {
+                "newYork": {
+                    "city": "New York",
+                    "country": "USA"
+                },
+                "california": {
+                    "city": "California",
+                    "country": "USA"
+                },
+                "dubai": {
+                    "city": "Dubai",
+                    "country": "UAE"
+                },
+                "sydney": {
+                    "city": "Sydney",
+                    "country": "Australia"
+                }
+            },
+            "footerText": "We help people transform their business. Our team is always expanding globally to meet client needs."
+        },
+        "blog": {
+            "title": "Read our",
+            "subtitle": "latest blogs",
+            "readAllButton": "Read All Articles",
+            "posts": {
+                "colorTheory": {
+                    "title": "Color theory for designers",
+                    "excerpt": "Understanding color theory can significantly enhance your design projects.",
+                    "author": "Jane Smith"
+                },
+                "whiteSpace": {
+                    "title": "Experience of white space in design",
+                    "excerpt": "White space is a powerful design element often overlooked. Discover how to use it effectively.",
+                    "author": "Michael Johnson"
+                },
+                "uxTrends": {
+                    "title": "UX trends in 2025",
+                    "excerpt": "Stay ahead of the curve with the latest UX design trends shaping the digital landscape.",
+                    "author": "Alex Rodriguez"
+                }
+            }
+        },
+        "atmosphere": {
+            "title": "See our",
+            "subtitle": "creative atmosphere",
+            "imageAlt": "Creative atmosphere image {index}"
+        },
+        "cta": {
+            "title": "Let's Work Together",
+            "subtitle": "Have a project in mind? We'd love to hear about it. Let's discuss how we can help transform your digital presence.",
+            "buttonText": "Get in Touch"
+        }
+    },
+    "AboutPage": {
+        "title": "About Us",
+        "subtitle": "We're a team of passionate digital innovators dedicated to transforming businesses through cutting-edge web solutions and marketing strategies.",
+        "missionStatement": "At OAC Digital Innovations, we believe in a future where businesses thrive through intelligent digital transformation. Our mission is to democratize AI technology, making it accessible and impactful for businesses of all sizes. We're committed to delivering rapid, value-driven solutions that empower our clients to lead in the AI economy—because in today's world, the difference between struggling and scaling is intelligent digital integration.",
+        "story": {
+            "title": "Our Story",
+            "paragraph1": "Founded in 2018, OAC Digital Innovations began with a simple mission: to help businesses thrive in the digital age by providing innovative, high-quality web solutions and marketing strategies.",
+            "paragraph2": "What started as a small team of passionate digital experts has grown into a full-service agency serving clients across multiple industries worldwide. Our journey has been driven by a commitment to excellence, creativity, and delivering measurable results for our clients.",
+            "paragraph3": "Today, we continue to push the boundaries of digital innovation, staying ahead of industry trends and technologies to ensure our clients always receive cutting-edge solutions that drive their business forward.",
+            "imageAlt": "Our Team Collaborating"
+        },
+        "valuesAndPromises": {
+            "title": "Our Values & Promises",
+            "intro": "At OAC Digital Innovations, our commitment to you is built on these foundational values:",
+            "items": {
+                "integrity": "Integrity in Intelligence: We create AI solutions that reflect your authentic brand voice and business ethics",
+                "speed": "Speed Without Sacrifice: Rapid delivery without compromising quality—most projects completed in 30-60% less time than industry standards",
+                "partnership": "Partnership Over Transactions: Your success is our success—we measure our achievements by your business outcomes",
+                "evolution": "Continuous Evolution: We believe in solutions that grow smarter over time, just like your business"
+            }
+        },
+        "values": {
+            "title": "Our Values",
+            "description": "Our core values shape everything we do, from how we interact with clients to how we approach each project. These principles guide our decision-making and ensure we consistently deliver exceptional results.",
+            "imageAlt": "Our Values Visualization",
+            "items": {
+                "innovation": "Innovation & Creativity",
+                "satisfaction": "Client Satisfaction",
+                "integrity": "Integrity & Transparency",
+                "learning": "Continuous Learning",
+                "collaboration": "Collaboration & Teamwork",
+                "excellence": "Excellence in Delivery"
+            }
+        },
+        "team": {
+            "title": "Meet Our Team",
+            "subtitle": "Our talented team of digital experts brings diverse skills and perspectives to every project, ensuring innovative solutions that drive results.",
+            "social": {
+                "facebookAria": "Visit {name}'s Facebook profile",
+                "twitterAria": "Visit {name}'s Twitter profile",
+                "linkedinAria": "Visit {name}'s LinkedIn profile"
+            },
+            "johnDoe": {
+                "name": "John Doe",
+                "position": "CEO & Founder",
+                "bio": "With over 15 years of experience in digital innovation."
+            },
+            "janeSmith": {
+                "name": "Jane Smith",
+                "position": "Creative Director",
+                "bio": "Award-winning designer with a passion for creating exceptional user experiences."
+            },
+            "michaelJohnson": {
+                "name": "Michael Johnson",
+                "position": "Development Lead",
+                "bio": "Expert in cutting-edge web technologies and development practices."
+            },
+            "sarahWilliams": {
+                "name": "Sarah Williams",
+                "position": "Marketing Strategist",
+                "bio": "Specializes in creating data-driven marketing campaigns that deliver results."
+            },
+            "davidBrown": {
+                "name": "David Brown",
+                "position": "SEO Specialist",
+                "bio": "Passionate about helping businesses improve their online visibility."
+            },
+            "emilyChen": {
+                "name": "Emily Chen",
+                "position": "UX Designer",
+                "bio": "Creates intuitive and engaging user experiences for web and mobile applications."
+            }
+        }
+    },
+    "BlogPage": {
+        "title": "Our Blog",
+        "subtitle": "Insights, tips, and industry trends from our experts to help you stay ahead in the digital landscape.",
+        "readMore": "Read More",
+        "posts": {
+            "colorTheory": {
+                "title": "Color theory for designers",
+                "excerpt": "Understanding color theory can significantly enhance your design projects. Learn the fundamentals of color harmony and psychology.",
+                "author": "Jane Smith"
+            },
+            "whiteSpace": {
+                "title": "Experience of white space in design",
+                "excerpt": "White space is a powerful design element often overlooked. Discover how to use negative space effectively in your layouts.",
+                "author": "Michael Johnson"
+            },
+            "uxTrends": {
+                "title": "UX trends in 2025",
+                "excerpt": "Stay ahead of the curve with the latest UX design trends shaping the digital landscape in 2025 and beyond.",
+                "author": "Alex Rodriguez"
+            },
+            "webDevFuture": {
+                "title": "The future of web development",
+                "excerpt": "Explore emerging technologies and methodologies that are set to transform the web development landscape.",
+                "author": "David Brown"
+            },
+            "marketingRoi": {
+                "title": "Maximizing ROI with marketing automation",
+                "excerpt": "Learn how to leverage marketing automation to increase efficiency, improve customer experiences, and boost your return on investment.",
+                "author": "Sarah Williams"
+            },
+            "seoStrategies": {
+                "title": "Essential SEO strategies for 2025",
+                "excerpt": "Discover the most effective SEO techniques to improve your search rankings and drive organic traffic in 2025.",
+                "author": "Emily Chen"
+            }
+        }
+    },
+    "PortfolioPage": {
+        "title": "Our Portfolio",
+        "subtitle": "Explore our diverse portfolio of projects that showcase our expertise in web development, marketing automation, and SEO optimization.",
+        "viewProjectButton": "View Project",
+        "projects": {
+            "foodApp": {
+                "title": "Food Delivery App",
+                "description": "A modern mobile app for ordering food from local restaurants with real-time tracking and secure payments.",
+                "services": [
+                    "UI/UX Design",
+                    "Mobile Development",
+                    "Backend API"
+                ]
+            },
+            "digitalWallet": {
+                "title": "Digital Wallet",
+                "description": "A secure financial platform enabling users to manage transactions, investments, and cryptocurrency assets.",
+                "services": [
+                    "Fintech",
+                    "Security",
+                    "Blockchain"
+                ]
+            },
+            "eLearning": {
+                "title": "E-Learning Platform",
+                "description": "A comprehensive platform for online courses, featuring video lectures, quizzes, and student progress tracking.",
+                "services": [
+                    "Web Development",
+                    "UX Design",
+                    "Database Architecture"
+                ]
+            },
+            "fitnessTracker": {
+                "title": "Fitness Tracker",
+                "description": "A mobile app that helps users track workouts, nutrition, and health goals with detailed analytics and insights.",
+                "services": [
+                    "Mobile Development",
+                    "Health Tech",
+                    "Data Analytics"
+                ]
+            },
+            "realEstate": {
+                "title": "Real Estate Marketplace",
+                "description": "A platform connecting buyers, sellers, and agents with virtual tours and intelligent property matching.",
+                "services": [
+                    "Web Development",
+                    "Virtual Reality",
+                    "AI"
+                ]
+            },
+            "socialDashboard": {
+                "title": "Social Media Dashboard",
+                "description": "A comprehensive tool for businesses to manage and analyze their social media presence across multiple platforms.",
+                "services": [
+                    "Marketing Tech",
+                    "Data Visualization",
+                    "API Integration"
+                ]
+            }
+        }
+    },
+    "ContactPage": {
+        "title": "Contact Us",
+        "subtitle": "Have a project in mind or questions about our services? We'd love to hear from you. Reach out and let's start a conversation.",
+        "getInTouchTitle": "Get in Touch",
+        "getInTouchDescription": "Have questions or ready to start your next project? Reach out to us using the contact information below or fill out the form, and we'll get back to you as soon as possible.",
+        "emailLabel": "Email",
+        "phoneLabel": "Phone",
+        "addressLabel": "Address",
+        "hoursLabel": "Business Hours",
+        "hours": {
+            "weekdays": "Monday - Friday: 9am to 6pm",
+            "saturday": "Saturday: 10am to 4pm",
+            "sunday": "Sunday: Closed"
+        },
+        "formTitle": "Send Us a Message",
+        "form": {
+            "nameLabel": "Name",
+            "namePlaceholder": "Your name",
+            "emailLabel": "Email",
+            "emailPlaceholder": "Your email",
+            "subjectLabel": "Subject",
+            "subjectPlaceholder": "Subject of your message",
+            "messageLabel": "Message",
+            "messagePlaceholder": "Your message",
+            "submitButton": "Send Message",
+            "submitButtonSending": "Sending...",
+            "toastSuccess": "Message sent successfully! We'll get back to you soon.",
+            "validation": {
+                "nameMin": "Name must be at least 2 characters.",
+                "emailInvalid": "Please enter a valid email address.",
+                "subjectMin": "Subject must be at least 2 characters.",
+                "messageMin": "Message must be at least 10 characters."
+            }
+        }
+    }
+}

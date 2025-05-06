@@ -1,23 +1,32 @@
 "use client";
 
+"use client";
+
 import { useState, useEffect } from "react";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation"; // Import locale-aware Link
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { NavItem } from "@/types";
 import { Button } from "@/components/ui/button";
+import { LanguageSwitcher } from "./language-switcher"; // Import LanguageSwitcher
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const navItems: NavItem[] = [
-  { title: "Home", href: "/" },
-  { title: "Services", href: "/services" },
-  { title: "Portfolio", href: "/portfolio" },
-  { title: "About", href: "/about" },
-  { title: "Blog", href: "/blog" },
-  { title: "Contact", href: "/contact" },
+// Keep hrefs, titles will come from translations
+const navLinks: Omit<NavItem, 'title'>[] = [
+  { href: "/" },
+  { href: "/services" },
+  { href: "/portfolio" },
+  { href: "/about" },
+  { href: "/blog" },
+  { href: "/contact" },
 ];
 
+// Define keys for translation lookup
+const navKeys = ['home', 'services', 'portfolio', 'about', 'blog', 'contact'];
+
 export function Header() {
+  const t = useTranslations("Navigation"); // Initialize translation function
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -25,27 +34,27 @@ export function Header() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-    
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <header 
+    <header
       className={cn(
         "fixed top-0 w-full z-50 transition-all duration-300 py-4 px-4 md:px-8",
-        isScrolled 
-          ? "bg-primary-dark shadow-md py-2" 
+        isScrolled
+          ? "bg-primary-dark shadow-md py-2"
           : "bg-transparent"
       )}
     >
       <div className="container mx-auto">
         <div className="flex items-center justify-between">
           <Link href="/" className="relative z-10">
-            <Image 
-              src="/images/logo-dark.png" 
-              alt="OAC Digital Innovations" 
-              width={120} 
+            <Image
+              src="/images/logo-dark.png"
+              alt={t('logoAlt')} // Use translation for alt text
+              width={120}
               height={50}
               className="h-10 w-auto"
             />
@@ -53,7 +62,7 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            {navItems.map((item, index) => (
+            {navLinks.map((item, index) => (
               <Link
                 key={index}
                 href={item.href}
@@ -62,11 +71,12 @@ export function Header() {
                   "tracking-wide uppercase"
                 )}
               >
-                {item.title}
+                {t(navKeys[index])} {/* Use translation for title */}
               </Link>
             ))}
+            <LanguageSwitcher /> {/* Add LanguageSwitcher here */}
             <Button size="sm" className="bg-accent hover:bg-accent-dark text-black">
-              Get a Quote
+              {t('getAQuote')} {/* Use translation for button text */}
             </Button>
           </nav>
 
@@ -74,7 +84,7 @@ export function Header() {
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="md:hidden text-white p-2"
-            aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
+            aria-label={isMenuOpen ? t('closeMenu') : t('openMenu')} // Use translation for aria-label
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -85,14 +95,14 @@ export function Header() {
       {isMenuOpen && (
         <div className="md:hidden fixed inset-0 bg-primary-dark z-40 pt-20">
           <nav className="flex flex-col items-center justify-center h-full">
-            {navItems.map((item, index) => (
+            {navLinks.map((item, index) => (
               <Link
                 key={index}
                 href={item.href}
                 className="text-white hover:text-accent py-4 text-xl font-medium tracking-wide uppercase"
                 onClick={() => setIsMenuOpen(false)}
               >
-                {item.title}
+                {t(navKeys[index])} {/* Use translation for title */}
               </Link>
             ))}
             <Button
@@ -100,7 +110,7 @@ export function Header() {
               className="mt-6 bg-accent hover:bg-accent-dark text-black"
               onClick={() => setIsMenuOpen(false)}
             >
-              Get a Quote
+              {t('getAQuote')} {/* Use translation for button text */}
             </Button>
           </nav>
         </div>

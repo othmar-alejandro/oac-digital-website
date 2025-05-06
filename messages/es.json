@@ -1,0 +1,430 @@
+{
+    "Navigation": {
+        "home": "Inicio",
+        "services": "Servicios",
+        "portfolio": "Portafolio",
+        "about": "Nosotros",
+        "blog": "Blog",
+        "contact": "Contacto",
+        "getAQuote": "Obtener Cotización",
+        "logoAlt": "Logo OAC Digital Innovations",
+        "openMenu": "Abrir Menú",
+        "closeMenu": "Cerrar Menú"
+    },
+    "Footer": {
+        "logoAlt": "Logo OAC Digital Innovations",
+        "description": "Impulsando la transformación digital a través de soluciones web innovadoras, automatización de marketing y estrategias SEO.",
+        "facebookAria": "Visita nuestra página de Facebook",
+        "twitterAria": "Visita nuestro perfil de Twitter",
+        "instagramAria": "Visita nuestro perfil de Instagram",
+        "linkedinAria": "Visita nuestro perfil de LinkedIn",
+        "githubAria": "Visita nuestro perfil de Github",
+        "sections": {
+            "company": {
+                "title": "Compañía",
+                "items": {
+                    "about": "Nosotros",
+                    "services": "Servicios",
+                    "portfolio": "Portafolio",
+                    "blog": "Blog",
+                    "contact": "Contacto"
+                }
+            },
+            "services": {
+                "title": "Servicios",
+                "items": {
+                    "webDevelopment": "Desarrollo Web",
+                    "marketingAutomation": "Automatización de Marketing",
+                    "seo": "Optimización SEO",
+                    "saasDevelopment": "Desarrollo SaaS",
+                    "digitalStrategy": "Estrategia Digital"
+                }
+            },
+            "resources": {
+                "title": "Recursos",
+                "items": {
+                    "caseStudies": "Casos de Estudio",
+                    "documentation": "Documentación",
+                    "faqs": "Preguntas Frecuentes",
+                    "privacyPolicy": "Política de Privacidad",
+                    "termsOfService": "Términos de Servicio"
+                }
+            }
+        },
+        "copyright": "© {year} OAC Digital Innovations. Todos los derechos reservados.",
+        "privacyPolicy": "Política de Privacidad",
+        "termsOfService": "Términos de Servicio",
+        "sitemap": "Mapa del Sitio"
+    },
+    "ServicesPage": {
+        "title": "Nuestros Servicios",
+        "description": "Ofrecemos soluciones digitales integrales adaptadas a sus necesidades específicas, ayudando a su negocio a prosperar en el panorama digital.",
+        "webDev": {
+            "title": "Sitios Web y Chatbots Mejorados con IA",
+            "description": "Experimenta la diferencia OAC: sitios web inteligentes entregados en la mitad del tiempo estándar de la industria, con chatbots de IA que convierten visitantes en clientes valiosos desde el primer día.",
+            "features": [
+                "Diseños de plantilla personalizados",
+                "Diseño responsivo para todos los dispositivos",
+                "Integración de Sistema de Gestión de Contenidos (CMS)",
+                "Configuración básica de SEO",
+                "Tiempo de entrega rápido"
+            ]
+        },
+        "seo": {
+            "title": "Soluciones SEO Inteligentes",
+            "description": "Nuestro enfoque basado en valores prioriza estrategias SEO sostenibles y éticas que ofrecen resultados duraderos y se adaptan inteligentemente a los cambios del mercado.",
+            "features": [
+                "Investigación y análisis de palabras clave",
+                "Optimización on-page y off-page",
+                "Recomendaciones de estrategia de contenido",
+                "Auditorías técnicas de SEO",
+                "Informes de rendimiento"
+            ]
+        },
+        "saas": {
+            "title": "Soluciones SaaS a Medida",
+            "description": "Tus desafíos son únicos, tu software también debería serlo. Entregamos aplicaciones de IA personalizadas en tiempo récord, convirtiendo tu visión de negocio en realidad digital en semanas, no meses.",
+            "features": [
+                "Análisis de requisitos y diseño de arquitectura",
+                "Desarrollo frontend y backend",
+                "Diseño e integración de bases de datos",
+                "Despliegue y escalado en la nube",
+                "Mantenimiento y soporte continuo"
+            ]
+        },
+        "marketingAutomation": {
+            "title": "Automatización Inteligente de Contenido",
+            "description": "Creemos que tu historia merece ser escuchada. Nuestros sistemas rápidos de despliegue de contenido aseguran que tu voz llegue a tu audiencia de manera consistente, auténtica y sin esfuerzo.",
+            "features": [
+                "Automatización de campañas de email marketing",
+                "Generación y nutrición de leads",
+                "Integración CRM (ej. HubSpot, Salesforce)",
+                "Mapeo del viaje del cliente",
+                "Análisis de rendimiento"
+            ]
+        }
+    },
+    "ServicesOverview": {
+        "title": "Servicios Principales",
+        "subtitle": "En OAC Digital Innovations, no solo creamos activos digitales, sino aceleradores de negocios inteligentes que ofrecen valor inmediato y escalan con tu crecimiento.",
+        "learnMore": "Saber Más",
+        "viewAllServices": "Ver Todos los Servicios"
+    },
+    "HomePage": {
+        "hero": {
+            "headline": "Acelera Tu Éxito con Soluciones Digitales Potenciadas por IA",
+            "subHeadline": "OAC Digital Innovations entrega hoy la tecnología del mañana. Transformamos negocios con implementación de IA ultrarrápida, compromiso inquebrantable con la excelencia y resultados que puedes medir.",
+            "viewWorkButton": "Transforma Ahora",
+            "getInTouchButton": "Habla con Nuestros Expertos"
+        },
+        "process": {
+            "title": "El Enfoque OAC",
+            "subtitle": "Entregamos resultados excepcionales a través de nuestro proceso impulsado por valores:",
+            "steps": {
+                "listen": {
+                    "title": "Escuchar y Entender",
+                    "description": "Nos tomamos el tiempo para comprender profundamente tu visión, valores y voz, porque las mejores soluciones de IA amplifican lo que hace única a tu empresa."
+                },
+                "deploy": {
+                    "title": "Despliegue Rápido",
+                    "description": "Nuestros procesos optimizados y flujos de trabajo mejorados con IA significan que verás resultados en días o semanas, no en meses."
+                },
+                "collaborate": {
+                    "title": "Crecimiento Colaborativo",
+                    "description": "Trabajamos a tu lado, asegurando la transferencia de conocimiento y desarrollando capacidades internas que empoderan a tu equipo."
+                },
+                "evolve": {
+                    "title": "Evolución Continua",
+                    "description": "Nuestras soluciones se vuelven más inteligentes con el tiempo, adaptándose continuamente a nuevos desafíos y oportunidades en tu negocio."
+                }
+            }
+        },
+        "portfolio": {
+            "title": "Nuestros Trabajos",
+            "subtitle": "Explore nuestros últimos proyectos que muestran nuestra experiencia y soluciones creativas.",
+            "viewAllButton": "Ver Todos los Proyectos",
+            "projects": {
+                "foodApp": {
+                    "title": "App de Entrega de Comida",
+                    "description": "Una aplicación móvil moderna para pedir comida de restaurantes locales con seguimiento en tiempo real.",
+                    "services": [
+                        "Diseño UI/UX",
+                        "Desarrollo Móvil",
+                        "API Backend"
+                    ]
+                },
+                "digitalWallet": {
+                    "title": "Billetera Digital",
+                    "description": "Una plataforma financiera segura que permite a los usuarios gestionar transacciones e inversiones.",
+                    "services": [
+                        "Fintech",
+                        "Seguridad",
+                        "Blockchain"
+                    ]
+                }
+            }
+        },
+        "locations": {
+            "title": "OAC ahora está disponible",
+            "subtitle": "en {count} ciudades",
+            "locations": {
+                "newYork": {
+                    "city": "Nueva York",
+                    "country": "EE. UU."
+                },
+                "california": {
+                    "city": "California",
+                    "country": "EE. UU."
+                },
+                "dubai": {
+                    "city": "Dubái",
+                    "country": "EAU"
+                },
+                "sydney": {
+                    "city": "Sídney",
+                    "country": "Australia"
+                }
+            },
+            "footerText": "Ayudamos a las personas a transformar sus negocios. Nuestro equipo siempre se está expandiendo globalmente para satisfacer las necesidades de los clientes."
+        },
+        "blog": {
+            "title": "Lea nuestros",
+            "subtitle": "últimos blogs",
+            "readAllButton": "Leer Todos los Artículos",
+            "posts": {
+                "colorTheory": {
+                    "title": "Teoría del color para diseñadores",
+                    "excerpt": "Comprender la teoría del color puede mejorar significativamente sus proyectos de diseño.",
+                    "author": "Jane Smith"
+                },
+                "whiteSpace": {
+                    "title": "Experiencia del espacio en blanco en diseño",
+                    "excerpt": "El espacio en blanco es un elemento de diseño poderoso que a menudo se pasa por alto. Descubra cómo usarlo eficazmente.",
+                    "author": "Michael Johnson"
+                },
+                "uxTrends": {
+                    "title": "Tendencias UX en 2025",
+                    "excerpt": "Manténgase a la vanguardia con las últimas tendencias de diseño UX que dan forma al panorama digital.",
+                    "author": "Alex Rodriguez"
+                }
+            }
+        },
+        "atmosphere": {
+            "title": "Vea nuestra",
+            "subtitle": "atmósfera creativa",
+            "imageAlt": "Imagen de atmósfera creativa {index}"
+        },
+        "cta": {
+            "title": "Trabajemos Juntos",
+            "subtitle": "¿Tiene un proyecto en mente? Nos encantaría escucharlo. Discutamos cómo podemos ayudar a transformar su presencia digital.",
+            "buttonText": "Ponerse en Contacto"
+        }
+    },
+    "AboutPage": {
+        "title": "Sobre Nosotros",
+        "subtitle": "Somos un equipo de apasionados innovadores digitales dedicados a transformar negocios a través de soluciones web y estrategias de marketing de vanguardia.",
+        "missionStatement": "En OAC Digital Innovations, creemos en un futuro donde las empresas prosperan a través de la transformación digital inteligente. Nuestra misión es democratizar la tecnología de IA, haciéndola accesible e impactante para empresas de todos los tamaños. Estamos comprometidos a entregar soluciones rápidas y orientadas al valor que empoderen a nuestros clientes para liderar en la economía de la IA, porque en el mundo actual, la diferencia entre luchar y escalar es la integración digital inteligente.",
+        "story": {
+            "title": "Nuestra Historia",
+            "paragraph1": "Fundada en 2018, OAC Digital Innovations comenzó con una misión simple: ayudar a las empresas a prosperar en la era digital proporcionando soluciones web y estrategias de marketing innovadoras y de alta calidad.",
+            "paragraph2": "Lo que comenzó como un pequeño equipo de expertos digitales apasionados se ha convertido en una agencia de servicio completo que atiende a clientes en múltiples industrias en todo el mundo. Nuestro viaje ha sido impulsado por un compromiso con la excelencia, la creatividad y la entrega de resultados medibles para nuestros clientes.",
+            "paragraph3": "Hoy, continuamos superando los límites de la innovación digital, manteniéndonos a la vanguardia de las tendencias y tecnologías de la industria para garantizar que nuestros clientes siempre reciban soluciones de vanguardia que impulsen su negocio.",
+            "imageAlt": "Nuestro Equipo Colaborando"
+        },
+        "valuesAndPromises": {
+            "title": "Nuestros Valores y Promesas",
+            "intro": "En OAC Digital Innovations, nuestro compromiso contigo se basa en estos valores fundamentales:",
+            "items": {
+                "integrity": "Integridad en la Inteligencia: Creamos soluciones de IA que reflejan la voz auténtica de tu marca y la ética de tu negocio.",
+                "speed": "Velocidad Sin Sacrificio: Entrega rápida sin comprometer la calidad; la mayoría de los proyectos se completan en un 30-60% menos de tiempo que los estándares de la industria.",
+                "partnership": "Colaboración Sobre Transacciones: Tu éxito es nuestro éxito; medimos nuestros logros por los resultados de tu negocio.",
+                "evolution": "Evolución Continua: Creemos en soluciones que se vuelven más inteligentes con el tiempo, al igual que tu negocio."
+            }
+        },
+        "values": {
+            "title": "Nuestros Valores",
+            "description": "Nuestros valores fundamentales dan forma a todo lo que hacemos, desde cómo interactuamos con los clientes hasta cómo abordamos cada proyecto. Estos principios guían nuestra toma de decisiones y aseguran que entreguemos resultados excepcionales de manera consistente.",
+            "imageAlt": "Visualización de Nuestros Valores",
+            "items": {
+                "innovation": "Innovación y Creatividad",
+                "satisfaction": "Satisfacción del Cliente",
+                "integrity": "Integridad y Transparencia",
+                "learning": "Aprendizaje Continuo",
+                "collaboration": "Colaboración y Trabajo en Equipo",
+                "excellence": "Excelencia en la Entrega"
+            }
+        },
+        "team": {
+            "title": "Conozca a Nuestro Equipo",
+            "subtitle": "Nuestro talentoso equipo de expertos digitales aporta diversas habilidades y perspectivas a cada proyecto, asegurando soluciones innovadoras que impulsan resultados.",
+            "social": {
+                "facebookAria": "Visita el perfil de Facebook de {name}",
+                "twitterAria": "Visita el perfil de Twitter de {name}",
+                "linkedinAria": "Visita el perfil de LinkedIn de {name}"
+            },
+            "johnDoe": {
+                "name": "John Doe",
+                "position": "CEO y Fundador",
+                "bio": "Con más de 15 años de experiencia en innovación digital."
+            },
+            "janeSmith": {
+                "name": "Jane Smith",
+                "position": "Directora Creativa",
+                "bio": "Diseñadora galardonada con pasión por crear experiencias de usuario excepcionales."
+            },
+            "michaelJohnson": {
+                "name": "Michael Johnson",
+                "position": "Líder de Desarrollo",
+                "bio": "Experto en tecnologías web de vanguardia y prácticas de desarrollo."
+            },
+            "sarahWilliams": {
+                "name": "Sarah Williams",
+                "position": "Estratega de Marketing",
+                "bio": "Se especializa en crear campañas de marketing basadas en datos que ofrecen resultados."
+            },
+            "davidBrown": {
+                "name": "David Brown",
+                "position": "Especialista SEO",
+                "bio": "Apasionado por ayudar a las empresas a mejorar su visibilidad en línea."
+            },
+            "emilyChen": {
+                "name": "Emily Chen",
+                "position": "Diseñadora UX",
+                "bio": "Crea experiencias de usuario intuitivas y atractivas para aplicaciones web y móviles."
+            }
+        }
+    },
+    "BlogPage": {
+        "title": "Nuestro Blog",
+        "subtitle": "Perspectivas, consejos y tendencias de la industria de nuestros expertos para ayudarlo a mantenerse a la vanguardia en el panorama digital.",
+        "readMore": "Leer Más",
+        "posts": {
+            "colorTheory": {
+                "title": "Teoría del color para diseñadores",
+                "excerpt": "Comprender la teoría del color puede mejorar significativamente sus proyectos de diseño. Aprenda los fundamentos de la armonía y la psicología del color.",
+                "author": "Jane Smith"
+            },
+            "whiteSpace": {
+                "title": "Experiencia del espacio en blanco en diseño",
+                "excerpt": "El espacio en blanco es un elemento de diseño poderoso que a menudo se pasa por alto. Descubra cómo usar el espacio negativo de manera efectiva en sus diseños.",
+                "author": "Michael Johnson"
+            },
+            "uxTrends": {
+                "title": "Tendencias UX en 2025",
+                "excerpt": "Manténgase a la vanguardia con las últimas tendencias de diseño UX que dan forma al panorama digital en 2025 y más allá.",
+                "author": "Alex Rodriguez"
+            },
+            "webDevFuture": {
+                "title": "El futuro del desarrollo web",
+                "excerpt": "Explore las tecnologías y metodologías emergentes que transformarán el panorama del desarrollo web.",
+                "author": "David Brown"
+            },
+            "marketingRoi": {
+                "title": "Maximizando el ROI con la automatización del marketing",
+                "excerpt": "Aprenda cómo aprovechar la automatización del marketing para aumentar la eficiencia, mejorar las experiencias de los clientes e impulsar su retorno de la inversión.",
+                "author": "Sarah Williams"
+            },
+            "seoStrategies": {
+                "title": "Estrategias SEO esenciales para 2025",
+                "excerpt": "Descubra las técnicas de SEO más efectivas para mejorar su clasificación en los motores de búsqueda y generar tráfico orgánico en 2025.",
+                "author": "Emily Chen"
+            }
+        }
+    },
+    "PortfolioPage": {
+        "title": "Nuestro Portafolio",
+        "subtitle": "Explore nuestra diversa cartera de proyectos que muestran nuestra experiencia en desarrollo web, automatización de marketing y optimización SEO.",
+        "viewProjectButton": "Ver Proyecto",
+        "projects": {
+            "foodApp": {
+                "title": "App de Entrega de Comida",
+                "description": "Una aplicación móvil moderna para pedir comida de restaurantes locales con seguimiento en tiempo real y pagos seguros.",
+                "services": [
+                    "Diseño UI/UX",
+                    "Desarrollo Móvil",
+                    "API Backend"
+                ]
+            },
+            "digitalWallet": {
+                "title": "Billetera Digital",
+                "description": "Una plataforma financiera segura que permite a los usuarios gestionar transacciones, inversiones y activos de criptomonedas.",
+                "services": [
+                    "Fintech",
+                    "Seguridad",
+                    "Blockchain"
+                ]
+            },
+            "eLearning": {
+                "title": "Plataforma de E-Learning",
+                "description": "Una plataforma integral para cursos en línea, con video conferencias, cuestionarios y seguimiento del progreso del estudiante.",
+                "services": [
+                    "Desarrollo Web",
+                    "Diseño UX",
+                    "Arquitectura de Base de Datos"
+                ]
+            },
+            "fitnessTracker": {
+                "title": "Rastreador de Fitness",
+                "description": "Una aplicación móvil que ayuda a los usuarios a realizar un seguimiento de los entrenamientos, la nutrición y los objetivos de salud con análisis detallados.",
+                "services": [
+                    "Desarrollo Móvil",
+                    "Tecnología de Salud",
+                    "Análisis de Datos"
+                ]
+            },
+            "realEstate": {
+                "title": "Mercado Inmobiliario",
+                "description": "Una plataforma que conecta a compradores, vendedores y agentes con recorridos virtuales y búsqueda inteligente de propiedades.",
+                "services": [
+                    "Desarrollo Web",
+                    "Realidad Virtual",
+                    "IA"
+                ]
+            },
+            "socialDashboard": {
+                "title": "Panel de Redes Sociales",
+                "description": "Una herramienta integral para que las empresas gestionen y analicen su presencia en redes sociales en múltiples plataformas.",
+                "services": [
+                    "Tecnología de Marketing",
+                    "Visualización de Datos",
+                    "Integración API"
+                ]
+            }
+        }
+    },
+    "ContactPage": {
+        "title": "Contáctenos",
+        "subtitle": "¿Tiene un proyecto en mente o preguntas sobre nuestros servicios? Nos encantaría saber de usted. Póngase en contacto y comencemos una conversación.",
+        "getInTouchTitle": "Ponerse en Contacto",
+        "getInTouchDescription": "¿Tiene preguntas o está listo para comenzar su próximo proyecto? Contáctenos utilizando la información a continuación o complete el formulario y nos pondremos en contacto con usted lo antes posible.",
+        "emailLabel": "Correo Electrónico",
+        "phoneLabel": "Teléfono",
+        "addressLabel": "Dirección",
+        "hoursLabel": "Horario Comercial",
+        "hours": {
+            "weekdays": "Lunes - Viernes: 9am a 6pm",
+            "saturday": "Sábado: 10am a 4pm",
+            "sunday": "Domingo: Cerrado"
+        },
+        "formTitle": "Envíenos un Mensaje",
+        "form": {
+            "nameLabel": "Nombre",
+            "namePlaceholder": "Su nombre",
+            "emailLabel": "Correo Electrónico",
+            "emailPlaceholder": "Su correo electrónico",
+            "subjectLabel": "Asunto",
+            "subjectPlaceholder": "Asunto de su mensaje",
+            "messageLabel": "Mensaje",
+            "messagePlaceholder": "Su mensaje",
+            "submitButton": "Enviar Mensaje",
+            "submitButtonSending": "Enviando...",
+            "toastSuccess": "¡Mensaje enviado con éxito! Nos pondremos en contacto con usted pronto.",
+            "validation": {
+                "nameMin": "El nombre debe tener al menos 2 caracteres.",
+                "emailInvalid": "Por favor ingrese una dirección de correo electrónico válida.",
+                "subjectMin": "El asunto debe tener al menos 2 caracteres.",
+                "messageMin": "El mensaje debe tener al menos 10 caracteres."
+            }
+        }
+    }
+}
