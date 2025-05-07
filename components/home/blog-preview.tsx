@@ -43,6 +43,7 @@ export function BlogPreview() { // Removed props
   const t = useTranslations("HomePage.blog"); // Initialize translations
   const posts = getPosts(t); // Get translated posts
   const sectionRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLDivElement>(null); // Ref for the button
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -57,16 +58,22 @@ export function BlogPreview() { // Removed props
       { threshold: 0.1 }
     );
 
+    const elementsToObserve: Element[] = [];
     if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+      elementsToObserve.push(sectionRef.current);
+    }
+    const postElements = document.querySelectorAll(".blog-post-card"); // This class is on the BlogPostCard component itself
+    postElements.forEach((el) => elementsToObserve.push(el));
+    if (buttonRef.current) {
+      elementsToObserve.push(buttonRef.current);
     }
 
-    const postElements = document.querySelectorAll(".blog-post-card");
-    postElements.forEach((el) => observer.observe(el));
+    elementsToObserve.forEach((el) => observer.observe(el));
 
     return () => {
-      if (sectionRef.current) observer.unobserve(sectionRef.current);
-      postElements.forEach((el) => observer.unobserve(el));
+      elementsToObserve.forEach((el) => {
+        if (el) observer.unobserve(el);
+      });
     };
   }, []);
 
@@ -83,7 +90,7 @@ export function BlogPreview() { // Removed props
         ))}
       </div>
 
-      <div className="text-center">
+      <div ref={buttonRef} className="text-center opacity-0"> {/* Added ref and opacity-0 */}
         <Button asChild size="lg" className="bg-accent hover:bg-accent-dark text-black">
           <Link href="/blog">
             {t('readAllButton')} <ArrowRight size={16} className="ml-2" /> {/* Use translation */}

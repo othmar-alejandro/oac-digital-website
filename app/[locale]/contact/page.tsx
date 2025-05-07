@@ -7,11 +7,11 @@ import { SectionWrapper } from "@/components/common/section-wrapper";
 import { ContactForm } from "@/components/contact/contact-form";
 import { Mail, PhoneCall, MapPin, Clock } from "lucide-react";
 import { Toaster } from "sonner";
-import { setRequestLocale } from 'next-intl/server'; // Import setRequestLocale
+// import { setRequestLocale } from 'next-intl/server'; // Import setRequestLocale
 
 export default function Contact({ params: { locale } }: { params: { locale: string } }) {
   // Enable static rendering
-  setRequestLocale(locale);
+  // setRequestLocale(locale); // Removed as this is a Client Component
 
   const t = useTranslations("ContactPage"); // Initialize translations
   const headerRef = useRef<HTMLDivElement>(null);
@@ -45,10 +45,14 @@ export default function Contact({ params: { locale } }: { params: { locale: stri
     <Layout>
       <Toaster position="top-center" />
 
-      <SectionWrapper bgColor="dark" className="pt-32 md:pt-40">
-        <div ref={headerRef} className="text-center mb-16 opacity-0">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl mb-6">{t('title')}</h1> {/* Use translation */}
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+      <SectionWrapper
+        bgColor="dark" // Visually overridden by bg-image
+        className="pt-32 md:pt-40 relative bg-cover bg-center bg-[url('/images/robot-call-center-contact-us.jpg')]"
+      >
+        <div className="absolute inset-0 bg-black opacity-60"></div> {/* Overlay for text contrast */}
+        <div ref={headerRef} className="text-center mb-16 opacity-0 relative z-10">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl mb-6 text-white">{t('title')}</h1> {/* Ensure text is white */}
+          <p className="text-xl text-gray-200 max-w-3xl mx-auto"> {/* Ensure text is light gray */}
             {t('subtitle')} {/* Use translation */}
           </p>
         </div>

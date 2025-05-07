@@ -6,7 +6,7 @@ import { Layout } from "@/components/layout/layout";
 import { SectionWrapper } from "@/components/common/section-wrapper";
 import { BlogPostCard } from "@/components/blog/blog-post-card";
 import { BlogPost } from "@/types";
-import { setRequestLocale } from 'next-intl/server'; // Import setRequestLocale
+// import { setRequestLocale } from 'next-intl/server'; // Import setRequestLocale
 
 // Define keys for blog posts
 const blogPostKeys = [
@@ -65,7 +65,7 @@ const getBlogPosts = (t: Function): BlogPost[] => blogPostKeys.map(key => ({
 
 export default function Blog({ params: { locale } }: { params: { locale: string } }) {
   // Enable static rendering
-  setRequestLocale(locale);
+  // setRequestLocale(locale); // Removed as this is a Client Component
 
   const t = useTranslations("BlogPage"); // Initialize translations
   const blogPosts = getBlogPosts(t); // Get translated posts

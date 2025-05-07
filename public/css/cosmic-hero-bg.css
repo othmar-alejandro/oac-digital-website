@@ -1,0 +1,187 @@
+/* Cosmic Hero Background for Next.js Integration */
+
+/* Base styles for the hero section */
+.cosmic-hero {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    background-color: #010113;
+    /* Deeper, richer black-blue */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Remove the default overlay */
+.cosmic-hero .bg-overlay {
+    display: none;
+}
+
+/* Stars effect - multiple layers for depth */
+.stars-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.stars-1 {
+    background-image:
+        radial-gradient(1px 1px at 10% 10%, rgba(255, 255, 255, 0.8) 0%, transparent 100%),
+        radial-gradient(1px 1px at 20% 50%, rgba(255, 255, 255, 0.7) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 30% 30%, rgba(255, 255, 255, 0.9) 0%, transparent 100%),
+        radial-gradient(1px 1px at 40% 80%, rgba(255, 255, 255, 0.8) 0%, transparent 100%),
+        radial-gradient(1px 1px at 50% 40%, rgba(255, 255, 255, 0.7) 0%, transparent 100%),
+        radial-gradient(1px 1px at 60% 70%, rgba(255, 255, 255, 0.9) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 70% 20%, rgba(255, 255, 255, 0.8) 0%, transparent 100%),
+        radial-gradient(1px 1px at 80% 60%, rgba(255, 255, 255, 0.7) 0%, transparent 100%),
+        radial-gradient(1px 1px at 90% 90%, rgba(255, 255, 255, 0.9) 0%, transparent 100%);
+}
+
+.stars-2 {
+    background-image:
+        radial-gradient(1px 1px at 15% 15%, rgba(255, 255, 255, 0.5) 0%, transparent 100%),
+        radial-gradient(1px 1px at 25% 55%, rgba(255, 255, 255, 0.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 35% 35%, rgba(255, 255, 255, 0.6) 0%, transparent 100%),
+        radial-gradient(1px 1px at 45% 85%, rgba(255, 255, 255, 0.5) 0%, transparent 100%),
+        radial-gradient(1px 1px at 55% 45%, rgba(255, 255, 255, 0.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 65% 75%, rgba(255, 255, 255, 0.6) 0%, transparent 100%),
+        radial-gradient(1px 1px at 75% 25%, rgba(255, 255, 255, 0.5) 0%, transparent 100%),
+        radial-gradient(1px 1px at 85% 65%, rgba(255, 255, 255, 0.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 95% 95%, rgba(255, 255, 255, 0.6) 0%, transparent 100%);
+    opacity: 0.7;
+}
+
+/* Subtle grid overlay */
+.grid-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    background-image:
+        linear-gradient(to right, rgba(100, 100, 150, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(100, 100, 150, 0.03) 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.15;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Aurora arch - using multiple elements for complex effect */
+.aurora-container {
+    position: absolute;
+    width: 150%;
+    height: 100%;
+    bottom: -30%;
+    left: -25%;
+    z-index: 3;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.aurora-main {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50% 50% 0 0;
+    background: radial-gradient(ellipse at center,
+            transparent 60%,
+            rgba(245, 231, 161, 0.1) 65%,
+            rgba(212, 175, 55, 0.3) 75%,
+            rgba(139, 90, 43, 0.2) 85%,
+            transparent 90%);
+    filter: blur(15px);
+}
+
+.aurora-inner {
+    position: absolute;
+    width: 80%;
+    height: 70%;
+    left: 10%;
+    bottom: 0;
+    border-radius: 50% 50% 0 0;
+    background: linear-gradient(to top,
+            rgba(245, 231, 161, 0.5) 0%,
+            rgba(212, 175, 55, 0.4) 40%,
+            rgba(139, 90, 43, 0.2) 70%,
+            transparent 100%);
+    filter: blur(20px);
+    mix-blend-mode: screen;
+}
+
+.aurora-glow {
+    position: absolute;
+    width: 90%;
+    height: 60%;
+    left: 5%;
+    bottom: 0;
+    border-radius: 50% 50% 0 0;
+    background: radial-gradient(ellipse at center,
+            rgba(245, 231, 161, 0.5) 0%,
+            rgba(212, 175, 55, 0.3) 40%,
+            rgba(139, 90, 43, 0.1) 70%,
+            transparent 100%);
+    filter: blur(40px);
+    mix-blend-mode: screen;
+}
+
+/* Horizontal banding for depth */
+.light-bands {
+    position: absolute;
+    width: 100%;
+    height: 70%;
+    bottom: 0;
+    left: 0;
+    background: repeating-linear-gradient(to top,
+            transparent 0px,
+            transparent 15px,
+            rgba(245, 231, 161, 0.03) 15px,
+            rgba(245, 231, 161, 0.03) 16px,
+            transparent 16px,
+            transparent 35px);
+    opacity: 0.7;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+    z-index: 4;
+}
+
+/* Ensure content is above the background effects */
+.cosmic-hero .container {
+    position: relative;
+    z-index: 10;
+}
+
+/* Animation for subtle movement */
+@keyframes subtleAuroraShift {
+    0% {
+        transform: scale(1) translateY(0);
+        opacity: 0.7;
+    }
+
+    50% {
+        transform: scale(1.02) translateY(-5px);
+        opacity: 0.75;
+    }
+
+    100% {
+        transform: scale(1) translateY(0);
+        opacity: 0.7;
+    }
+}
+
+/* Apply animation */
+.aurora-inner {
+    animation: subtleAuroraShift 15s infinite ease-in-out;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .aurora-container {
+        width: 200%;
+        left: -50%;
+    }
+}

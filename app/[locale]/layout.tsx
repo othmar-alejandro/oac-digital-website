@@ -1,7 +1,7 @@
 import React from 'react'; // Add explicit React import
 import '../globals.css'; // Adjusted path for globals.css
 import type { Metadata } from 'next';
-import { Playfair_Display, Inter } from 'next/font/google';
+import { Playfair_Display, Inter, Roboto } from 'next/font/google'; // Added Roboto
 // import { notFound } from 'next/navigation'; // No longer needed here
 import { NextIntlClientProvider } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server'; // Import setRequestLocale
@@ -15,9 +15,15 @@ const playfair = Playfair_Display({
     variable: '--font-playfair',
 });
 
-const inter = Inter({
+const inter = Inter({ // This will be replaced but kept for now to avoid breaking changes if Playfair is still used elsewhere
     subsets: ['latin'],
     variable: '--font-inter',
+});
+
+const roboto = Roboto({ // Added Roboto configuration
+    subsets: ['latin'],
+    weight: ['400', '500', '700'], // Include desired weights
+    variable: '--font-roboto',
 });
 
 // Define base metadata values (can be moved to a config or fetched)
@@ -99,7 +105,7 @@ export default async function RootLayout({
         <html lang={locale} suppressHydrationWarning>
             <body
                 className={cn(
-                    inter.variable,
+                    roboto.variable, // Changed from inter.variable
                     playfair.variable,
                     'font-sans antialiased'
                 )}

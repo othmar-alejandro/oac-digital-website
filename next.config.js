@@ -5,7 +5,16 @@ const withNextIntl = require('next-intl/plugin')(
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // output: 'export', // Remains removed
-  images: { unoptimized: true }, // Keep images unoptimized for now if needed
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.pexels.com',
+        port: '',
+        pathname: '/**',
+      },
+    ],
+  },
   // Add other Next.js config options here if needed
 };
 

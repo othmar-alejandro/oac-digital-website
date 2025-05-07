@@ -51,7 +51,7 @@ export function Footer() {
           <div>
             <Link href="/" className="inline-block mb-6">
               <Image
-                src="/images/logo-dark.png"
+                src="/images/logo-oac.png"
                 alt={t('logoAlt')} // Use translation
                 width={150}
                 height={60}

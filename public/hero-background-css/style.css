@@ -1,0 +1,325 @@
+:root {
+    --color-primary: #D4AF37;
+    /* Gold/Amber */
+    --color-accent-light: #F5E7A1;
+    /* Light Gold/Champagne */
+    --color-accent-dark: #8B5A2B;
+    /* Deep Bronze/Copper */
+
+    --base-background: #0A0C1F;
+    /* Very dark indigo/space blue */
+    --star-color: rgba(220, 220, 230, 0.7);
+    --grid-color: rgba(180, 180, 200, 0.15);
+    /* Increased opacity for better visibility */
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    /* Prevents scrollbars from starfield overflow */
+    background-color: var(--base-background);
+}
+
+.hero-background {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    /* Use viewport height */
+    background-color: var(--base-background);
+    overflow: hidden;
+    /* Crucial for containing pseudo-elements */
+    z-index: 1;
+}
+
+/* Starfield Layers */
+.starfield {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    /* Ensure stars don't interfere with content */
+    z-index: 2;
+}
+
+/*
+Using multiple pseudo-elements or divs for starfields can create a parallax effect if animated,
+but for a static background, we can simulate density and size variation.
+We'll use box-shadow to create many "stars" on a single pseudo-element.
+*/
+
+/* Function to generate random box-shadows for stars */
+/* This is a placeholder concept; actual star generation will be more direct */
+
+/* We'll create a few layers of stars with different densities and sizes */
+/* This is a simplified approach. For true randomness and density variation,
+   JavaScript would be needed to generate the box-shadows dynamically.
+   Here, we'll manually create a few representative shadows.
+   A more robust CSS-only solution involves many small, positioned pseudo-elements
+   or multiple divs, which can be verbose.
+*/
+
+/* Helper function for star generation (conceptual) */
+/*
+  @function random_stars($n, $size, $color, $sky-width, $sky-height) {
+    $shadows: ();
+    @for $i from 1 through $n {
+      $x: random($sky-width) + px;
+      $y: random($sky-height) + px;
+      $s: random($size) + px; // Randomize size slightly
+      $shadows: append($shadows, #{$x} #{$y} 0 #{$s} #{$color}, comma);
+    }
+    @return $shadows;
+  }
+*/
+/* Since we can't use SASS functions directly in CSS, we'll manually define some stars.
+   For a dense field, this would be very long. We'll make it sparse.
+   The upper half should be slightly denser.
+*/
+
+.starfield-far::before,
+.starfield-mid::before,
+.starfield-near::before {
+    content: '';
+    position: absolute;
+    width: 1px;
+    /* Small base for box-shadows */
+    height: 1px;
+    border-radius: 50%;
+    background: transparent;
+    /* Element itself is not visible */
+}
+
+/* Far stars - smallest and faintest, more in upper half */
+.starfield-far::before {
+    /* Manually placing a few stars for demonstration.
+       A real implementation would need many more for a proper starfield.
+       Format: x y blur spread color */
+    box-shadow:
+        5vw 10vh 0 0.5px var(--star-color),
+        15vw 5vh 0 0.5px var(--star-color),
+        25vw 12vh 0 0.5px var(--star-color),
+        35vw 8vh 0 0.5px var(--star-color),
+        45vw 15vh 0 0.5px var(--star-color),
+        55vw 3vh 0 0.5px var(--star-color),
+        65vw 10vh 0 0.5px var(--star-color),
+        75vw 6vh 0 0.5px var(--star-color),
+        85vw 14vh 0 0.5px var(--star-color),
+        95vw 2vh 0 0.5px var(--star-color),
+        /* Slightly denser in upper half */
+        10vw 20vh 0 0.5px var(--star-color),
+        30vw 25vh 0 0.5px var(--star-color),
+        50vw 18vh 0 0.5px var(--star-color),
+        70vw 22vh 0 0.5px var(--star-color),
+        90vw 28vh 0 0.5px var(--star-color),
+        /* Lower half, sparser */
+        20vw 70vh 0 0.5px var(--star-color),
+        40vw 80vh 0 0.5px var(--star-color),
+        60vw 75vh 0 0.5px var(--star-color),
+        80vw 85vh 0 0.5px var(--star-color);
+    opacity: 0.6;
+}
+
+/* Mid stars - slightly larger */
+.starfield-mid::before {
+    box-shadow:
+        8vw 40vh 0 1px var(--star-color),
+        22vw 15vh 0 1px var(--star-color),
+        /* Upper */
+        38vw 45vh 0 1px var(--star-color),
+        50vw 8vh 0 1px var(--star-color),
+        /* Upper */
+        65vw 35vh 0 1px var(--star-color),
+        70vw 20vh 0 1px var(--star-color),
+        /* Upper */
+        88vw 50vh 0 1px var(--star-color),
+        92vw 12vh 0 1px var(--star-color),
+        /* Upper */
+        /* Lower half */
+        15vw 80vh 0 1px var(--star-color),
+        45vw 65vh 0 1px var(--star-color),
+        75vw 88vh 0 1px var(--star-color);
+    opacity: 0.8;
+}
+
+/* Near stars - largest and brightest, but still sparse */
+.starfield-near::before {
+    box-shadow:
+        10vw 25vh 0 1.5px var(--star-color),
+        /* Upper */
+        30vw 55vh 0 1.5px var(--star-color),
+        50vw 15vh 0 1.5px var(--star-color),
+        /* Upper */
+        70vw 60vh 0 1.5px var(--star-color),
+        90vw 30vh 0 1.5px var(--star-color),
+        /* Upper */
+        /* Lower half */
+        25vw 75vh 0 1.5px var(--star-color),
+        65vw 85vh 0 1.5px var(--star-color);
+    opacity: 1;
+}
+
+/* Geometric Grid Overlay */
+.geometric-grid {
+    position: absolute;
+    top: 0;
+    /* Position in upper-middle, adjust as needed */
+    left: 0;
+    width: 100%;
+    height: 50%;
+    /* Cover upper half, can be adjusted */
+    background-image:
+        linear-gradient(var(--grid-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+    background-size: 15px 15px;
+    /* Smaller grid squares for more detail */
+    opacity: 0.5;
+    /* Increased opacity for better visibility */
+    z-index: 5;
+    /* Increased z-index to ensure it appears above the aurora */
+    pointer-events: none;
+    /* Mask to fade it out towards edges or make it appear only in a central band */
+    mask-image: radial-gradient(ellipse at center top, black 0%, black 40%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse at center top, black 0%, black 40%, transparent 80%);
+    mix-blend-mode: overlay;
+    /* Blend mode to interact better with the background */
+}
+
+
+/* Aurora Arch */
+.aurora-arch {
+    position: absolute;
+    bottom: 0;
+    /* Starts from bottom */
+    left: 0;
+    width: 100%;
+    height: 75%;
+    /* Reduced height for a more defined arch */
+    z-index: 4;
+    pointer-events: none;
+    /*
+    This is the most complex part. We'll use a combination of pseudo-elements,
+    gradients, filters, and possibly clip-paths.
+    A true volumetric aurora is extremely hard in pure CSS. This will be an approximation.
+    */
+    /* Using a pseudo-element for the main arch shape and gradient */
+}
+
+.aurora-arch::before {
+    content: '';
+    position: absolute;
+    bottom: -10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150%;
+    /* Narrower width for a more defined arch */
+    /* Wider than viewport to allow for curved appearance from edges */
+    height: 100%;
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+    /* Creates an upward arch shape */
+
+    /* Implementing horizontal banding with multiple gradients */
+    background-image:
+        /* Horizontal banding effect */
+        repeating-linear-gradient(to bottom,
+            rgba(255, 255, 255, 0.03) 0px,
+            rgba(255, 255, 255, 0.03) 1px,
+            transparent 1px,
+            transparent 8px),
+        /* Main gradient for the arch */
+        radial-gradient(ellipse at bottom center,
+            var(--color-accent-light) 0%,
+            var(--color-primary) 30%,
+            var(--color-accent-dark) 70%,
+            transparent 85%
+            /* Fade out at the top */
+        );
+    background-size: 100% 8px, 100% 100%;
+    background-repeat: repeat, no-repeat;
+
+    filter: blur(25px);
+    /* Diffused, ethereal quality */
+    opacity: 0.7;
+    /* Adjust for intensity */
+    mix-blend-mode: screen;
+    /* Or 'additive' if available, 'screen' is widely supported */
+}
+
+/* Second pseudo-element for more depth and to create the "emanating from sides" effect */
+.aurora-arch::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 140%;
+    height: 85%;
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+
+    /* Create a gradient that's stronger at the sides/bottom */
+    background:
+        /* Side emanation from bottom-left */
+        radial-gradient(circle at 10% 100%,
+            var(--color-accent-light) 0%,
+            var(--color-primary) 20%,
+            transparent 50%),
+        /* Side emanation from bottom-right */
+        radial-gradient(circle at 90% 100%,
+            var(--color-accent-light) 0%,
+            var(--color-primary) 20%,
+            transparent 50%),
+        /* Central glow */
+        radial-gradient(ellipse at bottom center,
+            var(--color-accent-light) 0%,
+            var(--color-primary) 20%,
+            transparent 60%);
+
+    filter: blur(40px);
+    opacity: 0.4;
+    mix-blend-mode: screen;
+}
+
+
+/* Animation for subtle movement (optional) */
+@keyframes subtleAuroraShift {
+    0% {
+        transform: translateX(-50%) scale(1) translateY(0);
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: translateX(-50%) scale(1.02) translateY(-5px);
+        opacity: 0.65;
+    }
+
+    100% {
+        transform: translateX(-50%) scale(1) translateY(0);
+        opacity: 0.6;
+    }
+}
+
+@keyframes subtleStarTwinkle {
+
+    0%,
+    100% {
+        opacity: 0.7;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+/* Apply subtle animations for a more dynamic effect */
+.aurora-arch::before {
+    animation: subtleAuroraShift 15s infinite ease-in-out;
+}
+
+.starfield-near::before {
+    animation: subtleStarTwinkle 5s infinite ease-in-out alternate;
+}

@@ -7,13 +7,14 @@ import { ServiceDetail } from "@/components/services/service-detail";
 import { useTranslations } from "next-intl"; // Import useTranslations
 import { ServiceItem } from "@/types";
 import { CTASection } from "@/components/home/cta-section";
-import { setRequestLocale } from 'next-intl/server'; // Import setRequestLocale
+// import { setRequestLocale } from 'next-intl/server'; // Import setRequestLocale
 
 // Function to generate services using translations
 const getServices = (t: Function): ServiceItem[] => [
   {
     id: "webDev", // Unique ID for key generation
     icon: "🖥️",
+    image: "/images/website-building-oac.jpg", // Added image
     title: t('webDev.title'),
     description: t('webDev.description'),
     features: [
@@ -27,6 +28,7 @@ const getServices = (t: Function): ServiceItem[] => [
   {
     id: "seo",
     icon: "🔍",
+    image: "/images/seo-oac.jpg", // Added image
     title: t('seo.title'),
     description: t('seo.description'),
     features: [
@@ -40,6 +42,7 @@ const getServices = (t: Function): ServiceItem[] => [
   {
     id: "saas",
     icon: "⚙️", // Placeholder icon
+    image: "/images/oac-ai-coding.jpg", // Added image
     title: t('saas.title'),
     description: t('saas.description'),
     features: [
@@ -53,6 +56,7 @@ const getServices = (t: Function): ServiceItem[] => [
   {
     id: "marketingAutomation",
     icon: "📈",
+    image: "/images/digital-marketing-oac.jpg", // Added image
     title: t('marketingAutomation.title'),
     description: t('marketingAutomation.description'),
     features: [
@@ -67,7 +71,7 @@ const getServices = (t: Function): ServiceItem[] => [
 
 export default function Services({ params: { locale } }: { params: { locale: string } }) {
   // Enable static rendering
-  setRequestLocale(locale);
+  // setRequestLocale(locale); // Removed as this is a Client Component
 
   const t = useTranslations("ServicesPage"); // Initialize translations
   const services = getServices(t); // Get translated services
@@ -97,10 +101,14 @@ export default function Services({ params: { locale } }: { params: { locale: str
 
   return (
     <Layout>
-      <SectionWrapper bgColor="dark" className="pt-32 md:pt-40">
-        <div ref={headerRef} className="text-center mb-16 opacity-0">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl mb-6">{t('title')}</h1> {/* Use translation */}
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+      <SectionWrapper
+        bgColor="dark" // Visually overridden by bg-image
+        className="pt-32 md:pt-40 relative bg-cover bg-center bg-[url('/images/global-business-internet-network-connection-iot-internet-things-business-intelligence-concept-busines-global-network-futuristic-technology-background-ai-generative.jpg')]"
+      >
+        <div className="absolute inset-0 bg-black opacity-60"></div> {/* Overlay for text contrast */}
+        <div ref={headerRef} className="text-center mb-16 opacity-0 relative z-10">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl mb-6 text-white">{t('title')}</h1> {/* Ensure text is white */}
+          <p className="text-xl text-gray-200 max-w-3xl mx-auto"> {/* Ensure text is light gray */}
             {t('description')} {/* Use translation */}
           </p>
         </div>

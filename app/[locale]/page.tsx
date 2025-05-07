@@ -9,7 +9,7 @@ import { ProcessSection } from "@/components/home/process-section";
 import { PortfolioPreview } from "@/components/home/portfolio-preview";
 import { LocationsReach } from "@/components/home/locations-reach";
 import { BlogPreview } from "@/components/home/blog-preview";
-import { AboutAtmospherePreview } from "@/components/home/about-atmosphere-preview";
+// import { AboutAtmospherePreview } from "@/components/home/about-atmosphere-preview"; // Removed
 import { CTASection } from "@/components/home/cta-section";
 
 export default function Home({ params: { locale } }: { params: { locale: string } }) {
@@ -30,7 +30,7 @@ export default function Home({ params: { locale } }: { params: { locale: string 
             <PortfolioPreview />
             <LocationsReach />
             <BlogPreview />
-            <AboutAtmospherePreview />
+            {/* <AboutAtmospherePreview /> */} {/* Removed */}
             <CTASection />
         </Layout>
     );

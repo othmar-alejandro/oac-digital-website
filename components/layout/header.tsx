@@ -50,13 +50,14 @@ export function Header() {
     >
       <div className="container mx-auto">
         <div className="flex items-center justify-between">
-          <Link href="/" className="relative z-10">
+          <Link href="/" className="relative z-10 flex items-center">
             <Image
-              src="/images/logo-dark.png"
-              alt={t('logoAlt')} // Use translation for alt text
+              src="/images/logo-oac.png"
+              alt={t('logoAlt')}
               width={120}
               height={50}
-              className="h-10 w-auto"
+              className="h-10 w-auto object-contain"
+              priority
             />
           </Link>
 
@@ -75,7 +76,7 @@ export function Header() {
               </Link>
             ))}
             <LanguageSwitcher /> {/* Add LanguageSwitcher here */}
-            <Button size="sm" className="bg-accent hover:bg-accent-dark text-black">
+            <Button size="sm" className="text-black bg-gradient-to-b from-[hsl(40,90%,60%)] to-[hsl(40,90%,55%)] hover:from-[hsl(40,90%,55%)] hover:to-[hsl(40,90%,50%)]">
               {t('getAQuote')} {/* Use translation for button text */}
             </Button>
           </nav>
@@ -107,7 +108,7 @@ export function Header() {
             ))}
             <Button
               size="lg"
-              className="mt-6 bg-accent hover:bg-accent-dark text-black"
+              className="mt-6 text-black bg-gradient-to-b from-[hsl(40,90%,60%)] to-[hsl(40,90%,55%)] hover:from-[hsl(40,90%,55%)] hover:to-[hsl(40,90%,50%)]"
               onClick={() => setIsMenuOpen(false)}
             >
               {t('getAQuote')} {/* Use translation for button text */}

@@ -12,13 +12,13 @@ interface ServiceDetailProps {
   isReversed?: boolean;
 }
 
-export function ServiceDetail({ 
-  service, 
+export function ServiceDetail({
+  service,
   index,
-  isReversed = false 
+  isReversed = false
 }: ServiceDetailProps) {
   const serviceRef = useRef<HTMLDivElement>(null);
-  
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -31,20 +31,20 @@ export function ServiceDetail({
       },
       { threshold: 0.1 }
     );
-    
+
     if (serviceRef.current) {
       observer.observe(serviceRef.current);
     }
-    
+
     return () => {
       if (serviceRef.current) observer.unobserve(serviceRef.current);
     };
   }, []);
 
   return (
-    <div 
+    <div
       id={service.title.toLowerCase().replace(/ /g, "-")}
-      ref={serviceRef} 
+      ref={serviceRef}
       className={cn(
         "opacity-0 grid grid-cols-1 md:grid-cols-2 gap-12 items-center py-16 md:py-24",
         index > 0 && "border-t border-gray-200 pt-16"
@@ -56,7 +56,7 @@ export function ServiceDetail({
         </span>
         <h3 className="text-3xl font-bold mb-4">{service.title}</h3>
         <p className="text-gray-600 mb-8">{service.description}</p>
-        
+
         {service.features && (
           <ul className="space-y-3">
             {service.features.map((feature, featureIndex) => (
@@ -70,15 +70,15 @@ export function ServiceDetail({
           </ul>
         )}
       </div>
-      
-      <div 
+
+      <div
         className={cn(
           "relative h-64 md:h-96 rounded-lg overflow-hidden",
           isReversed ? "md:order-1" : ""
         )}
       >
         <Image
-          src={`https://images.pexels.com/photos/114907${index + 1}/pexels-photo-114907${index + 1}.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2`}
+          src={service.image || `https://images.pexels.com/photos/114907${index + 1}/pexels-photo-114907${index + 1}.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2`}
           alt={service.title}
           fill
           className="object-cover"

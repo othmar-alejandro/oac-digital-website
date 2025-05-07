@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Cosmic Hero Background</title>
+    <link rel="stylesheet" href="../css/enhanced-cosmic-hero.css">
+    <style>
+        /* Additional styles for demo buttons */
+        .cta-button {
+            background-color: #D4AF37;
+            color: #010113;
+            font-size: 1rem;
+            font-weight: bold;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 0 10px;
+        }
+
+        .cta-button:hover {
+            background-color: #F5E7A1;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .cta-secondary {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .cta-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .cta-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hero-background">
+        <!-- Star layers -->
+        <div class="stars stars-small"></div>
+        <div class="stars stars-medium"></div>
+        <div class="stars stars-large"></div>
+
+        <!-- Digital grid overlay -->
+        <div class="digital-grid"></div>
+
+        <!-- Nebula effect -->
+        <div class="nebula"></div>
+
+        <!-- Aurora arch effect -->
+        <div class="aurora-arch">
+            <div class="aurora-primary"></div>
+            <div class="aurora-secondary"></div>
+            <div class="aurora-glow"></div>
+        </div>
+
+        <!-- Light bands -->
+        <div class="light-bands"></div>
+
+        <!-- Energy pulse effect -->
+        <div class="energy-pulse"></div>
+
+        <!-- Content -->
+        <div class="hero-content">
+            <h1 class="hero-title">Digital Innovation & Excellence</h1>
+            <p class="hero-subtitle">Transforming ideas into exceptional digital experiences with cutting-edge
+                technology and creative solutions.</p>
+            <div class="cta-buttons">
+                <button class="cta-button">Explore Our Services</button>
+                <button class="cta-button cta-secondary">Contact Us</button>
+            </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div
+            style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 20; animation: bounce 2s infinite;">
+            <div
+                style="width: 30px; height: 50px; border: 2px solid white; border-radius: 25px; display: flex; justify-content: center;">
+                <div
+                    style="width: 4px; height: 12px; background-color: white; border-radius: 2px; margin-top: 8px; animation: pulse 1.5s infinite;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Optional: Add any JavaScript for additional interactivity
+        document.addEventListener('DOMContentLoaded', function () {
+            // Fade in elements sequentially
+            const title = document.querySelector('.hero-title');
+            const subtitle = document.querySelector('.hero-subtitle');
+            const buttons = document.querySelector('.cta-buttons');
+
+            setTimeout(() => {
+                title.style.animation = 'slideUp 0.8s ease forwards';
+            }, 100);
+
+            setTimeout(() => {
+                subtitle.style.animation = 'slideUp 0.8s ease forwards';
+            }, 300);
+
+            setTimeout(() => {
+                buttons.style.animation = 'fadeIn 0.8s ease forwards';
+            }, 500);
+        });
+    </script>
+</body>
+
+</html>

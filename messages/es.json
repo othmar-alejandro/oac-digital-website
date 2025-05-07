@@ -112,8 +112,8 @@
     },
     "HomePage": {
         "hero": {
-            "headline": "Acelera Tu Éxito con Soluciones Digitales Potenciadas por IA",
-            "subHeadline": "OAC Digital Innovations entrega hoy la tecnología del mañana. Transformamos negocios con implementación de IA ultrarrápida, compromiso inquebrantable con la excelencia y resultados que puedes medir.",
+            "headline": "Tu Negocio, AMPLIFICADO Por IA",
+            "subHeadline": "Soluciones de IA personalizadas que impulsan el crecimiento, la eficiencia y la ventaja competitiva",
             "viewWorkButton": "Transforma Ahora",
             "getInTouchButton": "Habla con Nuestros Expertos"
         },
@@ -163,6 +163,23 @@
                     ]
                 }
             }
+        },
+        "expertise": {
+            "title": "Nuestra Experiencia Digital",
+            "subtitle": "Soluciones especializadas adaptadas a las necesidades de su negocio",
+            "digital": {
+                "title": "Innovación Digital",
+                "description": "Soluciones de desarrollo web y IA de vanguardia que impulsan el crecimiento y la eficiencia empresarial."
+            },
+            "creative": {
+                "title": "Soluciones Creativas",
+                "description": "Diseños únicos y experiencias atractivas que cautivan a su audiencia y fortalecen su marca."
+            },
+            "strategy": {
+                "title": "Crecimiento Estratégico",
+                "description": "Estrategias basadas en datos y automatización de marketing para maximizar su potencial digital."
+            },
+            "cta": "Explorar Nuestros Servicios"
         },
         "locations": {
             "title": "OAC ahora está disponible",
@@ -330,6 +347,14 @@
                 "author": "Emily Chen"
             }
         }
+    },
+    "BlogDetailPage": {
+        "title": "Entrada de Blog",
+        "contentPlaceholder": "El contenido completo de la entrada de blog '{slug}' se mostrará aquí. Esta sección contendrá el artículo completo, incluyendo imágenes, fragmentos de código u otros medios incrustados."
+    },
+    "PortfolioDetailPage": {
+        "title": "Detalles del Proyecto",
+        "contentPlaceholder": "El contenido detallado del proyecto '{slug}' se mostrará aquí. Esta sección mostrará los objetivos, desafíos, soluciones y resultados del proyecto, junto con elementos visuales y testimonios de clientes si están disponibles."
     },
     "PortfolioPage": {
         "title": "Nuestro Portafolio",

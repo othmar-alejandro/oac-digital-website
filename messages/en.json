@@ -112,8 +112,8 @@
     },
     "HomePage": {
         "hero": {
-            "headline": "Accelerate Your Success with AI-Powered Digital Solutions",
-            "subHeadline": "OAC Digital Innovations delivers tomorrow's technology today. We transform businesses with lightning-fast AI implementation, unwavering commitment to excellence, and results you can measure.",
+            "headline": "Your Business, AMPLIFIED By AI",
+            "subHeadline": "Custom AI solutions that drive growth, efficiency, and competitive advantage",
             "viewWorkButton": "Transform Now",
             "getInTouchButton": "Talk to Our Experts"
         },
@@ -163,6 +163,23 @@
                     ]
                 }
             }
+        },
+        "expertise": {
+            "title": "Our Digital Expertise",
+            "subtitle": "Specialized solutions tailored to your business needs",
+            "digital": {
+                "title": "Digital Innovation",
+                "description": "Cutting-edge web development and AI solutions that drive business growth and efficiency."
+            },
+            "creative": {
+                "title": "Creative Solutions",
+                "description": "Unique designs and engaging experiences that captivate your audience and strengthen your brand."
+            },
+            "strategy": {
+                "title": "Strategic Growth",
+                "description": "Data-driven strategies and marketing automation to maximize your digital potential."
+            },
+            "cta": "Explore Our Services"
         },
         "locations": {
             "title": "OAC is now available",
@@ -330,6 +347,14 @@
                 "author": "Emily Chen"
             }
         }
+    },
+    "BlogDetailPage": {
+        "title": "Blog Post",
+        "contentPlaceholder": "Full content for blog post '{slug}' will be displayed here. This section will contain the complete article, including any images, code snippets, or other embedded media."
+    },
+    "PortfolioDetailPage": {
+        "title": "Project Details",
+        "contentPlaceholder": "Detailed content for project '{slug}' will be displayed here. This section will showcase the project's objectives, challenges, solutions, and outcomes, along with visuals and client testimonials if available."
     },
     "PortfolioPage": {
         "title": "Our Portfolio",

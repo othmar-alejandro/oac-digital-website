@@ -1,0 +1,245 @@
+:root {
+    --color-primary: #D4AF37;
+    /* Gold/Amber */
+    --color-accent-light: #F5E7A1;
+    /* Light Gold/Champagne */
+    --color-accent-dark: #8B5A2B;
+    /* Deep Bronze/Copper */
+    --base-background: #0A0C1F;
+    /* Very dark indigo/space blue */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    height: 100%;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+    background-color: var(--base-background);
+}
+
+.hero-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--base-background);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Create the starfield effect with pseudo-elements */
+.hero-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(1px 1px at 25% 10%, rgba(255, 255, 255, 0.8) 0%, transparent 100%),
+        radial-gradient(1px 1px at 50% 25%, rgba(255, 255, 255, 0.7) 0%, transparent 100%),
+        radial-gradient(1px 1px at 75% 5%, rgba(255, 255, 255, 0.8) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 15% 15%, rgba(255, 255, 255, 0.7) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 60% 30%, rgba(255, 255, 255, 0.7) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 85% 18%, rgba(255, 255, 255, 0.7) 0%, transparent 100%),
+        radial-gradient(2px 2px at 35% 20%, rgba(255, 255, 255, 0.8) 0%, transparent 100%),
+        radial-gradient(2px 2px at 65% 10%, rgba(255, 255, 255, 0.8) 0%, transparent 100%),
+        radial-gradient(2.5px 2.5px at 20% 30%, rgba(255, 255, 255, 0.8) 0%, transparent 100%),
+        radial-gradient(2.5px 2.5px at 40% 5%, rgba(255, 255, 255, 0.8) 0%, transparent 100%),
+        radial-gradient(2.5px 2.5px at 80% 25%, rgba(255, 255, 255, 0.8) 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Subtle geometric grid in upper portion */
+.hero-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background-image:
+        linear-gradient(rgba(180, 180, 200, 0.15) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(180, 180, 200, 0.15) 1px, transparent 1px);
+    background-size: 15px 15px;
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: 2;
+    mask-image: radial-gradient(ellipse at center top, black 0%, black 40%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse at center top, black 0%, black 40%, transparent 80%);
+    mix-blend-mode: overlay;
+}
+
+/* Main aurora arch effect */
+.aurora-arch {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 75%;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.aurora-arch::before {
+    content: '';
+    position: absolute;
+    bottom: -10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150%;
+    height: 100%;
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+    background: radial-gradient(ellipse at bottom center,
+            var(--color-accent-light) 0%,
+            var(--color-primary) 30%,
+            var(--color-accent-dark) 70%,
+            transparent 85%);
+    filter: blur(25px);
+    opacity: 0.7;
+    mix-blend-mode: screen;
+    animation: subtleAuroraShift 15s infinite ease-in-out;
+}
+
+/* Side glow effects that emanate from bottom edges */
+.glow-effect {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 85%;
+    z-index: 4;
+    pointer-events: none;
+}
+
+.glow-effect::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50%;
+    height: 60%;
+    background: radial-gradient(circle at bottom left,
+            var(--color-accent-light) 0%,
+            var(--color-primary) 20%,
+            transparent 60%);
+    filter: blur(40px);
+    opacity: 0.5;
+    mix-blend-mode: screen;
+}
+
+.glow-effect::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 50%;
+    height: 60%;
+    background: radial-gradient(circle at bottom right,
+            var(--color-accent-light) 0%,
+            var(--color-primary) 20%,
+            transparent 60%);
+    filter: blur(40px);
+    opacity: 0.5;
+    mix-blend-mode: screen;
+}
+
+/* Horizontal banding effect */
+.banding {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 75%;
+    background-image: repeating-linear-gradient(to bottom,
+            rgba(255, 255, 255, 0.03) 0px,
+            rgba(255, 255, 255, 0.03) 1px,
+            transparent 1px,
+            transparent 8px);
+    background-size: 100% 8px;
+    background-repeat: repeat;
+    opacity: 0.7;
+    z-index: 5;
+    pointer-events: none;
+    mask-image: radial-gradient(ellipse at bottom center, black 0%, black 70%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse at bottom center, black 0%, black 70%, transparent 100%);
+}
+
+/* Content styling */
+.content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    color: white;
+    max-width: 800px;
+    padding: 2rem;
+}
+
+.content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.content p {
+    font-size: 1.25rem;
+    margin-bottom: 2.5rem;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+    line-height: 1.6;
+}
+
+.cta-button {
+    background-color: var(--color-primary);
+    color: #000;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: var(--color-accent-light);
+    transform: translateY(-2px);
+}
+
+/* Animations */
+@keyframes subtleAuroraShift {
+    0% {
+        transform: translateX(-50%) scale(1) translateY(0);
+        opacity: 0.7;
+    }
+
+    50% {
+        transform: translateX(-50%) scale(1.02) translateY(-5px);
+        opacity: 0.75;
+    }
+
+    100% {
+        transform: translateX(-50%) scale(1) translateY(0);
+        opacity: 0.7;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .content h1 {
+        font-size: 2.5rem;
+    }
+
+    .content p {
+        font-size: 1rem;
+    }
+}

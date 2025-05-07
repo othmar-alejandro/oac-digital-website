@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-inter)'],
+        sans: ['var(--font-roboto)'], // Changed from --font-inter
         display: ['var(--font-playfair)'],
       },
       colors: {
@@ -71,10 +71,15 @@ const config: Config = {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: '0' },
         },
+        'scroll-left': {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' }, // Changed from -100% to -50%
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        'scroll-left': 'scroll-left 30s linear infinite', // Duration might need adjustment
       },
     },
   },

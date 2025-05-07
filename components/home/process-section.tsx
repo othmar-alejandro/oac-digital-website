@@ -49,18 +49,46 @@ export function ProcessSection() { // Removed props
       { threshold: 0.1 }
     );
 
+    const elementsToObserve: Element[] = []; // Explicitly typed
+    if (sectionRef.current) {
+      elementsToObserve.push(sectionRef.current);
+    }
     const stepElements = document.querySelectorAll(".process-step");
-    stepElements.forEach((el) => observer.observe(el));
+    stepElements.forEach((el) => elementsToObserve.push(el));
+
+    elementsToObserve.forEach((el) => observer.observe(el));
 
     return () => {
-      stepElements.forEach((el) => observer.unobserve(el));
+      elementsToObserve.forEach((el) => {
+        if (el) observer.unobserve(el); // Check if el exists before unobserving
+      });
     };
   }, []);
 
   return (
-    <SectionWrapper bgColor="dark" id="process">
-      <div ref={sectionRef} className="text-center mb-16">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl mb-4">{t('title')}</h2> {/* Use translation */}
+    <SectionWrapper
+      bgColor="dark"
+      id="process"
+      className="relative bg-[radial-gradient(circle_at_1px_1px,_rgba(255,255,255,0.05)_1px,_transparent_0),radial-gradient(circle_at_10px_10px,_rgba(255,255,255,0.05)_1px,_transparent_0)] [background-size:20px_20px]"
+    >
+      <div ref={sectionRef} className="text-center mb-16 opacity-0 relative z-10"> {/* Added relative z-10 */}
+        <h2 className="text-3xl md:text-4xl lg:text-5xl mb-4">
+          {(() => {
+            const titleText = t('title'); // "The OAC Approach"
+            const oacPart = "OAC";
+            if (titleText.includes(oacPart)) {
+              const parts = titleText.split(oacPart);
+              return (
+                <>
+                  {parts[0]}
+                  <span className="text-accent">{oacPart}</span>
+                  {parts[1]}
+                </>
+              );
+            }
+            return titleText;
+          })()}
+        </h2>
         <p className="text-lg text-gray-300 max-w-3xl mx-auto">{t('subtitle')}</p> {/* Use translation */}
       </div>
 

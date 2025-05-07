@@ -15,38 +15,42 @@ import { ArrowRight } from "lucide-react";
 // Note: Images and links would ideally come from a CMS or data source
 const getProjects = (t: Function): ProjectItem[] => [
   {
-    id: "foodApp", // Unique ID
-    title: t('projects.foodApp.title'),
-    description: t('projects.foodApp.description'),
-    image: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", // Placeholder
-    services: [t('projects.foodApp.services.0'), t('projects.foodApp.services.1'), t('projects.foodApp.services.2')],
-    link: "/portfolio/food-delivery-app", // Placeholder link
+    id: "ai-podcast-creator",
+    title: "AI Podcast Creator", // Generated from filename
+    description: "An innovative application that leverages AI to automate podcast creation and production.", // Generated description
+    image: "/images/ai-podcast-creator-application-portfolio.png",
+    services: ["AI Development", "Application Design", "Audio Processing"], // Example services
+    link: "/portfolio/ai-podcast-creator",
   },
   {
-    id: "digitalWallet",
-    title: t('projects.digitalWallet.title'),
-    description: t('projects.digitalWallet.description'),
-    image: "https://images.pexels.com/photos/6694544/pexels-photo-6694544.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", // Placeholder
-    services: [t('projects.digitalWallet.services.0'), t('projects.digitalWallet.services.1'), t('projects.digitalWallet.services.2')],
-    link: "/portfolio/digital-wallet", // Placeholder link
+    id: "auto-transport-website",
+    title: "Auto Transport Website", // Generated from filename
+    description: "A modern website for an auto transport company, featuring vehicle tracking and quote generation.", // Generated description
+    image: "/images/auto-transport-website-portfolio.png",
+    services: ["Web Design", "Frontend Development", "Logistics Integration"], // Example services
+    link: "/portfolio/auto-transport-website",
   },
-  // Add more projects as needed
+  {
+    id: "ai-crm-dashboard",
+    title: "AI-Powered CRM Dashboard",
+    description: "An intelligent CRM dashboard leveraging AI to provide actionable insights and automate sales workflows.", // Slightly shorter for preview
+    image: "/images/dashboard-asciende-capital-group-portfolio.jpg",
+    services: ["AI Development", "CRM Solutions", "Dashboard UI/UX"],
+    link: "/portfolio/ai-crm-dashboard",
+  },
+  // Add more projects here for the main portfolio page later
+  // The real-estate-website is still available on the main portfolio page
 ];
 
 
-export function PortfolioPreview() { // Removed props
-  const t = useTranslations("HomePage.portfolio"); // Initialize translations
-  const projects = getProjects(t); // Get translated projects
-  const [activeIndex, setActiveIndex] = useState(0);
-  const sectionRef = useRef<HTMLDivElement>(null);
+export function PortfolioPreview() {
+  const t = useTranslations("HomePage.portfolio"); // Using existing translation scope, can be adjusted
+  const projects = getProjects(t); // Get projects
+  const sectionRef = useRef<HTMLDivElement>(null); // Ref for the title section
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveIndex((current) => (current + 1) % projects.length);
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, [projects.length]);
+  // We'll display up to 3 projects in the preview, or fewer if less are defined.
+  const previewProjects = projects.slice(0, 3);
+  const duplicatedProjects = [...previewProjects, ...previewProjects]; // Duplicate for seamless scroll
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -66,25 +70,28 @@ export function PortfolioPreview() { // Removed props
     }
 
     return () => {
-      if (sectionRef.current) observer.unobserve(sectionRef.current);
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
     };
   }, []);
 
   return (
     <SectionWrapper bgColor="light" id="portfolio">
-      <div ref={sectionRef} className="text-center mb-16 opacity-0">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl mb-4">{t('title')}</h2> {/* Use translation */}
-        <p className="text-lg text-gray-600 max-w-3xl mx-auto">{t('subtitle')}</p> {/* Use translation */}
+      <div ref={sectionRef} className="text-center mb-16 opacity-0"> {/* Added ref and opacity-0 */}
+        <h2 className="text-3xl md:text-4xl lg:text-5xl mb-4">{t('title')}</h2>
+        <p className="text-lg text-gray-600 max-w-3xl mx-auto">{t('subtitle')}</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-        {projects.map((project, index) => (
-          <ProjectCard
-            key={project.id} // Use project id as key
-            project={project}
-            className={index === activeIndex ? "scale-105 z-10" : ""}
-          />
-        ))}
+      {/* Carousel Container */}
+      <div className="relative w-full overflow-hidden mb-16">
+        <div className="flex animate-scroll-left">
+          {duplicatedProjects.map((project, index) => (
+            <div key={`${project.id}-${index}`} className="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 p-4">
+              <ProjectCard project={project} />
+            </div>
+          ))}
+        </div>
       </div>
 
       <div className="text-center">

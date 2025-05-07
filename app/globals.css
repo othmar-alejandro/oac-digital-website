@@ -28,8 +28,10 @@
     --secondary-foreground: 0 0% 9%;
     --muted: 0 0% 96.1%;
     --muted-foreground: 0 0% 45.1%;
-    --accent: 45 100% 50%;
+    --accent: 40 90% 55%;
+    /* Softer gold */
     --accent-foreground: 0 0% 9%;
+    /* Keeping black text for contrast on gold */
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
     --border: 0 0% 89.8%;
@@ -51,8 +53,10 @@
     --secondary-foreground: 0 0% 98%;
     --muted: 0 0% 14.9%;
     --muted-foreground: 0 0% 63.9%;
-    --accent: 45 100% 50%;
+    --accent: 40 90% 55%;
+    /* Softer gold */
     --accent-foreground: 0 0% 9%;
+    /* Keeping black text for contrast on gold */
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
     --border: 0 0% 14.9%;
@@ -65,11 +69,17 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-display font-bold tracking-tight;
   }
 
@@ -82,13 +92,14 @@
   .bg-primary-dark {
     @apply bg-black text-white;
   }
-  
+
   .bg-primary-light {
     @apply bg-white text-black;
   }
 
   .text-accent {
-    @apply text-amber-400;
+    @apply text-yellow-500;
+    /* Changed to a softer gold from Tailwind's palette */
   }
 
   .section-padding {
@@ -113,6 +124,7 @@
     from {
       opacity: 0;
     }
+
     to {
       opacity: 1;
     }
@@ -123,9 +135,30 @@
       transform: translateY(20px);
       opacity: 0;
     }
+
     to {
       transform: translateY(0);
       opacity: 1;
     }
+  }
+
+  .text-shadow-sm {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  .text-shadow {
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  }
+
+  .text-shadow-md {
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+  }
+
+  .text-shadow-lg {
+    text-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+  }
+
+  .text-shadow-none {
+    text-shadow: none;
   }
 }

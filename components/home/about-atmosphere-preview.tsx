@@ -6,17 +6,16 @@ import { useTranslations } from "next-intl"; // Import useTranslations
 import { SectionWrapper } from "@/components/common/section-wrapper";
 import { cn } from "@/lib/utils";
 
-// Keep images hardcoded for now, ideally from CMS/data source
-const defaultImages = [
-  "https://images.pexels.com/photos/7176026/pexels-photo-7176026.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-  "https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-  "https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+// Updated images with "oac" theme
+const oacImages = [
+  "/images/working-in-office-oac.jpg",
+  "/images/codes-oac.jpg",
+  "/images/digital-marketing-oac.jpg",
 ];
 
-
-export function AboutAtmospherePreview() { // Removed props
-  const t = useTranslations("HomePage.atmosphere"); // Initialize translations
-  const images = defaultImages; // Use default images for now
+export function AboutAtmospherePreview() {
+  const t = useTranslations("HomePage.atmosphere");
+  const images = oacImages; // Use OAC images
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -47,9 +46,11 @@ export function AboutAtmospherePreview() { // Removed props
 
   return (
     <SectionWrapper bgColor="dark" id="atmosphere">
-      <div ref={sectionRef} className="text-center mb-16 opacity-0">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl mb-4">{t('title')}</h2> {/* Use translation */}
-        <p className="text-2xl text-accent">{t('subtitle')}</p> {/* Use translation */}
+      <div ref={sectionRef} className="text-center mb-12 md:mb-16 opacity-0">
+        <h2 className="text-3xl md:text-4xl font-bold">
+          {t('title')}{' '}
+          <span className="text-accent">{t('subtitle')}</span>
+        </h2>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

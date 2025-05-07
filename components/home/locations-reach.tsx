@@ -1,42 +1,15 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import Image from "next/image";
-import { useTranslations } from "next-intl"; // Import useTranslations
+import { useEffect, useRef } from "react"; // Added useEffect
+import { useTranslations } from "next-intl";
 import { SectionWrapper } from "@/components/common/section-wrapper";
-import { LocationItem } from "@/types";
-import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils"; // Added cn
 
-// Function to generate locations using translations
-// Note: Images would ideally come from a CMS or data source
-const getLocations = (t: Function): LocationItem[] => [
-  {
-    city: t('locations.newYork.city'),
-    country: t('locations.newYork.country'),
-    image: "https://images.pexels.com/photos/2224861/pexels-photo-2224861.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" // Placeholder
-  },
-  {
-    city: t('locations.california.city'),
-    country: t('locations.california.country'),
-    image: "https://images.pexels.com/photos/208745/pexels-photo-208745.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" // Placeholder
-  },
-  {
-    city: t('locations.dubai.city'),
-    country: t('locations.dubai.country'),
-    image: "https://images.pexels.com/photos/823696/pexels-photo-823696.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" // Placeholder
-  },
-  {
-    city: t('locations.sydney.city'), // Assuming Sydney, Australia
-    country: t('locations.sydney.country'),
-    image: "https://images.pexels.com/photos/1878293/pexels-photo-1878293.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" // Placeholder
-  },
-];
-
-
-export function LocationsReach() { // Removed props
-  const t = useTranslations("HomePage.locations"); // Initialize translations
-  const locations = getLocations(t); // Get translated locations
+export function LocationsReach() {
+  const t = useTranslations("HomePage");
   const sectionRef = useRef<HTMLDivElement>(null);
+  const expertiseCardsRef = useRef<HTMLDivElement[]>([]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -51,85 +24,74 @@ export function LocationsReach() { // Removed props
       { threshold: 0.1 }
     );
 
-    const locationElements = document.querySelectorAll(".location-item");
-    locationElements.forEach((el) => observer.observe(el));
+    const elementsToObserve: Element[] = [];
+    if (sectionRef.current) {
+      elementsToObserve.push(sectionRef.current);
+    }
+    expertiseCardsRef.current.forEach((card) => {
+      if (card) elementsToObserve.push(card);
+    });
+
+    elementsToObserve.forEach((el) => observer.observe(el));
 
     return () => {
-      locationElements.forEach((el) => observer.unobserve(el));
+      elementsToObserve.forEach((el) => {
+        if (el) observer.unobserve(el);
+      });
     };
   }, []);
 
+  const expertiseItems = [
+    { id: "digital", titleKey: "expertise.digital.title", descKey: "expertise.digital.description" },
+    { id: "creative", titleKey: "expertise.creative.title", descKey: "expertise.creative.description" },
+    { id: "strategy", titleKey: "expertise.strategy.title", descKey: "expertise.strategy.description" },
+  ];
+
   return (
-    <SectionWrapper bgColor="dark" id="locations">
-      <div ref={sectionRef} className="text-center mb-16">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl mb-4">{t('title')}</h2> {/* Use translation */}
-        {/* Subtitle uses count - pass it as a variable */}
-        <p className="text-2xl text-accent">{t('subtitle', { count: locations.length })}</p> {/* Use translation */}
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="space-y-6">
-          {locations.slice(0, 2).map((location, index) => (
-            <div
-              key={index}
-              className="location-item opacity-0 flex justify-between items-center py-6 border-b border-gray-700"
-              style={{ transitionDelay: `${index * 150}ms` }}
-            >
-              <span className="text-xl">{location.city}</span> {/* Already translated */}
-              <div className="flex items-center">
-                {location.image && (
-                  <div className="relative w-16 h-16 rounded-md overflow-hidden mr-4">
-                    <Image
-                      src={location.image}
-                      alt={location.city} // Alt text from translated city name
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                )}
-                <button className="w-10 h-10 rounded-full border border-white flex items-center justify-center">
-                  <span className="text-2xl">+</span>
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="space-y-6">
-          {locations.slice(2).map((location, index) => (
-            <div
-              key={index}
-              className={cn(
-                "location-item opacity-0 flex justify-between items-center py-6",
-                index < locations.slice(2).length - 1 ? "border-b border-gray-700" : ""
-              )}
-              style={{ transitionDelay: `${(index + 2) * 150}ms` }}
-            >
-              <span className="text-xl">{location.city}</span> {/* Already translated */}
-              <div className="flex items-center">
-                {location.image && (
-                  <div className="relative w-16 h-16 rounded-md overflow-hidden mr-4">
-                    <Image
-                      src={location.image}
-                      alt={location.city} // Alt text from translated city name
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                )}
-                <button className="w-10 h-10 rounded-full border border-white flex items-center justify-center">
-                  <span className="text-2xl">+</span>
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div className="mt-12 text-gray-400 text-center">
-        <p>
-          {t('footerText')} {/* Use translation */}
+    <SectionWrapper
+      bgColor="dark"
+      id="expertise"
+      className="relative bg-[radial-gradient(circle_at_1px_1px,_rgba(255,255,255,0.05)_1px,_transparent_0),radial-gradient(circle_at_10px_10px,_rgba(255,255,255,0.05)_1px,_transparent_0)] [background-size:20px_20px]"
+    // The above applies:
+    // backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0), radial-gradient(circle at 10px 10px, rgba(255,255,255,0.05) 1px, transparent 0)`
+    // backgroundSize: '20px 20px'
+    >
+      {/* Optional: Add an overlay if the pattern makes text hard to read, though opacity is low */}
+      {/* <div className="absolute inset-0 bg-primary-dark opacity-50 z-0"></div> */}
+      <div ref={sectionRef} className="text-center mb-16 opacity-0 relative z-10"> {/* Ensure content is above pattern */}
+        <h2 className="text-3xl md:text-4xl lg:text-5xl mb-4">
+          {t('expertise.title')}
+        </h2>
+        <p className="text-xl md:text-2xl text-accent max-w-3xl mx-auto">
+          {t('expertise.subtitle')}
         </p>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        {expertiseItems.map((item, index) => (
+          <div
+            key={item.id}
+            ref={(el) => {
+              if (el) expertiseCardsRef.current[index] = el;
+            }}
+            className={cn(
+              "bg-gray-800 p-8 rounded-lg opacity-0", // Added opacity-0
+              "transform transition-all duration-500" // Base transition for hover (can be expanded)
+            )}
+            style={{ transitionDelay: `${index * 150}ms` }} // Staggered fade-in
+          >
+            <h3 className="text-2xl mb-4">{t(item.titleKey)}</h3>
+            <p className="text-gray-300 mb-6">
+              {t(item.descKey)}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-12 text-center opacity-0" ref={(el) => { if (el) expertiseCardsRef.current.push(el) }}> {/* Added opacity-0 and ref for fade-in */}
+        <Button size="lg" className="px-8 py-6 text-lg">
+          {t('expertise.cta')}
+        </Button>
       </div>
     </SectionWrapper>
   );

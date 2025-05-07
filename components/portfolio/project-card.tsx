@@ -1,7 +1,5 @@
 "use client";
 
-"use client";
-
 import { useRef, useEffect } from "react";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation"; // Import locale-aware Link
@@ -19,36 +17,12 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project, className }: ProjectCardProps) {
   const t = useTranslations("PortfolioPage"); // Use PortfolioPage namespace for common text
-  const cardRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("fade-in");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    if (cardRef.current) {
-      observer.observe(cardRef.current);
-    }
-
-    return () => {
-      if (cardRef.current) observer.unobserve(cardRef.current);
-    };
-  }, []);
 
   return (
     <Card
-      ref={cardRef}
       className={cn(
-        "overflow-hidden opacity-0 group cursor-pointer",
-        "transition-all duration-500 hover:shadow-xl",
+        "overflow-hidden group cursor-pointer flex flex-col h-full",
+        "transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-1", // Enhanced hover effect
         className
       )}
     >
@@ -69,14 +43,14 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
         </div>
       </div>
 
-      <CardContent className="p-6">
+      <CardContent className="p-6 flex flex-col flex-grow"> {/* Added flex flex-col flex-grow */}
         <h3 className="text-2xl font-bold mb-2 group-hover:text-accent transition-colors">
           {project.title}
         </h3>
-        <p className="text-gray-600 mb-4">{project.description}</p>
-        <div className="flex flex-wrap gap-2">
+        <p className="text-gray-600 mb-4 flex-grow">{project.description}</p> {/* Added flex-grow */}
+        <div className="flex flex-wrap gap-2 mt-auto"> {/* Added mt-auto to push to bottom */}
           {project.services.map((service, index) => (
-            <Badge key={index} variant="outline" className="bg-gray-100">
+            <Badge key={index} variant="default" className="bg-accent text-accent-foreground hover:bg-accent/90"> {/* More vibrant badges */}
               {service}
             </Badge>
           ))}
