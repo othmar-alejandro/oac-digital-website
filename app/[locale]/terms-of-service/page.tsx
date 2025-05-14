@@ -16,13 +16,13 @@ export default function TermsOfServicePage() {
                 <div className="prose lg:prose-xl max-w-none mx-auto text-gray-200"> {/* Changed text color for dark bg */}
                     <p>
                         {/* Placeholder - ideally t('introduction') */}
-                        Welcome to OAC Digital. These terms and conditions outline the rules and regulations for the use of OAC Digital's Website.
+                        Welcome to OAC Digital. These terms and conditions outline the rules and regulations for the use of OAC Digital&apos;s Website.
                     </p>
 
                     <h2 className="text-2xl font-semibold mt-6 mb-4">1. Acceptance of Terms</h2>
                     <p>
                         {/* Placeholder - ideally t('acceptance') */}
-                        By accessing this website, we assume you accept these terms and conditions in full. Do not continue to use OAC Digital's website if you do not accept all of the terms and conditions stated on this page.
+                        By accessing this website, we assume you accept these terms and conditions in full. Do not continue to use OAC Digital&apos;s website if you do not accept all of the terms and conditions stated on this page.
                     </p>
 
                     <h2 className="text-2xl font-semibold mt-6 mb-4">2. License</h2>
@@ -41,7 +41,7 @@ export default function TermsOfServicePage() {
                     <h2 className="text-2xl font-semibold mt-6 mb-4">3. User Comments</h2>
                     <p>
                         {/* Placeholder - ideally t('userComments') */}
-                        Certain parts of this website offer the opportunity for users to post and exchange opinions, information, material and data ('Comments'). OAC Digital does not screen, edit, publish or review Comments prior to their appearance on the website and Comments do not reflect the views or opinions ofOAC Digital, its agents or affiliates. Comments reflect the view and opinion of the person who posts such view or opinion.
+                        Certain parts of this website offer the opportunity for users to post and exchange opinions, information, material and data (&apos;Comments&apos;). OAC Digital does not screen, edit, publish or review Comments prior to their appearance on the website and Comments do not reflect the views or opinions ofOAC Digital, its agents or affiliates. Comments reflect the view and opinion of the person who posts such view or opinion.
                     </p>
 
                     <h2 className="text-2xl font-semibold mt-6 mb-4">4. Disclaimer</h2>

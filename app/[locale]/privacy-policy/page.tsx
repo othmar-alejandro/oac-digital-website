@@ -16,7 +16,7 @@ export default function PrivacyPolicyPage() {
                 <div className="prose lg:prose-xl max-w-none mx-auto text-gray-200"> {/* Changed text color for dark bg */}
                     <p>
                         {/* Placeholder - ideally t('introduction') */}
-                        Welcome to OAC Digital's Privacy Policy. This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our Service and the choices you have associated with that data.
+                        Welcome to OAC Digital&apos;s Privacy Policy. This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our Service and the choices you have associated with that data.
                     </p>
 
                     <h2 className="text-2xl font-semibold mt-6 mb-4">Information Collection and Use</h2>
@@ -29,7 +29,7 @@ export default function PrivacyPolicyPage() {
                     <h4>Personal Data</h4>
                     <p>
                         {/* Placeholder - ideally t('personalData') */}
-                        While using our Service, we may ask you to provide us with certain personally identifiable information that can be used to contact or identify you ("Personal Data"). Personally identifiable information may include, but is not limited to:
+                        While using our Service, we may ask you to provide us with certain personally identifiable information that can be used to contact or identify you (&quot;Personal Data&quot;). Personally identifiable information may include, but is not limited to:
                     </p>
                     <ul>
                         <li>Email address</li>
@@ -41,7 +41,7 @@ export default function PrivacyPolicyPage() {
                     <h4>Usage Data</h4>
                     <p>
                         {/* Placeholder - ideally t('usageData') */}
-                        We may also collect information on how the Service is accessed and used ("Usage Data"). This Usage Data may include information such as your computer's Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that you visit, the time and date of your visit, the time spent on those pages, unique device identifiers and other diagnostic data.
+                        We may also collect information on how the Service is accessed and used (&quot;Usage Data&quot;). This Usage Data may include information such as your computer&apos;s Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that you visit, the time and date of your visit, the time spent on those pages, unique device identifiers and other diagnostic data.
                     </p>
 
                     <h2 className="text-2xl font-semibold mt-6 mb-4">Use of Data</h2>
@@ -62,7 +62,7 @@ export default function PrivacyPolicyPage() {
                     <h2 className="text-2xl font-semibold mt-6 mb-4">Changes to This Privacy Policy</h2>
                     <p>
                         {/* Placeholder - ideally t('changesToPolicy') */}
-                        We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page. We will let you know via email and/or a prominent notice on our Service, prior to the change becoming effective and update the "effective date" at the top of this Privacy Policy. You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.
+                        We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page. We will let you know via email and/or a prominent notice on our Service, prior to the change becoming effective and update the &quot;effective date&quot; at the top of this Privacy Policy. You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.
                     </p>
 
                     <h2 className="text-2xl font-semibold mt-6 mb-4">Contact Us</h2>
