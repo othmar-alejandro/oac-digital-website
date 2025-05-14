@@ -354,7 +354,7 @@
     },
     "PortfolioDetailPage": {
         "title": "Project Details",
-        "contentPlaceholder": "Detailed content for project '{slug}' will be displayed here. This section will showcase the project's objectives, challenges, solutions, and outcomes, along with visuals and client testimonials if available."
+        "contentPlaceholder": "Detailed content for project '{slug}' will be displayed here. This section will contain the complete article, including any images, code snippets, or other embedded media."
     },
     "PortfolioPage": {
         "title": "Our Portfolio",
