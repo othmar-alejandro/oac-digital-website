@@ -20,6 +20,7 @@ export function ServiceDetail({
   const serviceRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const currentServiceRef = serviceRef.current;
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -32,12 +33,14 @@ export function ServiceDetail({
       { threshold: 0.1 }
     );
 
-    if (serviceRef.current) {
-      observer.observe(serviceRef.current);
+    if (currentServiceRef) {
+      observer.observe(currentServiceRef);
     }
 
     return () => {
-      if (serviceRef.current) observer.unobserve(serviceRef.current);
+      if (currentServiceRef) {
+        observer.unobserve(currentServiceRef);
+      }
     };
   }, []);
 

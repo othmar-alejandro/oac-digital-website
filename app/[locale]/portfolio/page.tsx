@@ -68,6 +68,7 @@ export default function Portfolio({ params: { locale } }: { params: { locale: st
   const headerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const currentHeaderRef = headerRef.current;
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -80,12 +81,14 @@ export default function Portfolio({ params: { locale } }: { params: { locale: st
       { threshold: 0.1 }
     );
 
-    if (headerRef.current) {
-      observer.observe(headerRef.current);
+    if (currentHeaderRef) {
+      observer.observe(currentHeaderRef);
     }
 
     return () => {
-      if (headerRef.current) observer.unobserve(headerRef.current);
+      if (currentHeaderRef) {
+        observer.unobserve(currentHeaderRef);
+      }
     };
   }, []);
 

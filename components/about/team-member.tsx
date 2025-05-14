@@ -19,6 +19,7 @@ export function TeamMember({ member, index }: TeamMemberProps) {
   const memberRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const currentMemberRef = memberRef.current;
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -31,12 +32,14 @@ export function TeamMember({ member, index }: TeamMemberProps) {
       { threshold: 0.1 }
     );
 
-    if (memberRef.current) {
-      observer.observe(memberRef.current);
+    if (currentMemberRef) {
+      observer.observe(currentMemberRef);
     }
 
     return () => {
-      if (memberRef.current) observer.unobserve(memberRef.current);
+      if (currentMemberRef) {
+        observer.unobserve(currentMemberRef);
+      }
     };
   }, []);
 

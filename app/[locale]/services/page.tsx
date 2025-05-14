@@ -79,6 +79,7 @@ export default function Services({ params: { locale } }: { params: { locale: str
   const headerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const currentHeaderRef = headerRef.current;
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -91,12 +92,14 @@ export default function Services({ params: { locale } }: { params: { locale: str
       { threshold: 0.1 }
     );
 
-    if (headerRef.current) {
-      observer.observe(headerRef.current);
+    if (currentHeaderRef) {
+      observer.observe(currentHeaderRef);
     }
 
     return () => {
-      if (headerRef.current) observer.unobserve(headerRef.current);
+      if (currentHeaderRef) {
+        observer.unobserve(currentHeaderRef);
+      }
     };
   }, []);
 

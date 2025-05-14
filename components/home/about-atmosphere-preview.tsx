@@ -19,6 +19,7 @@ export function AboutAtmospherePreview() {
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const currentSectionRef = sectionRef.current;
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -31,15 +32,17 @@ export function AboutAtmospherePreview() {
       { threshold: 0.1 }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    if (currentSectionRef) {
+      observer.observe(currentSectionRef);
     }
 
     const imageElements = document.querySelectorAll(".image-item");
     imageElements.forEach((el) => observer.observe(el));
 
     return () => {
-      if (sectionRef.current) observer.unobserve(sectionRef.current);
+      if (currentSectionRef) {
+        observer.unobserve(currentSectionRef);
+      }
       imageElements.forEach((el) => observer.unobserve(el));
     };
   }, []);

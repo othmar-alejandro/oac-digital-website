@@ -14,6 +14,7 @@ export function CTASection() { // Removed props
   const buttonLink = "/contact"; // Keep link hardcoded for navigation
 
   useEffect(() => {
+    const currentSectionRef = sectionRef.current;
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -26,12 +27,14 @@ export function CTASection() { // Removed props
       { threshold: 0.1 }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    if (currentSectionRef) {
+      observer.observe(currentSectionRef);
     }
 
     return () => {
-      if (sectionRef.current) observer.unobserve(sectionRef.current);
+      if (currentSectionRef) {
+        observer.unobserve(currentSectionRef);
+      }
     };
   }, []);
 
