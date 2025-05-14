@@ -7,6 +7,7 @@ import { SectionWrapper } from "@/components/common/section-wrapper";
 import { ContactForm } from "@/components/contact/contact-form";
 import { Mail, PhoneCall, MapPin, Clock } from "lucide-react";
 import { Toaster } from "sonner";
+import { FaqAccordion } from "@/components/common/FaqAccordion"; // Import FaqAccordion
 // import { setRequestLocale } from 'next-intl/server'; // Import setRequestLocale
 
 export default function Contact({ params: { locale } }: { params: { locale: string } }) {
@@ -73,9 +74,7 @@ export default function Contact({ params: { locale } }: { params: { locale: stri
                 </div>
                 <div>
                   <h3 className="text-lg font-bold">{t('emailLabel')}</h3> {/* Use translation */}
-                  {/* Keep actual emails hardcoded for now */}
-                  <p className="text-gray-600">info@oacdigital.com</p>
-                  <p className="text-gray-600">support@oacdigital.com</p>
+                  <p className="text-gray-600">info@oacdigital.biz</p>
                 </div>
               </div>
 
@@ -85,9 +84,7 @@ export default function Contact({ params: { locale } }: { params: { locale: stri
                 </div>
                 <div>
                   <h3 className="text-lg font-bold">{t('phoneLabel')}</h3> {/* Use translation */}
-                  {/* Keep actual phone numbers hardcoded */}
-                  <p className="text-gray-600">+1 (555) 123-4567</p>
-                  <p className="text-gray-600">+1 (555) 987-6543</p>
+                  <p className="text-gray-600">754-348-1600</p>
                 </div>
               </div>
 
@@ -97,12 +94,8 @@ export default function Contact({ params: { locale } }: { params: { locale: stri
                 </div>
                 <div>
                   <h3 className="text-lg font-bold">{t('addressLabel')}</h3> {/* Use translation */}
-                  {/* Keep actual address hardcoded */}
                   <p className="text-gray-600">
-                    123 Innovation Avenue<br />
-                    Suite 200<br />
-                    New York, NY 10001<br />
-                    United States
+                    Miami, FL
                   </p>
                 </div>
               </div>
@@ -113,9 +106,7 @@ export default function Contact({ params: { locale } }: { params: { locale: stri
                 </div>
                 <div>
                   <h3 className="text-lg font-bold">{t('hoursLabel')}</h3> {/* Use translation */}
-                  <p className="text-gray-600">{t('hours.weekdays')}</p> {/* Use translation */}
-                  <p className="text-gray-600">{t('hours.saturday')}</p> {/* Use translation */}
-                  <p className="text-gray-600">{t('hours.sunday')}</p> {/* Use translation */}
+                  <p className="text-gray-600">{t('hours.appointmentOnly')}</p> {/* Use translation */}
                 </div>
               </div>
             </div>
@@ -128,6 +119,8 @@ export default function Contact({ params: { locale } }: { params: { locale: stri
           </div>
         </div>
       </SectionWrapper>
+
+      <FaqAccordion /> {/* Add FAQ section here */}
     </Layout>
   );
 }

@@ -15,6 +15,14 @@ import { ArrowRight } from "lucide-react";
 // Note: Images and links would ideally come from a CMS or data source
 const getProjects = (t: Function): ProjectItem[] => [
   {
+    id: "tenx-financial",
+    title: "10X Financial Services Website",
+    description: "Empowering business growth through personalized funding solutions.",
+    image: "/images/10X_Financial_Services_Website_by_OAC.png",
+    services: ["Financial Services", "Web Development", "Funding Solutions"],
+    link: "https://10xfinancial.net/",
+  },
+  {
     id: "ai-podcast-creator",
     title: "AI Podcast Creator", // Generated from filename
     description: "An innovative application that leverages AI to automate podcast creation and production.", // Generated description
@@ -28,7 +36,7 @@ const getProjects = (t: Function): ProjectItem[] => [
     description: "A modern website for an auto transport company, featuring vehicle tracking and quote generation.", // Generated description
     image: "/images/auto-transport-website-portfolio.png",
     services: ["Web Design", "Frontend Development", "Logistics Integration"], // Example services
-    link: "/portfolio/auto-transport-website",
+    link: "https://www.shipmycartoday.com/",
   },
   {
     id: "ai-crm-dashboard",
@@ -48,8 +56,8 @@ export function PortfolioPreview() {
   const projects = getProjects(t); // Get projects
   const sectionRef = useRef<HTMLDivElement>(null); // Ref for the title section
 
-  // We'll display up to 3 projects in the preview, or fewer if less are defined.
-  const previewProjects = projects.slice(0, 3);
+  // Display all defined projects in the preview carousel
+  const previewProjects = projects; // Changed from projects.slice(0, 3)
   const duplicatedProjects = [...previewProjects, ...previewProjects]; // Duplicate for seamless scroll
 
   useEffect(() => {

@@ -11,12 +11,20 @@ import { ProjectItem } from "@/types";
 // Function to generate projects using new images and generated content
 const getProjects = (t: Function): ProjectItem[] => [
   {
+    id: "tenx-financial",
+    title: "10X Financial Services Website",
+    description: "Empowering business growth through personalized funding solutions.",
+    image: "/images/10X_Financial_Services_Website_by_OAC.png",
+    services: ["Financial Services", "Web Development", "Funding Solutions"],
+    link: "https://10xfinancial.net/",
+  },
+  {
     id: "ai-podcast-creator",
     title: "AI Podcast Creator",
-    description: "An innovative application that leverages AI to automate podcast creation, transcription, and distribution.",
+    description: "An app in development where users input a topic, AI researches, and generates a full podcast with audio, customizable tone, and more, no recording needed.",
     image: "/images/ai-podcast-creator-application-portfolio.png",
     services: ["AI Development", "SaaS Platform", "Audio Engineering"],
-    link: "/portfolio/ai-podcast-creator",
+    link: "/portfolio/ai-podcast-creator", // Keeping internal link for now, detail page to be enhanced
   },
   {
     id: "auto-transport-website",
@@ -24,21 +32,21 @@ const getProjects = (t: Function): ProjectItem[] => [
     description: "A sleek and modern website for an auto transport logistics company, featuring instant quotes and shipment tracking.",
     image: "/images/auto-transport-website-portfolio.png",
     services: ["Web Design", "Web Development", "API Integration"],
-    link: "/portfolio/auto-transport-website",
+    link: "https://www.shipmycartoday.com/",
   },
   {
-    id: "ai-crm-dashboard", // Updated ID
-    title: "AI-Powered CRM Dashboard", // Updated Title
-    description: "An intelligent CRM dashboard leveraging AI to provide actionable insights, automate sales workflows, and enhance customer relationship management.", // Updated Description
+    id: "ai-crm-dashboard",
+    title: "AI-Powered CRM Dashboard",
+    description: "An intelligent system for companies to automatically prequalify clients with AI, manage communications, and automate follow-ups.",
     image: "/images/dashboard-asciende-capital-group-portfolio.jpg",
-    services: ["AI Development", "CRM Solutions", "Dashboard UI/UX"], // Updated Services
-    link: "/portfolio/ai-crm-dashboard", // Updated Link
+    services: ["AI Development", "CRM Solutions", "Workflow Automation"],
+    link: "/portfolio/ai-crm-dashboard", // Keeping internal link for now, detail page to be enhanced
   },
   {
     id: "general-contractor-website",
     title: "General Contractor Website",
-    description: "A professional website for a general contractor, showcasing past projects, services, and client testimonials.",
-    image: "/images/general-contractor-website-porfolio.png", // Assuming typo, using "porfolio" as in filename
+    description: "A website template for contractors and home service businesses.",
+    image: "/images/general-contractor-website-porfolio.png",
     services: ["Web Development", "Portfolio Showcase", "Lead Generation"],
     link: "/portfolio/general-contractor-website",
   },
@@ -48,7 +56,7 @@ const getProjects = (t: Function): ProjectItem[] => [
     description: "A feature-rich real estate platform with advanced search, property listings, and agent management tools.",
     image: "/images/real-estate-website-portfolio.png",
     services: ["Web Platform Development", "UX/UI Design", "Map Integration"],
-    link: "/portfolio/real-estate-platform",
+    link: "https://zingy-quokka-7bd443.netlify.app/",
   },
 ];
 

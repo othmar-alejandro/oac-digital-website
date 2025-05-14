@@ -7,6 +7,7 @@ import { ServiceDetail } from "@/components/services/service-detail";
 import { useTranslations } from "next-intl"; // Import useTranslations
 import { ServiceItem } from "@/types";
 import { CTASection } from "@/components/home/cta-section";
+import { FaqAccordion } from "@/components/common/FaqAccordion"; // Import FaqAccordion
 // import { setRequestLocale } from 'next-intl/server'; // Import setRequestLocale
 
 // Function to generate services using translations
@@ -126,6 +127,8 @@ export default function Services({ params: { locale } }: { params: { locale: str
           ))}
         </div>
       </SectionWrapper>
+
+      <FaqAccordion /> {/* Add FAQ section here */}
 
       <CTASection />
     </Layout>

@@ -427,9 +427,7 @@
         "addressLabel": "Address",
         "hoursLabel": "Business Hours",
         "hours": {
-            "weekdays": "Monday - Friday: 9am to 6pm",
-            "saturday": "Saturday: 10am to 4pm",
-            "sunday": "Sunday: Closed"
+            "appointmentOnly": "By Appointment Only"
         },
         "formTitle": "Send Us a Message",
         "form": {
@@ -451,5 +449,8 @@
                 "messageMin": "Message must be at least 10 characters."
             }
         }
+    },
+    "Faqs": {
+        "title": "Frequently Asked Questions"
     }
 }

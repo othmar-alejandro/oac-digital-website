@@ -62,32 +62,16 @@ export function Footer() {
               {t('description')} {/* Use translation */}
             </p>
             <div className="flex space-x-4">
-              {/* TODO: Add actual social media links */}
-              <Link href="#" aria-label={t('facebookAria')} className="text-gray-400 hover:text-accent transition-colors"> {/* Use translation */}
+              <Link href="https://www.facebook.com/profile.php?id=61556018600563" aria-label={t('facebookAria')} className="text-gray-400 hover:text-accent transition-colors" target="_blank" rel="noopener noreferrer"> {/* Use translation */}
                 <Facebook size={20} />
               </Link>
-              <Link href="#" aria-label={t('twitterAria')} className="text-gray-400 hover:text-accent transition-colors"> {/* Use translation */}
-                <Twitter size={20} />
-              </Link>
-              <Link href="#" aria-label={t('instagramAria')} className="text-gray-400 hover:text-accent transition-colors"> {/* Use translation */}
+              <Link href="https://www.instagram.com/oacdigital_/" aria-label={t('instagramAria')} className="text-gray-400 hover:text-accent transition-colors" target="_blank" rel="noopener noreferrer"> {/* Use translation */}
                 <Instagram size={20} />
               </Link>
-              <Link href="#" aria-label={t('linkedinAria')} className="text-gray-400 hover:text-accent transition-colors"> {/* Use translation */}
+              <Link href="https://www.linkedin.com/in/omar-alejandro-1a39bb2a3/" aria-label={t('linkedinAria')} className="text-gray-400 hover:text-accent transition-colors" target="_blank" rel="noopener noreferrer"> {/* Use translation */}
                 <Linkedin size={20} />
               </Link>
-              <Link href="#" aria-label={t('githubAria')} className="text-gray-400 hover:text-accent transition-colors"> {/* Use translation */}
-                <Facebook size={20} />
-              </Link>
-              <Link href="#" className="text-gray-400 hover:text-accent transition-colors">
-                <Twitter size={20} />
-              </Link>
-              <Link href="#" className="text-gray-400 hover:text-accent transition-colors">
-                <Instagram size={20} />
-              </Link>
-              <Link href="#" className="text-gray-400 hover:text-accent transition-colors">
-                <Linkedin size={20} />
-              </Link>
-              <Link href="#" className="text-gray-400 hover:text-accent transition-colors">
+              <Link href="https://github.com/Genuino-01" aria-label={t('githubAria')} className="text-gray-400 hover:text-accent transition-colors" target="_blank" rel="noopener noreferrer"> {/* Use translation */}
                 <Github size={20} />
               </Link>
             </div>

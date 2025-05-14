@@ -5,6 +5,8 @@ import { useTranslations } from "next-intl";
 import { SectionWrapper } from "@/components/common/section-wrapper";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils"; // Added cn
+import { Link } from "@/i18n/navigation"; // Import locale-aware Link
+import { ArrowRight } from "lucide-react"; // Import ArrowRight
 
 export function LocationsReach() {
   const t = useTranslations("HomePage");
@@ -89,8 +91,11 @@ export function LocationsReach() {
       </div>
 
       <div className="mt-12 text-center opacity-0" ref={(el) => { if (el) expertiseCardsRef.current.push(el) }}> {/* Added opacity-0 and ref for fade-in */}
-        <Button size="lg" className="px-8 py-6 text-lg">
-          {t('expertise.cta')}
+        <Button asChild size="lg" className="px-8 py-6 text-lg bg-accent hover:bg-accent-dark text-black">
+          <Link href="/services"> {/* Assuming this button should link to services page */}
+            {t('expertise.cta')}
+            <ArrowRight size={20} className="ml-2" />
+          </Link>
         </Button>
       </div>
     </SectionWrapper>

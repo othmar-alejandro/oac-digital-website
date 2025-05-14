@@ -17,6 +17,7 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project, className }: ProjectCardProps) {
   const t = useTranslations("PortfolioPage"); // Use PortfolioPage namespace for common text
+  const isExternalLink = project.link.startsWith('http');
 
   return (
     <Card
@@ -36,6 +37,8 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
         <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           <Link
             href={project.link}
+            target={isExternalLink ? "_blank" : undefined}
+            rel={isExternalLink ? "noopener noreferrer" : undefined}
             className="bg-accent text-black px-6 py-2 rounded-md font-medium flex items-center"
           >
             {t('viewProjectButton')} <ArrowRight size={16} className="ml-2" /> {/* Use translation */}
