@@ -58,7 +58,7 @@ export function HeroSection({
       <div className="relative z-20 hero-content flex flex-col justify-center items-center min-h-screen text-center text-white p-4">
         <h1
           ref={headlineRef}
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold max-w-full mb-4 text-shadow-sm leading-tight whitespace-nowrap" // Adjusted sizes, max-w-full, whitespace-nowrap
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold max-w-full mb-4 text-shadow-sm leading-tight" // Adjusted sizes, max-w-full, REMOVED whitespace-nowrap
         >
           {(() => {
             const aiEn = "AI";
@@ -94,7 +94,7 @@ export function HeroSection({
 
         <p
           ref={subHeadlineRef}
-          className="text-xl md:text-2xl text-gray-200 max-w-3xl mb-8 text-shadow-sm" // Increased size, lighter gray, reduced margin, added shadow
+          className="text-xl md:text-2xl text-gray-200 max-w-full mb-8 text-shadow-sm" // Increased size, lighter gray, reduced margin, added shadow, CHANGED max-w-3xl to max-w-full
         >
           {subHeadline}
         </p>

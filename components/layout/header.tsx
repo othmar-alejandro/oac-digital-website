@@ -106,6 +106,10 @@ export function Header() {
                 {t(navKeys[index])} {/* Use translation for title */}
               </Link>
             ))}
+            {/* Add LanguageSwitcher for mobile menu */}
+            <div className="mt-4 mb-4">
+              <LanguageSwitcher />
+            </div>
             <Button
               size="lg"
               className="mt-6 text-black bg-gradient-to-b from-[hsl(40,90%,60%)] to-[hsl(40,90%,55%)] hover:from-[hsl(40,90%,55%)] hover:to-[hsl(40,90%,50%)]"

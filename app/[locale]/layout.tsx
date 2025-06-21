@@ -103,6 +103,20 @@ export default async function RootLayout({
 
     return (
         <html lang={locale} suppressHydrationWarning>
+            <head>
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            '@context': 'https://schema.org',
+                            '@type': 'Organization',
+                            name: 'OAC Digital Innovations',
+                            url: 'https://www.oacdigital.com',
+                            logo: 'https://www.oacdigital.com/logo.png',
+                        }),
+                    }}
+                />
+            </head>
             <body
                 className={cn(
                     roboto.variable, // Changed from inter.variable
