@@ -7,6 +7,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server'; // Import setRequestLocale
 import { getMessages } from '../../i18n'; // Import getMessages from local i18n.ts
 import { ThemeProvider } from '@/components/providers/theme-provider';
+import GoogleAnalytics from '@/components/providers/google-analytics'; // Import Google Analytics
 import { cn } from '@/lib/utils';
 import { routing } from '@/i18n/routing'; // Import routing config for locales
 
@@ -28,12 +29,13 @@ const roboto = Roboto({ // Added Roboto configuration
 
 // Define base metadata values (can be moved to a config or fetched)
 const siteConfig = {
-    name: "OAC Digital Innovations",
-    description: "Driving digital transformation through innovative web solutions, marketing automation, and SEO strategies.",
-    url: "https://www.oacdigital.com", // Replace with actual URL
-    ogImage: "https://www.oacdigital.com/og-image.png", // Replace with actual OG image URL
+    name: "OAC Digital Innovations | Web & SEO Solutions",
+    description: "Expert web development, SEO, and marketing automation to elevate your business. OAC Digital delivers innovative solutions for measurable growth.",
+    url: "https://www.oacdigital.biz",
+    ogImage: "https://www.oacdigital.biz/og-image.png",
     twitterCard: "summary_large_image",
-    twitterCreator: "@oacdigital", // Replace with actual Twitter handle
+    twitterCreator: "@oacdigital",
+    googleAnalyticsId: "G-RPCP07MESG",
 };
 
 // Function to generate static params for locales
@@ -81,7 +83,14 @@ export async function generateMetadata({ params: { locale } }: { params: { local
             images: [siteConfig.ogImage],
             creator: siteConfig.twitterCreator,
         },
-        metadataBase: new URL(siteConfig.url), // Set metadataBase
+        metadataBase: new URL(siteConfig.url),
+        alternates: {
+            canonical: siteConfig.url,
+            languages: {
+                'en': `${siteConfig.url}/en`,
+                'es': `${siteConfig.url}/es`,
+            },
+        },
     };
 }
 
@@ -111,11 +120,25 @@ export default async function RootLayout({
                             '@context': 'https://schema.org',
                             '@type': 'Organization',
                             name: 'OAC Digital Innovations',
-                            url: 'https://www.oacdigital.com',
-                            logo: 'https://www.oacdigital.com/logo.png',
+                            url: 'https://www.oacdigital.biz',
+                            logo: 'https://www.oacdigital.biz/logo.png',
+                            contactPoint: {
+                                '@type': 'ContactPoint',
+                                telephone: '+1-786-615-1828',
+                                contactType: 'Customer Service',
+                            },
+                            address: {
+                                '@type': 'PostalAddress',
+                                addressLocality: 'Miami',
+                                addressRegion: 'FL',
+                                addressCountry: 'US',
+                            },
                         }),
                     }}
                 />
+                {siteConfig.googleAnalyticsId && (
+                    <GoogleAnalytics measurementId={siteConfig.googleAnalyticsId} />
+                )}
             </head>
             <body
                 className={cn(
