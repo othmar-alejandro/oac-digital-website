@@ -1,7 +1,7 @@
 import React from 'react'; // Add explicit React import
 import '../globals.css'; // Adjusted path for globals.css
 import type { Metadata } from 'next';
-import { Playfair_Display, Inter, Roboto } from 'next/font/google'; // Added Roboto
+import { Playfair_Display, Roboto } from 'next/font/google'; // Added Roboto
 // import { notFound } from 'next/navigation'; // No longer needed here
 import { NextIntlClientProvider } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server'; // Import setRequestLocale
@@ -14,11 +14,6 @@ import { Analytics } from "@vercel/analytics/next"
 const playfair = Playfair_Display({
     subsets: ['latin'],
     variable: '--font-playfair',
-});
-
-const inter = Inter({ // This will be replaced but kept for now to avoid breaking changes if Playfair is still used elsewhere
-    subsets: ['latin'],
-    variable: '--font-inter',
 });
 
 const roboto = Roboto({ // Added Roboto configuration
