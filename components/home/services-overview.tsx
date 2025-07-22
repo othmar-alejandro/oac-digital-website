@@ -92,7 +92,7 @@ export function ServicesOverview() { // Removed props as they will come from tra
               href={`/services#${service.id}`} // Use service id for link
               className="text-accent hover:text-accent-dark font-medium inline-flex items-center"
             >
-              {t('learnMore')} <ArrowRight size={16} className="ml-1" /> {/* Use translation */}
+              {t('learnMore', {serviceName: service.title})} <ArrowRight size={16} className="ml-1" /> {/* Use translation */}
             </Link>
           </div>
         ))}

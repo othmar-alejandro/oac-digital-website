@@ -107,7 +107,7 @@
     "ServicesOverview": {
         "title": "Servicios Principales",
         "subtitle": "En OAC Digital Innovations, no solo creamos activos digitales, sino aceleradores de negocios inteligentes que ofrecen valor inmediato y escalan con tu crecimiento.",
-        "learnMore": "Saber Más",
+        "learnMore": "Aprenda más sobre nuestros servicios de {serviceName}",
         "viewAllServices": "Ver Todos los Servicios"
     },
     "HomePage": {

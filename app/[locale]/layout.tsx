@@ -76,6 +76,13 @@ export async function generateMetadata({ params: { locale } }: { params: { local
         verification: {
             google: 'a_GLwDCAFcLfpBFdFLrDY7l6BisyzTOr3FxEqiPIFQ8',
         },
+        alternates: {
+            canonical: `https://oac-digital.com/${locale}`,
+            languages: {
+                'en': 'https://oac-digital.com/en',
+                'es': 'https://oac-digital.com/es',
+            },
+        },
     };
 }
 
@@ -157,6 +164,7 @@ fbq('track', 'PageView');
                 />
                 <noscript><img height="1" width="1" style={{display:'none'}}
 src="https://www.facebook.com/tr?id=1238734610862878&ev=PageView&noscript=1"
+alt=""
 /></noscript>
             </head>
             <body

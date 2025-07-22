@@ -107,7 +107,7 @@
     "ServicesOverview": {
         "title": "Core Services",
         "subtitle": "At OAC Digital Innovations, we don't just build digital assets—we create intelligent business accelerators that deliver immediate value while scaling with your growth.",
-        "learnMore": "Learn More",
+        "learnMore": "Learn more about our {serviceName} services",
         "viewAllServices": "View All Services"
     },
     "HomePage": {
