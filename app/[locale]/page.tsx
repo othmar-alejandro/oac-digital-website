@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react'; // Add explicit React import
+import React from 'react';
 import { useTranslations } from "next-intl";
 import { Layout } from "@/components/layout/layout";
 import { HeroSection } from "@/components/home/hero-section";
@@ -9,29 +9,35 @@ import { ProcessSection } from "@/components/home/process-section";
 import { PortfolioPreview } from "@/components/home/portfolio-preview";
 import { LocationsReach } from "@/components/home/locations-reach";
 import { BlogPreview } from "@/components/home/blog-preview";
-// import { AboutAtmospherePreview } from "@/components/home/about-atmosphere-preview"; // Removed
 import { CTASection } from "@/components/home/cta-section";
+import LocalBusinessSchema from '@/components/shared/LocalBusinessSchema';
+import Head from 'next/head';
 
 export default function Home({ params: { locale } }: { params: { locale: string } }) {
-    // setRequestLocale(locale); // Removed as it's handled in the layout
-
-    const t = useTranslations("HomePage.hero"); // Initialize translations for Hero section
+    const t = useTranslations("HomePage.hero");
 
     return (
-        <Layout>
-            {/* Pass translated props to HeroSection */}
-            <HeroSection
-                headline={t('headline')}
-                subHeadline={t('subHeadline')}
-            // backgroundImage prop removed - should be handled within HeroSection or via CSS/CMS
-            />
-            <ServicesOverview /> {/* Already refactored */}
-            <ProcessSection />
-            <PortfolioPreview />
-            <LocationsReach />
-            <BlogPreview />
-            {/* <AboutAtmospherePreview /> */} {/* Removed */}
-            <CTASection />
-        </Layout>
+        <>
+            <Head>
+                <title>OAC Digital - Web Design, SEO, and Digital Marketing</title>
+                <meta
+                    name="description"
+                    content="OAC Digital offers top-tier web design, SEO, and comprehensive digital marketing services to elevate your brand's online presence. Discover our innovative solutions."
+                />
+            </Head>
+            <Layout>
+                <LocalBusinessSchema />
+                <HeroSection
+                    headline={t('headline')}
+                    subHeadline={t('subHeadline')}
+                />
+                <ServicesOverview />
+                <ProcessSection />
+                <PortfolioPreview />
+                <LocationsReach />
+                <BlogPreview />
+                <CTASection />
+            </Layout>
+        </>
     );
 }

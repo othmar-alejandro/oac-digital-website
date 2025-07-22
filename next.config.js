@@ -4,8 +4,8 @@ const withNextIntl = require('next-intl/plugin')(
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // output: 'export', // Remains removed
   images: {
+    formats: ['image/avif', 'image/webp'],
     remotePatterns: [
       {
         protocol: 'https',
@@ -14,8 +14,8 @@ const nextConfig = {
         pathname: '/**',
       },
     ],
+    domains: ['oac-digital.com'],
   },
-  // Add other Next.js config options here if needed
 };
 
 module.exports = withNextIntl(nextConfig); // Use the variable from require()

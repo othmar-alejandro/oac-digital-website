@@ -7,9 +7,9 @@ import { NextIntlClientProvider } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server'; // Import setRequestLocale
 import { getMessages } from '../../i18n'; // Import getMessages from local i18n.ts
 import { ThemeProvider } from '@/components/providers/theme-provider';
-import GoogleAnalytics from '@/components/providers/google-analytics'; // Import Google Analytics
 import { cn } from '@/lib/utils';
 import { routing } from '@/i18n/routing'; // Import routing config for locales
+import { Analytics } from "@vercel/analytics/next"
 
 const playfair = Playfair_Display({
     subsets: ['latin'],
@@ -29,13 +29,12 @@ const roboto = Roboto({ // Added Roboto configuration
 
 // Define base metadata values (can be moved to a config or fetched)
 const siteConfig = {
-    name: "OAC Digital Innovations | Web & SEO Solutions",
-    description: "Expert web development, SEO, and marketing automation to elevate your business. OAC Digital delivers innovative solutions for measurable growth.",
-    url: "https://www.oacdigital.biz",
-    ogImage: "https://www.oacdigital.biz/og-image.png",
+    name: "OAC Digital",
+    description: "OAC Digital is a digital marketing agency specializing in web design, SEO, and content creation.",
+    url: "https://oac-digital.com", // Replace with actual URL
+    ogImage: "https://oac-digital.com/og-image.jpg", // Replace with actual OG image URL
     twitterCard: "summary_large_image",
-    twitterCreator: "@oacdigital",
-    googleAnalyticsId: "G-RPCP07MESG",
+    twitterCreator: "@oacdigital", // Replace with actual Twitter handle
 };
 
 // Function to generate static params for locales
@@ -45,34 +44,29 @@ export function generateStaticParams() {
 
 // Generate metadata dynamically
 export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
-    // TODO: Fetch localized metadata if needed using getTranslations from next-intl
-    // const t = await getTranslations({ locale, namespace: 'Metadata' });
-    // const title = t('title');
-    // const description = t('description');
-
-    const title = siteConfig.name;
-    const description = siteConfig.description;
+    const title = "OAC Digital - Web Design & SEO Agency";
+    const description = "OAC Digital is a digital marketing agency specializing in web design, SEO, and content creation. We help businesses grow their online presence.";
 
     return {
+        icons: {
+            icon: '/images/logo-oac.png',
+        },
         title: {
             default: title,
-            template: `%s | ${title}`, // For page-specific titles
+            template: `%s | OAC Digital`,
         },
         description: description,
-        // Add other metadata fields as needed: icons, manifest, keywords etc.
         openGraph: {
-            type: "website",
-            locale: locale,
+            title: "OAC Digital - Web Design & SEO Agency",
+            description: "Innovative web solutions to grow your business.",
             url: siteConfig.url,
-            title: title,
-            description: description,
-            siteName: title,
+            type: "website",
             images: [
                 {
                     url: siteConfig.ogImage,
                     width: 1200,
                     height: 630,
-                    alt: title,
+                    alt: "OAC Digital - Web Design & SEO Agency",
                 },
             ],
         },
@@ -84,12 +78,8 @@ export async function generateMetadata({ params: { locale } }: { params: { local
             creator: siteConfig.twitterCreator,
         },
         metadataBase: new URL(siteConfig.url),
-        alternates: {
-            canonical: siteConfig.url,
-            languages: {
-                'en': `${siteConfig.url}/en`,
-                'es': `${siteConfig.url}/es`,
-            },
+        verification: {
+            google: 'a_GLwDCAFcLfpBFdFLrDY7l6BisyzTOr3FxEqiPIFQ8',
         },
     };
 }
@@ -117,28 +107,62 @@ export default async function RootLayout({
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{
                         __html: JSON.stringify({
-                            '@context': 'https://schema.org',
-                            '@type': 'Organization',
-                            name: 'OAC Digital Innovations',
-                            url: 'https://www.oacdigital.biz',
-                            logo: 'https://www.oacdigital.biz/logo.png',
-                            contactPoint: {
-                                '@type': 'ContactPoint',
-                                telephone: '+1-786-615-1828',
-                                contactType: 'Customer Service',
-                            },
+                            "@context": "https://schema.org",
+                            "@type": "LocalBusiness",
+                            "@id": "https://oac-digital.com/#business",
+                            name: "OAC Digital",
+                            legalName: "OAC Digital LLC",
+                            description: "OAC Digital is a digital marketing agency specializing in web design, SEO, and content creation.",
+                            url: "https://oac-digital.com",
+                            telephone: "(786) 615-1828",
+                            email: "contact@oac-digital.com",
+                            image: "https://oac-digital.com/logo.png",
+                            logo: "https://oac-digital.com/logo.png",
                             address: {
-                                '@type': 'PostalAddress',
-                                addressLocality: 'Miami',
-                                addressRegion: 'FL',
-                                addressCountry: 'US',
+                                "@type": "PostalAddress",
+                                streetAddress: "123 Main St",
+                                addressLocality: "Miami",
+                                addressRegion: "FL",
+                                postalCode: "33101",
+                                addressCountry: "US"
                             },
+                            geo: {
+                                "@type": "GeoCoordinates",
+                                latitude: 25.7617,
+                                longitude: -80.1918
+                            },
+                            openingHoursSpecification: [
+                                {
+                                    "@type": "OpeningHoursSpecification",
+                                    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                                    opens: "09:00",
+                                    closes: "17:00"
+                                }
+                            ],
+                            priceRange: "$$",
+                            areaServed: ["Miami", "Fort Lauderdale", "West Palm Beach"],
                         }),
                     }}
                 />
-                {siteConfig.googleAnalyticsId && (
-                    <GoogleAnalytics measurementId={siteConfig.googleAnalyticsId} />
-                )}
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1238734610862878');
+fbq('track', 'PageView');
+`,
+                    }}
+                />
+                <noscript><img height="1" width="1" style={{display:'none'}}
+src="https://www.facebook.com/tr?id=1238734610862878&ev=PageView&noscript=1"
+/></noscript>
             </head>
             <body
                 className={cn(
@@ -155,6 +179,7 @@ export default async function RootLayout({
                         disableTransitionOnChange
                     >
                         {children}
+                        <Analytics />
                     </ThemeProvider>
                 </NextIntlClientProvider>
             </body>

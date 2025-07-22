@@ -424,6 +424,7 @@
         "getInTouchDescription": "¿Tiene preguntas o está listo para comenzar su próximo proyecto? Contáctenos utilizando la información a continuación o complete el formulario y nos pondremos en contacto con usted lo antes posible.",
         "emailLabel": "Correo Electrónico",
         "phoneLabel": "Teléfono",
+        "phone": "(786) 615-1828",
         "addressLabel": "Dirección",
         "hoursLabel": "Horario Comercial",
         "hours": {
@@ -449,6 +450,53 @@
                 "emailInvalid": "Por favor ingrese una dirección de correo electrónico válida.",
                 "subjectMin": "El asunto debe tener al menos 2 caracteres.",
                 "messageMin": "El mensaje debe tener al menos 10 caracteres."
+            }
+        }
+    },
+    "Locations": {
+        "Miami": {
+            "meta": {
+                "title": "Servicios de Marketing Digital en Miami | OAC Digital",
+                "description": "OAC Digital ofrece servicios de marketing digital, diseño web y SEO de primer nivel en Miami, FL. Contáctenos para hacer crecer su negocio."
+            },
+            "title": "Servicios de Marketing Digital en Miami",
+            "description": "OAC Digital es su socio de confianza para el marketing digital en Miami. Ofrecemos una amplia gama de servicios para ayudar a su negocio a tener éxito en línea, desde diseño y desarrollo web hasta SEO y marketing de contenidos.",
+            "services": {
+                "title": "Nuestros Servicios en Miami",
+                "webDesign": "Diseño y Desarrollo Web",
+                "seo": "Optimización de Motores de Búsqueda (SEO)",
+                "saas": "Desarrollo de SaaS",
+                "marketingAutomation": "Automatización de Marketing"
+            }
+        },
+        "FortLauderdale": {
+            "meta": {
+                "title": "Servicios de Marketing Digital en Fort Lauderdale | OAC Digital",
+                "description": "OAC Digital ofrece servicios de marketing digital, diseño web y SEO de primer nivel en Fort Lauderdale, FL. Contáctenos para hacer crecer su negocio."
+            },
+            "title": "Servicios de Marketing Digital en Fort Lauderdale",
+            "description": "OAC Digital es su socio de confianza para el marketing digital en Fort Lauderdale. Ofrecemos una amplia gama de servicios para ayudar a su negocio a tener éxito en línea, desde diseño y desarrollo web hasta SEO y marketing de contenidos.",
+            "services": {
+                "title": "Nuestros Servicios en Fort Lauderdale",
+                "webDesign": "Diseño y Desarrollo Web",
+                "seo": "Optimización de Motores de Búsqueda (SEO)",
+                "saas": "Desarrollo de SaaS",
+                "marketingAutomation": "Automatización de Marketing"
+            }
+        },
+        "WestPalmBeach": {
+            "meta": {
+                "title": "Servicios de Marketing Digital en West Palm Beach | OAC Digital",
+                "description": "OAC Digital ofrece servicios de marketing digital, diseño web y SEO de primer nivel en West Palm Beach, FL. Contáctenos para hacer crecer su negocio."
+            },
+            "title": "Servicios de Marketing Digital en West Palm Beach",
+            "description": "OAC Digital es su socio de confianza para el marketing digital en West Palm Beach. Ofrecemos una amplia gama de servicios para ayudar a su negocio a tener éxito en línea, desde diseño y desarrollo web hasta SEO y marketing de contenidos.",
+            "services": {
+                "title": "Nuestros Servicios en West Palm Beach",
+                "webDesign": "Diseño y Desarrollo Web",
+                "seo": "Optimización de Motores de Búsqueda (SEO)",
+                "saas": "Desarrollo de SaaS",
+                "marketingAutomation": "Automatización de Marketing"
             }
         }
     }

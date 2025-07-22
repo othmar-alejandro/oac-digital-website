@@ -85,6 +85,9 @@ export function ServiceDetail({
           alt={service.title}
           fill
           className="object-cover"
+          priority={index < 2}
+          placeholder="blur"
+          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8v5ZfDwAEnwH5qLzY5wAAAABJRU5ErkJggg=="
         />
       </div>
     </div>

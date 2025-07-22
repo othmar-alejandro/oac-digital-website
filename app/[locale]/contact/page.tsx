@@ -84,9 +84,9 @@ export default function Contact({ params: { locale } }: { params: { locale: stri
                 </div>
                 <div>
                   <h3 className="text-lg font-bold">{t('phoneLabel')}</h3> {/* Use translation */}
-                  <p className="text-gray-600">754-348-1600</p>
-                </div>
-              </div>
+                                                        <p className="text-gray-600">{t('phone')}</p>
+                                                    </div>
+                                                </div>
 
               <div className="flex items-start">
                 <div className="mt-1 mr-4 w-10 h-10 rounded-full bg-accent flex items-center justify-center text-black">

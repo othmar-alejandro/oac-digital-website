@@ -1,11 +1,31 @@
 import { MetadataRoute } from 'next'
  
 export default function robots(): MetadataRoute.Robots {
+  const baseUrl = 'https://oac-digital.com';
+
   return {
-    rules: {
-      userAgent: '*',
-      allow: '/',
-    },
-    sitemap: 'https://acme.com/sitemap.xml',
-  }
+    rules: [
+      {
+        userAgent: '*',
+        allow: '/',
+      },
+      {
+        userAgent: 'Googlebot',
+        allow: '/',
+      },
+      {
+        userAgent: 'Bingbot',
+        allow: '/',
+      },
+      {
+        userAgent: 'Slurp',
+        allow: '/',
+      },
+      {
+        userAgent: 'DuckDuckBot',
+        allow: '/',
+      },
+    ],
+    sitemap: `${baseUrl}/sitemap.xml`,
+  };
 }

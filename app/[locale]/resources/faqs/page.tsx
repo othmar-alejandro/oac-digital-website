@@ -1,22 +1,45 @@
 "use client";
 
-import { Layout } from "@/components/layout/layout"; // Assuming a general layout component
+import { Layout } from "@/components/layout/layout";
 import { FaqAccordion } from "@/components/common/FaqAccordion";
+import FAQSchema from "@/components/shared/FAQSchema";
+import Head from "next/head";
+import { useTranslations } from "next-intl";
 
-// It's good practice to define props for page components, even if just for locale
 interface FaqsPageProps {
     params: {
         locale: string;
     };
 }
 
+const getFaqs = (t: Function) => {
+    const faqs = [];
+    for (let i = 0; i < 5; i++) { // Assuming 5 FAQs
+        faqs.push({
+            question: t(`faqs.${i}.question`),
+            answer: t(`faqs.${i}.answer`),
+        });
+    }
+    return faqs;
+};
+
 export default function FaqsPage({ params }: FaqsPageProps) {
-    // The FaqAccordion component now handles its own translations and data
-    // It also defaults to bgColor="dark" which is what was requested for this page.
+    const t = useTranslations("FaqAccordion");
+    const faqs = getFaqs(t);
+
     return (
-        <Layout>
-            {/* The FaqAccordion includes its own SectionWrapper */}
-            <FaqAccordion />
-        </Layout>
+        <>
+            <Head>
+                <title>Frequently Asked Questions - OAC Digital</title>
+                <meta
+                    name="description"
+                    content="Find answers to common questions about OAC Digital's services, including web design, SEO, and digital marketing strategies."
+                />
+                <FAQSchema faqs={faqs} />
+            </Head>
+            <Layout>
+                <FaqAccordion />
+            </Layout>
+        </>
     );
 }

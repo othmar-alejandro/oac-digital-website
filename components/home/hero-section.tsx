@@ -44,7 +44,8 @@ export function HeroSection({
         loop
         muted
         playsInline
-        poster="/images/hero-video-poster.jpg" // Added poster image
+        preload="none"
+        poster="/images/oac-digital-hero-poster.jpg" // Added poster image
         className="absolute top-0 left-0 w-full h-full object-cover z-0"
       >
         <source src="/images/Hero-Section_background.mp4" type="video/mp4" />

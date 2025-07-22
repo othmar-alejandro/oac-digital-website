@@ -7,11 +7,12 @@ export default createMiddleware({
     // Used when no locale matches
     defaultLocale: 'en',
 
-    // Explicitly set localeDetection to false to prevent redirection
-    localeDetection: false,
+    // Explicitly set localeDetection to true (though it's the default)
+    localeDetection: true,
 
+    // Optionally, you can specify how the locale prefix is handled.
     // The default is 'as-needed'.
-    localePrefix: 'as-needed'
+    // localePrefix: 'always' // or 'as-needed' or 'never'
 });
 
 export const config = {
