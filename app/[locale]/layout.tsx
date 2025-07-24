@@ -44,7 +44,7 @@ export async function generateMetadata({ params: { locale } }: { params: { local
 
     return {
         icons: {
-            icon: '/images/logo-oac.png',
+            icon: '/images/favicon.ico',
         },
         title: {
             default: title,
