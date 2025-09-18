@@ -8,7 +8,7 @@ const localBusinessSchema: WithContext<LocalBusiness> = {
   legalName: 'OAC Digital LLC',
   description: 'OAC Digital is a digital marketing agency specializing in web design, SEO, and content creation.',
   url: 'https://oac-digital.com',
-  telephone: '(786) 615-1828',
+  telephone: '(305) 340-5282',
   email: 'contact@oac-digital.com',
   image: 'https://oac-digital.com/logo.png',
   logo: 'https://oac-digital.com/logo.png',

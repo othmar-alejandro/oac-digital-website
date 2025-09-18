@@ -20,7 +20,7 @@ export default function ServiceSchema({ pageUrl, serviceName, serviceDescription
       '@type': 'LocalBusiness',
       name: 'OAC Digital',
       url: 'https://oac-digital.com',
-      telephone: '(786) 615-1828',
+      telephone: '(305) 340-5282',
     },
     areaServed: ['Miami', 'Fort Lauderdale', 'West Palm Beach'],
     offers: {

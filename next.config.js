@@ -16,6 +16,14 @@ const nextConfig = {
     ],
     domains: ['oac-digital.com'],
   },
+  webpack: (config, { dev, isServer }) => {
+    // Fix for webpack module resolution issues
+    config.resolve.fallback = {
+      ...config.resolve.fallback,
+    };
+
+    return config;
+  },
 };
 
 module.exports = withNextIntl(nextConfig); // Use the variable from require()

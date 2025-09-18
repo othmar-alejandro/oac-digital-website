@@ -116,7 +116,7 @@ export default async function RootLayout({
                             legalName: "OAC Digital LLC",
                             description: "OAC Digital is a digital marketing agency specializing in web design, SEO, and content creation.",
                             url: "https://oac-digital.com",
-                            telephone: "(786) 615-1828",
+                            telephone: "(305) 340-5282",
                             email: "contact@oac-digital.com",
                             image: "https://oac-digital.com/logo.png",
                             logo: "https://oac-digital.com/logo.png",
@@ -165,6 +165,7 @@ fbq('track', 'PageView');
                 <noscript><img height="1" width="1" style={{display:'none'}}
 src="https://www.facebook.com/tr?id=1238734610862878&ev=PageView&noscript=1"
 alt=""
+rel="preload"
 /></noscript>
                 <script
                     type="text/javascript"

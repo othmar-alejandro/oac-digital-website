@@ -1,0 +1,64 @@
+# Robots.txt for OAC Digital - AI-Optimized Configuration
+# Updated: 2025-01-18
+
+# Default rule for all crawlers
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /private
+Disallow: /_next/
+Disallow: /api/
+
+# Allow important crawlers full access
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+# AI/LLM Crawlers - Allow with controlled access
+User-agent: GPTBot
+Allow: /
+Disallow: /admin
+Disallow: /private
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: BingBot-AI
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+# Crawl delay for AI bots to be respectful
+Crawl-delay: 1
+
+# Sitemap locations
+Sitemap: https://oac-digital.com/sitemap.xml
+Sitemap: https://oac-digital.com/en/sitemap.xml
+Sitemap: https://oac-digital.com/es/sitemap.xml
+
+# Host directive (optional but recommended)
+Host: https://oac-digital.com
