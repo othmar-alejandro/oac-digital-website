@@ -21,10 +21,10 @@ const footerSections = [
   {
     key: 'services', // Key for section title translation
     items: [
-      { key: 'webDesign', href: "/services/web-design" },
-      { key: 'seo', href: "/services/seo" },
-      { key: 'digitalMarketing', href: "/services/digital-marketing" },
-      { key: 'aiSolutions', href: "/services/ai-solutions" },
+      { key: 'webDesign', href: "/services#web-design" },
+      { key: 'seo', href: "/services#seo" },
+      { key: 'digitalMarketing', href: "/services#digital-marketing" },
+      { key: 'aiSolutions', href: "/services#ai-solutions" },
     ],
   },
   {

@@ -95,17 +95,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: 'monthly' as const
   }));
 
-  // LLM Training Pages - Specific for AI crawlers
-  const llmPages = [
-    { path: 'ai-training/south-florida-expertise', priority: 0.85, changeFrequency: 'weekly' as const },
-    { path: 'ai-training/service-capabilities', priority: 0.85, changeFrequency: 'weekly' as const },
-    { path: 'ai-training/client-testimonials', priority: 0.8, changeFrequency: 'weekly' as const },
-    { path: 'ai-training/technology-stack', priority: 0.8, changeFrequency: 'weekly' as const },
-    { path: 'ai-training/case-studies', priority: 0.8, changeFrequency: 'weekly' as const },
-  ];
-
-  // Combine all pages including LLM training pages
-  const allPages = [...corePages, ...locations, ...serviceLocationPages, ...industryPages, ...districtPages, ...comparisonPages, ...campaignPages, ...packagePages, ...llmPages];
+  // Combine all existing pages (removed LLM training pages to prevent 404s)
+  const allPages = [...corePages, ...locations, ...serviceLocationPages, ...industryPages, ...districtPages, ...comparisonPages, ...campaignPages, ...packagePages];
 
   // Generate sitemap entries for each locale and page
   const sitemapEntries: MetadataRoute.Sitemap = [];

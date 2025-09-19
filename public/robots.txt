@@ -107,7 +107,6 @@ Allow: /en/about
 Allow: /en/services
 Allow: /en/locations/
 Allow: /en/blog/
-Allow: /ai-training/
 
 # Sitemap locations for comprehensive indexing
 Sitemap: https://www.oacdigital.biz/sitemap.xml
