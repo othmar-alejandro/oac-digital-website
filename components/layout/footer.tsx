@@ -21,22 +21,50 @@ const footerSections = [
   {
     key: 'services', // Key for section title translation
     items: [
-      // Note: These keys might need adjustment based on final service list
-      { key: 'webDevelopment', href: "/services#web-development" },
-      { key: 'marketingAutomation', href: "/services#marketing-automation" },
-      { key: 'seo', href: "/services#seo" },
-      { key: 'saasDevelopment', href: "/services#saas" }, // Added based on previous discussion
-      { key: 'digitalStrategy', href: "/services#strategy" }, // Kept for now, adjust as needed
+      { key: 'webDesign', href: "/services/web-design" },
+      { key: 'seo', href: "/services/seo" },
+      { key: 'digitalMarketing', href: "/services/digital-marketing" },
+      { key: 'aiSolutions', href: "/services/ai-solutions" },
+    ],
+  },
+  {
+    key: 'locations', // Popular locations
+    items: [
+      { key: 'miami', href: "/services/web-design/miami" },
+      { key: 'fortLauderdale', href: "/services/web-design/fort-lauderdale" },
+      { key: 'westPalmBeach', href: "/services/web-design/west-palm-beach" },
+      { key: 'bocaRaton', href: "/services/web-design/boca-raton" },
+      { key: 'hollywood', href: "/services/web-design/hollywood" },
+    ],
+  },
+  {
+    key: 'industries',
+    items: [
+      { key: 'healthcare', href: "/industries/healthcare" },
+      { key: 'realEstate', href: "/industries/real-estate" },
+      { key: 'legal', href: "/industries/legal" },
+      { key: 'restaurants', href: "/industries/restaurants" },
+      { key: 'retail', href: "/industries/retail" },
+    ],
+  },
+  {
+    key: 'businessDistricts',
+    items: [
+      { key: 'brickell', href: "/areas/brickell" },
+      { key: 'wynwood', href: "/areas/wynwood" },
+      { key: 'downtownMiami', href: "/areas/downtown-miami" },
+      { key: 'southBeach', href: "/areas/south-beach" },
+      { key: 'lasOlas', href: "/areas/las-olas" },
     ],
   },
   {
     key: 'resources', // Key for section title translation
     items: [
-      { key: 'caseStudies', href: "/resources/case-studies" },
-      { key: 'documentation', href: "/resources/documentation" },
       { key: 'faqs', href: "/resources/faqs" },
-      { key: 'privacyPolicy', href: "/privacy-policy" }, // Duplicate link, also at bottom
-      { key: 'termsOfService', href: "/terms-of-service" }, // Duplicate link, also at bottom
+      { key: 'comparisons', href: "/compare/shopify-vs-woocommerce" },
+      { key: 'servicePackages', href: "/packages/web-design-and-seo" },
+      { key: 'privacyPolicy', href: "/privacy-policy" },
+      { key: 'termsOfService', href: "/terms-of-service" },
     ],
   },
 ];
@@ -47,7 +75,7 @@ export function Footer() {
   return (
     <footer className="bg-primary-dark text-white">
       <div className="container mx-auto py-16 px-4 md:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-7 gap-8">
           <div>
             <Link href="/" className="inline-block mb-6">
               <Image

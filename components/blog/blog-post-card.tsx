@@ -51,6 +51,7 @@ export function BlogPostCard({ post, index }: BlogPostCardProps) {
         <Link
           href={`/blog/${post.slug}`}
           className="text-accent hover:text-accent-dark font-medium inline-flex items-center"
+          aria-label={`Read more about ${post.title}`}
         >
           {t('readMore')} <ArrowRight size={16} className="ml-1" /> {/* Use translation */}
         </Link>

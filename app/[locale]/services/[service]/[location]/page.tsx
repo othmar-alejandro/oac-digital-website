@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { setRequestLocale } from 'next-intl/server';
 import { getMessages } from '@/i18n';
 import { LocalBusinessSchema, ServiceSchema, BreadcrumbSchema } from '@/components/seo/StructuredData';
+import { LocationLinks, ServiceLinks } from '@/components/seo/ProgrammaticNav';
 
 // Service configurations
 const services = {
@@ -453,6 +454,10 @@ export default async function ServiceLocationPage({ params: { locale, service, l
             </div>
           </div>
         </div>
+
+        {/* Internal Linking Components */}
+        <LocationLinks currentLocation={location} locale={locale} service={service} />
+        <ServiceLinks currentService={service} location={location} locale={locale} />
 
         {/* Contact CTA */}
         <div className="text-center bg-gradient-to-r from-blue-600 to-purple-600 text-white p-8 rounded-lg">

@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Link } from "@/i18n/navigation"; // Import locale-aware Link
+import Image from "next/image";
 
 interface HeroSectionProps {
   headline: string;

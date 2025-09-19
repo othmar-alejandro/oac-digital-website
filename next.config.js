@@ -4,6 +4,14 @@ const withNextIntl = require('next-intl/plugin')(
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Enable experimental features for better performance
+  experimental: {
+    optimizePackageImports: ['@radix-ui/react-icons', 'lucide-react'],
+  },
+  // Compiler optimizations
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production' ? { exclude: ['error'] } : false,
+  },
   images: {
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [
@@ -14,7 +22,7 @@ const nextConfig = {
         pathname: '/**',
       },
     ],
-    domains: ['oac-digital.com'],
+    domains: ['oac-digital.com', 'www.oacdigital.biz'],
   },
   webpack: (config, { dev, isServer }) => {
     // Fix for webpack module resolution issues

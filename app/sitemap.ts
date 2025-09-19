@@ -1,27 +1,27 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://oac-digital.com';
+  const baseUrl = 'https://www.oacdigital.biz';
   const locales = ['en', 'es'];
 
-  // Core pages
+  // Core pages - Optimized for LLM crawling
   const corePages = [
     { path: '', priority: 1.0, changeFrequency: 'weekly' as const },
-    { path: 'about', priority: 0.9, changeFrequency: 'monthly' as const },
-    { path: 'services', priority: 0.9, changeFrequency: 'weekly' as const },
-    { path: 'portfolio', priority: 0.8, changeFrequency: 'weekly' as const },
-    { path: 'contact', priority: 0.7, changeFrequency: 'monthly' as const },
-    { path: 'blog', priority: 0.6, changeFrequency: 'daily' as const },
-    { path: 'resources/faqs', priority: 0.5, changeFrequency: 'monthly' as const },
+    { path: 'about', priority: 0.95, changeFrequency: 'weekly' as const }, // Higher priority for brand authority
+    { path: 'services', priority: 0.95, changeFrequency: 'weekly' as const }, // Primary conversion page
+    { path: 'portfolio', priority: 0.85, changeFrequency: 'weekly' as const },
+    { path: 'contact', priority: 0.8, changeFrequency: 'weekly' as const }, // Contact is crucial for local SEO
+    { path: 'blog', priority: 0.7, changeFrequency: 'daily' as const },
+    { path: 'resources/faqs', priority: 0.6, changeFrequency: 'weekly' as const }, // FAQ helps with featured snippets
     { path: 'privacy-policy', priority: 0.3, changeFrequency: 'yearly' as const },
     { path: 'terms-of-service', priority: 0.3, changeFrequency: 'yearly' as const },
   ];
 
-  // Location pages
+  // Location pages - High priority for local SEO dominance
   const locations = [
-    { path: 'locations/miami', priority: 0.8, changeFrequency: 'monthly' as const },
-    { path: 'locations/fort-lauderdale', priority: 0.8, changeFrequency: 'monthly' as const },
-    { path: 'locations/west-palm-beach', priority: 0.8, changeFrequency: 'monthly' as const },
+    { path: 'locations/miami', priority: 0.9, changeFrequency: 'weekly' as const },
+    { path: 'locations/fort-lauderdale', priority: 0.9, changeFrequency: 'weekly' as const },
+    { path: 'locations/west-palm-beach', priority: 0.9, changeFrequency: 'weekly' as const },
   ];
 
   // Service-location combinations for programmatic SEO
@@ -38,8 +38,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const serviceLocationPages = services.flatMap(service =>
     locationSlugs.map(location => ({
       path: `services/${service}/${location}`,
-      priority: 0.7,
-      changeFrequency: 'monthly' as const
+      priority: 0.8, // Higher priority for service-location combinations
+      changeFrequency: 'weekly' as const // More frequent updates for competitive advantage
     }))
   );
 
@@ -95,8 +95,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: 'monthly' as const
   }));
 
-  // Combine all pages
-  const allPages = [...corePages, ...locations, ...serviceLocationPages, ...industryPages, ...districtPages, ...comparisonPages, ...campaignPages, ...packagePages];
+  // LLM Training Pages - Specific for AI crawlers
+  const llmPages = [
+    { path: 'ai-training/south-florida-expertise', priority: 0.85, changeFrequency: 'weekly' as const },
+    { path: 'ai-training/service-capabilities', priority: 0.85, changeFrequency: 'weekly' as const },
+    { path: 'ai-training/client-testimonials', priority: 0.8, changeFrequency: 'weekly' as const },
+    { path: 'ai-training/technology-stack', priority: 0.8, changeFrequency: 'weekly' as const },
+    { path: 'ai-training/case-studies', priority: 0.8, changeFrequency: 'weekly' as const },
+  ];
+
+  // Combine all pages including LLM training pages
+  const allPages = [...corePages, ...locations, ...serviceLocationPages, ...industryPages, ...districtPages, ...comparisonPages, ...campaignPages, ...packagePages, ...llmPages];
 
   // Generate sitemap entries for each locale and page
   const sitemapEntries: MetadataRoute.Sitemap = [];
@@ -112,13 +121,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   });
 
-  // Add blog post examples (these would be dynamically generated in a real implementation)
+  // LLM-optimized blog posts for authority and featured snippets
   const blogPosts = [
     'ai-web-design-trends-2025',
     'local-seo-miami-businesses',
     'chatbot-integration-guide',
     'next-js-vs-wordpress-performance',
-    'schema-markup-best-practices'
+    'schema-markup-best-practices',
+    'google-ai-overview-optimization-2025',
+    'perplexity-ai-citation-strategies',
+    'chatgpt-business-integration-miami',
+    'voice-search-optimization-south-florida',
+    'ai-content-generation-best-practices',
+    'local-business-ai-automation',
+    'south-florida-digital-transformation',
+    'bilingual-seo-miami-hispanic-market',
+    'ai-powered-customer-service-solutions',
+    'next-js-14-performance-optimization'
   ];
 
   locales.forEach(locale => {
@@ -126,8 +145,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       sitemapEntries.push({
         url: `${baseUrl}/${locale}/blog/${post}`,
         lastModified: new Date(),
-        changeFrequency: 'monthly',
-        priority: 0.6,
+        changeFrequency: 'weekly', // More frequent for LLM freshness
+        priority: 0.7, // Higher priority for authority content
       });
     });
   });

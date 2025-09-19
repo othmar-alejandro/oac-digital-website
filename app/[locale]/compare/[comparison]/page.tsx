@@ -4,8 +4,44 @@ import { setRequestLocale } from 'next-intl/server';
 import { getMessages } from '@/i18n';
 import { ServiceSchema, BreadcrumbSchema, FAQSchema } from '@/components/seo/StructuredData';
 
+// Types
+interface ComparisonResource {
+  title: string;
+  url: string;
+  description: string;
+}
+
+interface ComparisonConfig {
+  title: string;
+  subtitle: string;
+  description: string;
+  tool1: {
+    name: string;
+    logo: string;
+    pricing: string;
+    pros: string[];
+    cons: string[];
+    bestFor: string;
+  };
+  tool2: {
+    name: string;
+    logo: string;
+    pricing: string;
+    pros: string[];
+    cons: string[];
+    bestFor: string;
+  };
+  winner: string;
+  recommendation: string;
+  resources?: ComparisonResource[];
+  faqs: {
+    question: string;
+    answer: string;
+  }[];
+}
+
 // Tool comparison configurations
-const comparisons = {
+const comparisons: Record<string, ComparisonConfig> = {
   'shopify-vs-woocommerce': {
     title: 'Shopify vs WooCommerce',
     subtitle: 'E-commerce Platform Comparison 2025',
@@ -50,6 +86,23 @@ const comparisons = {
     },
     winner: 'Depends on your needs',
     recommendation: 'Choose Shopify for simplicity and quick launch, WooCommerce for customization and control.',
+    resources: [
+      {
+        title: 'Shopify Partner Academy',
+        url: 'https://partners.shopify.com/academy',
+        description: 'Official Shopify training and best practices guide'
+      },
+      {
+        title: 'WooCommerce Documentation',
+        url: 'https://woocommerce.com/documentation/',
+        description: 'Comprehensive WooCommerce setup and optimization guide'
+      },
+      {
+        title: 'E-commerce Platform Market Share 2024',
+        url: 'https://trends.builtwith.com/shop',
+        description: 'Industry statistics on e-commerce platform adoption and performance'
+      }
+    ],
     faqs: [
       {
         question: 'Which is better for beginners: Shopify or WooCommerce?',
@@ -168,6 +221,23 @@ const comparisons = {
     },
     winner: 'Use both for optimal results',
     recommendation: 'Combine Google Ads for high-intent searches with Facebook Ads for awareness and retargeting.',
+    resources: [
+      {
+        title: 'Google Ads Official Help Center',
+        url: 'https://support.google.com/google-ads',
+        description: 'Comprehensive guide to Google Ads best practices and optimization'
+      },
+      {
+        title: 'Facebook Business Help Center',
+        url: 'https://www.facebook.com/business/help',
+        description: 'Official Facebook advertising guidelines and strategies'
+      },
+      {
+        title: 'Digital Marketing Industry Report 2024',
+        url: 'https://www.hubspot.com/marketing-statistics',
+        description: 'Latest advertising platform performance statistics and trends'
+      }
+    ],
     faqs: [
       {
         question: 'Which platform gives better ROI?',
@@ -526,6 +596,38 @@ export default async function ComparisonPage({ params: { locale, comparison } }:
             ))}
           </div>
         </div>
+
+        {/* Additional Resources */}
+        {comparisonConfig.resources && (
+          <div className="mb-12">
+            <h2 className="text-3xl font-bold text-center mb-8">
+              📚 Additional Resources & Research
+            </h2>
+            <div className="max-w-4xl mx-auto grid md:grid-cols-3 gap-6">
+              {comparisonConfig.resources.map((resource, index) => (
+                <div key={index} className="bg-white p-6 rounded-lg shadow border hover:shadow-lg transition-shadow">
+                  <h3 className="text-lg font-semibold mb-3">
+                    <a
+                      href={resource.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:text-blue-800 flex items-center"
+                    >
+                      {resource.title}
+                      <span className="ml-2">↗</span>
+                    </a>
+                  </h3>
+                  <p className="text-gray-600 text-sm">{resource.description}</p>
+                </div>
+              ))}
+            </div>
+            <div className="text-center mt-6">
+              <p className="text-sm text-gray-500">
+                External links are provided for additional research and do not constitute endorsements.
+              </p>
+            </div>
+          </div>
+        )}
 
         {/* Need Help Choosing? CTA */}
         <div className="text-center bg-gradient-to-r from-blue-600 to-purple-600 text-white p-8 rounded-lg">

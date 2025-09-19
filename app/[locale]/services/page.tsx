@@ -10,6 +10,7 @@ import { CTASection } from "@/components/home/cta-section";
 import { FaqAccordion } from "@/components/common/FaqAccordion";
 import ServiceSchema from "@/components/shared/ServiceSchema";
 import Head from "next/head";
+import Image from "next/image";
 
 // Function to generate services using translations
 const getServices = (t: Function): ServiceItem[] => [
@@ -122,10 +123,18 @@ export default function Services({ params: { locale } }: { params: { locale: str
       <Layout>
         <SectionWrapper
           bgColor="dark"
-          className="pt-32 md:pt-40 relative bg-cover bg-center bg-[url('/images/global-business-internet-network-connection-iot-internet-things-business-intelligence-concept-busines-global-network-futuristic-technology-background-ai-generative.jpg')]"
+          className="pt-32 md:pt-40 relative"
         >
-          <div className="absolute inset-0 bg-black opacity-60"></div>
-          <div ref={headerRef} className="text-center mb-16 opacity-0 relative z-10">
+          <Image
+            src="/images/global-business-internet-network-connection-iot-internet-things-business-intelligence-concept-busines-global-network-futuristic-technology-background-ai-generative.jpg"
+            alt="Digital transformation background"
+            fill
+            className="absolute inset-0 object-cover z-0"
+            quality={75}
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-black opacity-60 z-10"></div>
+          <div ref={headerRef} className="text-center mb-16 opacity-0 relative z-20">
             <h1 className="text-4xl md:text-5xl lg:text-6xl mb-6 text-white">{t('title')}</h1>
             <p className="text-xl text-gray-200 max-w-3xl mx-auto">
               {t('description')}

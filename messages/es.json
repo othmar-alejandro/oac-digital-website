@@ -33,19 +33,48 @@
             "services": {
                 "title": "Servicios",
                 "items": {
-                    "webDevelopment": "Desarrollo Web",
-                    "marketingAutomation": "Automatización de Marketing",
-                    "seo": "Optimización SEO",
-                    "saasDevelopment": "Desarrollo SaaS",
-                    "digitalStrategy": "Estrategia Digital"
+                    "webDesign": "Diseño Web",
+                    "seo": "SEO",
+                    "digitalMarketing": "Marketing Digital",
+                    "aiSolutions": "Soluciones IA"
+                }
+            },
+            "locations": {
+                "title": "🌴 Ubicaciones Populares",
+                "items": {
+                    "miami": "Miami",
+                    "fortLauderdale": "Fort Lauderdale",
+                    "westPalmBeach": "West Palm Beach",
+                    "bocaRaton": "Boca Ratón",
+                    "hollywood": "Hollywood"
+                }
+            },
+            "industries": {
+                "title": "🏭 Industrias",
+                "items": {
+                    "healthcare": "Salud",
+                    "realEstate": "Bienes Raíces",
+                    "legal": "Servicios Legales",
+                    "restaurants": "Restaurantes",
+                    "retail": "Comercio"
+                }
+            },
+            "businessDistricts": {
+                "title": "🏢 Distritos Comerciales",
+                "items": {
+                    "brickell": "Brickell",
+                    "wynwood": "Wynwood",
+                    "downtownMiami": "Centro de Miami",
+                    "southBeach": "South Beach",
+                    "lasOlas": "Las Olas"
                 }
             },
             "resources": {
                 "title": "Recursos",
                 "items": {
-                    "caseStudies": "Casos de Estudio",
-                    "documentation": "Documentación",
                     "faqs": "Preguntas Frecuentes",
+                    "comparisons": "Comparaciones",
+                    "servicePackages": "Paquetes de Servicios",
                     "privacyPolicy": "Política de Privacidad",
                     "termsOfService": "Términos de Servicio"
                 }

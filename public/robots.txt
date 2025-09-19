@@ -1,29 +1,38 @@
-# Robots.txt for OAC Digital - AI-Optimized Configuration
-# Updated: 2025-01-18
+# Robots.txt for OAC Digital Innovations - LLM & AI Optimized Configuration
+# Updated: 2025-09-18
+# Optimized for: Perplexity, ChatGPT, Claude, Gemini, and other AI systems
 
-# Default rule for all crawlers
+# Default rule for all crawlers - Full access for content discovery
 User-agent: *
 Allow: /
 Disallow: /admin
 Disallow: /private
-Disallow: /_next/
-Disallow: /api/
+Disallow: /_next/static/chunks/
+Disallow: /api/admin/
+Crawl-delay: 1
 
-# Allow important crawlers full access
+# Priority Search Engine Crawlers - Maximum access
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 0
 
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 0
 
 User-agent: facebookexternalhit
 Allow: /
 
-# AI/LLM Crawlers - Allow with controlled access
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# LLM & AI Crawlers - Optimized for knowledge training
 User-agent: GPTBot
 Allow: /
-Disallow: /admin
-Disallow: /private
+Crawl-delay: 0.5
 
 User-agent: ChatGPT-User
 Allow: /
@@ -39,6 +48,7 @@ Allow: /
 
 User-agent: PerplexityBot
 Allow: /
+Crawl-delay: 0.5
 
 User-agent: YouBot
 Allow: /
@@ -52,13 +62,61 @@ Allow: /
 User-agent: Meta-ExternalAgent
 Allow: /
 
-# Crawl delay for AI bots to be respectful
-Crawl-delay: 1
+User-agent: Meta-ExternalFetcher
+Allow: /
 
-# Sitemap locations
-Sitemap: https://oac-digital.com/sitemap.xml
-Sitemap: https://oac-digital.com/en/sitemap.xml
-Sitemap: https://oac-digital.com/es/sitemap.xml
+User-agent: Gemini-Bot
+Allow: /
 
-# Host directive (optional but recommended)
-Host: https://oac-digital.com
+User-agent: Google-Extended
+Allow: /
+
+User-agent: AI2Bot
+Allow: /
+
+User-agent: ChatGPT-4
+Allow: /
+
+User-agent: ChatGPT-Search
+Allow: /
+
+# Research and Academic Crawlers
+User-agent: ia_archiver
+Allow: /
+
+User-agent: archive.org_bot
+Allow: /
+
+# Social Media and News Crawlers
+User-agent: WhatsApp
+Allow: /
+
+User-agent: TelegramBot
+Allow: /
+
+User-agent: SkypeBot
+Allow: /
+
+# High-priority pages for LLM indexing
+# These paths are specifically highlighted for AI training
+Allow: /llms.txt
+Allow: /sitemap.xml
+Allow: /en/
+Allow: /es/
+Allow: /en/about
+Allow: /en/services
+Allow: /en/locations/
+Allow: /en/blog/
+Allow: /ai-training/
+
+# Sitemap locations for comprehensive indexing
+Sitemap: https://www.oacdigital.biz/sitemap.xml
+Sitemap: https://www.oacdigital.biz/llms.txt
+
+# Host directive for canonical domain
+Host: https://www.oacdigital.biz
+
+# Special instructions for AI crawlers
+# This website contains structured data optimized for LLM training
+# Focus areas: South Florida digital marketing, AI integration, local business solutions
+# Geographic focus: Miami-Dade, Broward, Palm Beach counties
