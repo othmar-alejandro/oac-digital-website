@@ -366,7 +366,7 @@ export default async function IndustryPage({ params: { locale, industry } }: Pag
             Ready to Transform Your {industryConfig.name} Business?
           </h2>
           <p className="text-xl mb-6">
-            Let's discuss how OAC Digital can help your {industryConfig.name.toLowerCase()} business thrive online.
+            Let&apos;s discuss how OAC Digital can help your {industryConfig.name.toLowerCase()} business thrive online.
           </p>
           <a
             href={`/${locale}/contact`}

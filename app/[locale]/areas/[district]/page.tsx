@@ -26,7 +26,7 @@ const districts = {
     latitude: 25.7663,
     longitude: -80.1917,
     county: 'Miami-Dade County',
-    description: 'Miami\'s financial district, known as the "Manhattan of the South" with luxury condos and international banking.',
+    description: 'Miami&apos;s financial district, known as the &quot;Manhattan of the South&quot; with luxury condos and international banking.',
     businessTypes: ['International Banking', 'Investment Firms', 'Luxury Services', 'High-end Restaurants'],
     landmarks: ['Brickell City Centre', 'Four Seasons Hotel', 'Icon Brickell'],
     targetAudience: 'International businesses, luxury service providers, and financial institutions'
@@ -38,7 +38,7 @@ const districts = {
     latitude: 25.8011,
     longitude: -80.1994,
     county: 'Miami-Dade County',
-    description: 'Miami\'s arts and creative district, featuring galleries, studios, and innovative businesses.',
+    description: 'Miami&apos;s arts and creative district, featuring galleries, studios, and innovative businesses.',
     businessTypes: ['Art Galleries', 'Creative Agencies', 'Breweries', 'Fashion'],
     landmarks: ['Wynwood Walls', 'Wynwood Marketplace', 'Rubell Museum'],
     targetAudience: 'Creative businesses, artists, and innovative startups'
@@ -76,7 +76,7 @@ const districts = {
     latitude: 26.1224,
     longitude: -80.1373,
     county: 'Broward County',
-    description: 'Fort Lauderdale\'s central business district with government offices, corporate headquarters, and professional services.',
+    description: 'Fort Lauderdale&apos;s central business district with government offices, corporate headquarters, and professional services.',
     businessTypes: ['Government', 'Professional Services', 'Corporate Offices', 'Legal Services'],
     landmarks: ['Broward County Courthouse', 'Riverwalk', 'Las Olas Boulevard'],
     targetAudience: 'Professional service firms, government contractors, and corporate entities'
@@ -314,7 +314,7 @@ export default async function DistrictPage({ params: { locale, district } }: Pag
             <div className="bg-white p-6 rounded-lg shadow-lg border">
               <h3 className="text-lg font-semibold mb-3">Local SEO</h3>
               <p className="text-gray-600 text-sm">
-                Optimize your visibility for "{districtConfig.name}" and local area searches.
+                Optimize your visibility for &quot;{districtConfig.name}&quot; and local area searches.
               </p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-lg border">
@@ -344,7 +344,7 @@ export default async function DistrictPage({ params: { locale, district } }: Pag
               </div>
               <h3 className="text-xl font-semibold mb-3">Local Market Knowledge</h3>
               <p className="text-gray-600">
-                Deep understanding of {districtConfig.name}'s business ecosystem and target demographics.
+                Deep understanding of {districtConfig.name}&apos;s business ecosystem and target demographics.
               </p>
             </div>
             <div className="text-center">
@@ -411,7 +411,7 @@ export default async function DistrictPage({ params: { locale, district } }: Pag
             Ready to Elevate Your {districtConfig.name} Business?
           </h2>
           <p className="text-xl mb-6">
-            Let's discuss how OAC Digital can help your business thrive in {districtConfig.name}.
+            Let&apos;s discuss how OAC Digital can help your business thrive in {districtConfig.name}.
           </p>
           <a
             href={`/${locale}/contact`}

@@ -85,8 +85,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: 'monthly' as const
   }));
 
+  // Service package pages
+  const servicePackages = [
+    'web-design-and-seo', 'seo-and-digital-marketing', 'web-design-and-digital-marketing', 'seo-and-ai-solutions'
+  ];
+  const packagePages = servicePackages.map(packageName => ({
+    path: `packages/${packageName}`,
+    priority: 0.7,
+    changeFrequency: 'monthly' as const
+  }));
+
   // Combine all pages
-  const allPages = [...corePages, ...locations, ...serviceLocationPages, ...industryPages, ...districtPages, ...comparisonPages, ...campaignPages];
+  const allPages = [...corePages, ...locations, ...serviceLocationPages, ...industryPages, ...districtPages, ...comparisonPages, ...campaignPages, ...packagePages];
 
   // Generate sitemap entries for each locale and page
   const sitemapEntries: MetadataRoute.Sitemap = [];

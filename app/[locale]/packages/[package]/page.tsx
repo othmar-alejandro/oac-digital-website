@@ -4,8 +4,8 @@ import { setRequestLocale } from 'next-intl/server';
 import { getMessages } from '@/i18n';
 import { ServiceSchema, BreadcrumbSchema, FAQSchema } from '@/components/seo/StructuredData';
 
-// Service combination configurations
-const serviceCombinations = {
+// Service package configurations
+const servicePackages = {
   'web-design-and-seo': {
     title: 'Web Design and SEO Services',
     service1: 'Web Design',
@@ -239,37 +239,34 @@ const serviceCombinations = {
 interface PageProps {
   params: {
     locale: string;
-    service1: string;
-    service2: string;
+    package: string;
   };
 }
 
 export async function generateStaticParams() {
-  const combinationKeys = Object.keys(serviceCombinations);
+  const packageKeys = Object.keys(servicePackages);
   const locales = ['en', 'es'];
 
   const params = [];
 
   for (const locale of locales) {
-    for (const combination of combinationKeys) {
-      const [service1, , service2] = combination.split('-');
-      params.push({ locale, service1, service2 });
+    for (const packageKey of packageKeys) {
+      params.push({ locale, package: packageKey });
     }
   }
 
   return params;
 }
 
-export async function generateMetadata({ params: { locale, service1, service2 } }: PageProps): Promise<Metadata> {
-  const combinationKey = `${service1}-and-${service2}`;
-  const combinationConfig = serviceCombinations[combinationKey as keyof typeof serviceCombinations];
+export async function generateMetadata({ params: { locale, package: packageKey } }: PageProps): Promise<Metadata> {
+  const packageConfig = servicePackages[packageKey as keyof typeof servicePackages];
 
-  if (!combinationConfig) {
-    return { title: 'Service Combination Not Found' };
+  if (!packageConfig) {
+    return { title: 'Service Package Not Found' };
   }
 
-  const title = `${combinationConfig.title} | OAC Digital`;
-  const description = combinationConfig.description;
+  const title = `${packageConfig.title} | OAC Digital`;
+  const description = packageConfig.description;
 
   return {
     title,
@@ -277,27 +274,26 @@ export async function generateMetadata({ params: { locale, service1, service2 } 
     openGraph: {
       title,
       description,
-      url: `https://oac-digital.com/${locale}/services/${service1}-and-${service2}`,
+      url: `https://oac-digital.com/${locale}/packages/${packageKey}`,
       type: 'website',
       locale: locale === 'es' ? 'es_US' : 'en_US',
     },
     alternates: {
-      canonical: `https://oac-digital.com/${locale}/services/${service1}-and-${service2}`,
+      canonical: `https://oac-digital.com/${locale}/packages/${packageKey}`,
       languages: {
-        'en': `https://oac-digital.com/en/services/${service1}-and-${service2}`,
-        'es': `https://oac-digital.com/es/services/${service1}-and-${service2}`,
+        'en': `https://oac-digital.com/en/packages/${packageKey}`,
+        'es': `https://oac-digital.com/es/packages/${packageKey}`,
       }
     }
   };
 }
 
-export default async function ServiceCombinationPage({ params: { locale, service1, service2 } }: PageProps) {
+export default async function ServicePackagePage({ params: { locale, package: packageKey } }: PageProps) {
   setRequestLocale(locale);
 
-  const combinationKey = `${service1}-and-${service2}`;
-  const combinationConfig = serviceCombinations[combinationKey as keyof typeof serviceCombinations];
+  const packageConfig = servicePackages[packageKey as keyof typeof servicePackages];
 
-  if (!combinationConfig) {
+  if (!packageConfig) {
     notFound();
   }
 
@@ -306,8 +302,8 @@ export default async function ServiceCombinationPage({ params: { locale, service
   // Breadcrumb items
   const breadcrumbItems = [
     { name: 'Home', url: `https://oac-digital.com/${locale}` },
-    { name: 'Services', url: `https://oac-digital.com/${locale}/services` },
-    { name: combinationConfig.title, url: `https://oac-digital.com/${locale}/services/${service1}-and-${service2}` }
+    { name: 'Packages', url: `https://oac-digital.com/${locale}/packages` },
+    { name: packageConfig.title, url: `https://oac-digital.com/${locale}/packages/${packageKey}` }
   ];
 
   return (
@@ -315,29 +311,29 @@ export default async function ServiceCombinationPage({ params: { locale, service
       {/* Structured Data */}
       <ServiceSchema
         service={{
-          name: combinationConfig.title,
-          description: combinationConfig.description,
+          name: packageConfig.title,
+          description: packageConfig.description,
           serviceType: 'DigitalMarketingService',
           provider: 'OAC Digital Innovations',
           offers: [{
-            name: combinationConfig.title,
-            description: combinationConfig.description,
-            price: combinationConfig.pricing.starting,
+            name: packageConfig.title,
+            description: packageConfig.description,
+            price: packageConfig.pricing.starting,
             priceCurrency: 'USD'
           }]
         }}
       />
       <BreadcrumbSchema items={breadcrumbItems} />
-      <FAQSchema faqs={combinationConfig.faqs} />
+      <FAQSchema faqs={packageConfig.faqs} />
 
       <div className="container mx-auto px-4 py-8">
         {/* Hero Section */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            {combinationConfig.title}
+            {packageConfig.title}
           </h1>
           <p className="text-xl text-gray-600 mb-6 max-w-4xl mx-auto">
-            {combinationConfig.description}
+            {packageConfig.description}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
@@ -357,18 +353,18 @@ export default async function ServiceCombinationPage({ params: { locale, service
 
         {/* Pricing Highlight */}
         <div className="mb-12 bg-gradient-to-r from-green-50 to-blue-50 p-6 rounded-lg text-center">
-          <h2 className="text-2xl font-bold mb-4">Complete Package Starting at {combinationConfig.pricing.starting}</h2>
-          <p className="text-lg text-gray-700 mb-4">Includes: {combinationConfig.pricing.includes.join(', ')}</p>
+          <h2 className="text-2xl font-bold mb-4">Complete Package Starting at {packageConfig.pricing.starting}</h2>
+          <p className="text-lg text-gray-700 mb-4">Includes: {packageConfig.pricing.includes.join(', ')}</p>
           <p className="text-sm text-gray-600">Save up to 40% compared to purchasing services separately</p>
         </div>
 
         {/* Benefits */}
         <div className="mb-12">
           <h2 className="text-3xl font-bold text-center mb-8">
-            Why Combine {combinationConfig.service1} and {combinationConfig.service2}?
+            Why Combine {packageConfig.service1} and {packageConfig.service2}?
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {combinationConfig.benefits.map((benefit, index) => (
+            {packageConfig.benefits.map((benefit, index) => (
               <div key={index} className="bg-white p-6 rounded-lg shadow-lg border">
                 <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-4">
                   <span className="text-green-600 text-xl">✓</span>
@@ -383,7 +379,7 @@ export default async function ServiceCombinationPage({ params: { locale, service
         <div className="mb-12">
           <h2 className="text-3xl font-bold text-center mb-8">Our Process</h2>
           <div className="space-y-6">
-            {combinationConfig.process.map((step, index) => (
+            {packageConfig.process.map((step, index) => (
               <div key={index} className="flex items-start bg-white p-6 rounded-lg shadow border">
                 <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-6 flex-shrink-0">
                   <span className="text-blue-600 font-bold">{step.step}</span>
@@ -435,7 +431,7 @@ export default async function ServiceCombinationPage({ params: { locale, service
             Frequently Asked Questions
           </h2>
           <div className="max-w-4xl mx-auto space-y-6">
-            {combinationConfig.faqs.map((faq, index) => (
+            {packageConfig.faqs.map((faq, index) => (
               <div key={index} className="bg-white p-6 rounded-lg shadow border">
                 <h3 className="text-lg font-semibold mb-3">{faq.question}</h3>
                 <p className="text-gray-600">{faq.answer}</p>
@@ -450,7 +446,7 @@ export default async function ServiceCombinationPage({ params: { locale, service
             Ready to Transform Your Business?
           </h2>
           <p className="text-xl mb-6">
-            Get started with our {combinationConfig.service1} and {combinationConfig.service2} package today.
+            Get started with our {packageConfig.service1} and {packageConfig.service2} package today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
