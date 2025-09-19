@@ -45,8 +45,7 @@ export function HeroSection({
         loop
         muted
         playsInline
-        preload="none"
-        poster="/images/global-business-internet-network-connection-iot-internet-things-business-intelligence-concept-busines-global-network-futuristic-technology-background-ai-generative.jpg"
+        preload="metadata"
         className="absolute top-0 left-0 w-full h-full object-cover z-0"
       >
         <source src="/images/Hero-Section_background.mp4" type="video/mp4" />
