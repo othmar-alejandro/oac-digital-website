@@ -76,13 +76,7 @@ export default function ServiceSchema({ pageUrl, serviceName, serviceDescription
         url: 'https://www.oacdigital.biz'
       }
     },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.9',
-      reviewCount: '89',
-      bestRating: '5',
-      worstRating: '1'
-    },
+    // Note: AggregateRating intentionally omitted to prevent multiple aggregate ratings on a single page
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: `${serviceName} - AI-Enhanced Solutions`,

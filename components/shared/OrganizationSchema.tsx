@@ -166,13 +166,7 @@ const organizationSchema: WithContext<Organization> = {
     'Top Digital Agency South Florida 2024',
     'Best AI Integration Services Miami 2024'
   ],
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.9',
-    reviewCount: '127',
-    bestRating: '5',
-    worstRating: '1'
-  },
+  // Note: AggregateRating intentionally omitted to avoid duplicate ratings with LocalBusinessSchema
   review: [
     {
       '@type': 'Review',
