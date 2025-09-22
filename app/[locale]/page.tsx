@@ -10,7 +10,6 @@ import { PortfolioPreview } from "@/components/home/portfolio-preview";
 import { LocationsReach } from "@/components/home/locations-reach";
 import { BlogPreview } from "@/components/home/blog-preview";
 import { CTASection } from "@/components/home/cta-section";
-import LocalBusinessSchema from '@/components/shared/LocalBusinessSchema';
 import Head from 'next/head';
 
 export default function Home({ params: { locale } }: { params: { locale: string } }) {
@@ -26,7 +25,6 @@ export default function Home({ params: { locale } }: { params: { locale: string 
                 />
             </Head>
             <Layout>
-                <LocalBusinessSchema />
                 <HeroSection
                     headline={t('headline')}
                     subHeadline={t('subHeadline')}
