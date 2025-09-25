@@ -274,15 +274,15 @@ export async function generateMetadata({ params: { locale, package: packageKey }
     openGraph: {
       title,
       description,
-      url: `https://oac-digital.com/${locale}/packages/${packageKey}`,
+      url: `https://www.oacdigital.biz/${locale}/packages/${packageKey}`,
       type: 'website',
       locale: locale === 'es' ? 'es_US' : 'en_US',
     },
     alternates: {
-      canonical: `https://oac-digital.com/${locale}/packages/${packageKey}`,
+      canonical: `https://www.oacdigital.biz/${locale}/packages/${packageKey}`,
       languages: {
-        'en': `https://oac-digital.com/en/packages/${packageKey}`,
-        'es': `https://oac-digital.com/es/packages/${packageKey}`,
+        'en': `https://www.oacdigital.biz/en/packages/${packageKey}`,
+        'es': `https://www.oacdigital.biz/es/packages/${packageKey}`,
       }
     }
   };
@@ -301,9 +301,9 @@ export default async function ServicePackagePage({ params: { locale, package: pa
 
   // Breadcrumb items
   const breadcrumbItems = [
-    { name: 'Home', url: `https://oac-digital.com/${locale}` },
-    { name: 'Packages', url: `https://oac-digital.com/${locale}/packages` },
-    { name: packageConfig.title, url: `https://oac-digital.com/${locale}/packages/${packageKey}` }
+    { name: 'Home', url: `https://www.oacdigital.biz/${locale}` },
+    { name: 'Packages', url: `https://www.oacdigital.biz/${locale}/packages` },
+    { name: packageConfig.title, url: `https://www.oacdigital.biz/${locale}/packages/${packageKey}` }
   ];
 
   return (

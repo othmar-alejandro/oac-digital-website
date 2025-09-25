@@ -411,15 +411,15 @@ export async function generateMetadata({ params: { locale, comparison } }: PageP
     openGraph: {
       title,
       description,
-      url: `https://oac-digital.com/${locale}/compare/${comparison}`,
+      url: `https://www.oacdigital.biz/${locale}/compare/${comparison}`,
       type: 'article',
       locale: locale === 'es' ? 'es_US' : 'en_US',
     },
     alternates: {
-      canonical: `https://oac-digital.com/${locale}/compare/${comparison}`,
+      canonical: `https://www.oacdigital.biz/${locale}/compare/${comparison}`,
       languages: {
-        'en': `https://oac-digital.com/en/compare/${comparison}`,
-        'es': `https://oac-digital.com/es/compare/${comparison}`,
+        'en': `https://www.oacdigital.biz/en/compare/${comparison}`,
+        'es': `https://www.oacdigital.biz/es/compare/${comparison}`,
       }
     }
   };
@@ -438,9 +438,9 @@ export default async function ComparisonPage({ params: { locale, comparison } }:
 
   // Breadcrumb items
   const breadcrumbItems = [
-    { name: 'Home', url: `https://oac-digital.com/${locale}` },
-    { name: 'Comparisons', url: `https://oac-digital.com/${locale}/compare` },
-    { name: comparisonConfig.title, url: `https://oac-digital.com/${locale}/compare/${comparison}` }
+    { name: 'Home', url: `https://www.oacdigital.biz/${locale}` },
+    { name: 'Comparisons', url: `https://www.oacdigital.biz/${locale}/compare` },
+    { name: comparisonConfig.title, url: `https://www.oacdigital.biz/${locale}/compare/${comparison}` }
   ];
 
   return (

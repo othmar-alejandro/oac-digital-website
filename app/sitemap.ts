@@ -80,8 +80,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'holiday-marketing-2025', 'back-to-school-2025', 'summer-business-boost-2025',
     'new-year-digital-transformation-2025', 'spring-cleaning-digital-2025'
   ];
-  const campaignPages = seasonalCampaigns.map(campaign => ({
-    path: `campaigns/${campaign}`,
+  const campaignPages = seasonalCampaigns.map(season => ({
+    path: `campaigns/${season}`,
     priority: 0.6,
     changeFrequency: 'monthly' as const
   }));

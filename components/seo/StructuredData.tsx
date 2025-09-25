@@ -26,11 +26,11 @@ export function StructuredData({ type, data }: StructuredDataProps) {
 // Organization Schema Component
 export function OrganizationSchema() {
   const organizationData = {
-    '@id': 'https://oac-digital.com/#organization',
+    '@id': 'https://www.oacdigital.biz/#organization',
     name: 'OAC Digital Innovations',
     legalName: 'OAC Digital Innovations LLC',
-    url: 'https://oac-digital.com',
-    logo: 'https://oac-digital.com/images/logo-oac.png',
+    url: 'https://www.oacdigital.biz',
+    logo: 'https://www.oacdigital.biz/images/logo-oac.png',
     description: 'OAC Digital is a leading digital marketing agency specializing in AI-enhanced web design, SEO, and custom digital solutions for businesses in South Florida.',
     foundingDate: '2023',
     founders: [{
@@ -84,14 +84,14 @@ interface LocalBusinessSchemaProps {
 
 export function LocalBusinessSchema({ location }: LocalBusinessSchemaProps) {
   const businessData = {
-    '@id': `https://oac-digital.com/#business-${location.city.toLowerCase()}`,
+    '@id': `https://www.oacdigital.biz/#business-${location.city.toLowerCase()}`,
     name: `OAC Digital - ${location.city}`,
     description: `Professional digital marketing and web design services in ${location.city}, ${location.state}. Specializing in AI-enhanced solutions for local businesses.`,
-    url: `https://oac-digital.com/en/locations/${location.city.toLowerCase().replace(' ', '-')}`,
+    url: `https://www.oacdigital.biz/en/locations/${location.city.toLowerCase().replace(' ', '-')}`,
     telephone: '+1-305-340-5282',
     email: 'contact@oac-digital.com',
-    image: 'https://oac-digital.com/images/logo-oac.png',
-    logo: 'https://oac-digital.com/images/logo-oac.png',
+    image: 'https://www.oacdigital.biz/images/logo-oac.png',
+    logo: 'https://www.oacdigital.biz/images/logo-oac.png',
     address: {
       '@type': 'PostalAddress',
       addressLocality: location.city,
@@ -108,7 +108,7 @@ export function LocalBusinessSchema({ location }: LocalBusinessSchemaProps) {
     priceRange: '$$',
     areaServed: `${location.city}, ${location.state}`,
     parentOrganization: {
-      '@id': 'https://oac-digital.com/#organization'
+      '@id': 'https://www.oacdigital.biz/#organization'
     }
   };
 
@@ -139,7 +139,7 @@ export function ServiceSchema({ service }: ServiceSchemaProps) {
     serviceType: service.serviceType,
     provider: {
       '@type': 'Organization',
-      '@id': 'https://oac-digital.com/#organization'
+      '@id': 'https://www.oacdigital.biz/#organization'
     },
     areaServed: service.areaServed || 'Miami-Dade County, Broward County, Palm Beach County',
     hasOfferCatalog: {
@@ -206,12 +206,12 @@ export function ArticleSchema({ article }: ArticleSchemaProps) {
       name: article.author
     },
     publisher: {
-      '@id': 'https://oac-digital.com/#organization'
+      '@id': 'https://www.oacdigital.biz/#organization'
     },
     datePublished: article.datePublished,
     dateModified: article.dateModified || article.datePublished,
     mainEntityOfPage: article.url,
-    image: article.image || 'https://oac-digital.com/images/logo-oac.png',
+    image: article.image || 'https://www.oacdigital.biz/images/logo-oac.png',
     url: article.url
   };
 

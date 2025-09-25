@@ -16,7 +16,7 @@ export default function FortLauderdalePage() {
                 <title>{t('meta.title')}</title>
                 <meta name="description" content={t('meta.description')} />
                 <LocationSpecificSchema
-                    pageUrl="https://oac-digital.com/locations/fort-lauderdale"
+                    pageUrl="https://www.oacdigital.biz/locations/fort-lauderdale"
                     locationName="Fort Lauderdale"
                     nearbyAreas={["Hollywood", "Pompano Beach", "Boca Raton"]}
                     serviceName="Digital Marketing"

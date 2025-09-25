@@ -113,7 +113,7 @@ export default function Services({ params: { locale } }: { params: { locale: str
         {services.map((service) => (
           <ServiceSchema
             key={service.id}
-            pageUrl={`https://oac-digital.com/services#${service.id}`}
+            pageUrl={`https://www.oacdigital.biz/services#${service.id}`}
             serviceName={service.title}
             serviceDescription={service.description}
             serviceCategory={service.title}

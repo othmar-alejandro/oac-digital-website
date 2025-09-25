@@ -208,15 +208,15 @@ export async function generateMetadata({ params: { locale, industry } }: PagePro
     openGraph: {
       title,
       description,
-      url: `https://oac-digital.com/${locale}/industries/${industry}`,
+      url: `https://www.oacdigital.biz/${locale}/industries/${industry}`,
       type: 'website',
       locale: locale === 'es' ? 'es_US' : 'en_US',
     },
     alternates: {
-      canonical: `https://oac-digital.com/${locale}/industries/${industry}`,
+      canonical: `https://www.oacdigital.biz/${locale}/industries/${industry}`,
       languages: {
-        'en': `https://oac-digital.com/en/industries/${industry}`,
-        'es': `https://oac-digital.com/es/industries/${industry}`,
+        'en': `https://www.oacdigital.biz/en/industries/${industry}`,
+        'es': `https://www.oacdigital.biz/es/industries/${industry}`,
       }
     }
   };
@@ -235,9 +235,9 @@ export default async function IndustryPage({ params: { locale, industry } }: Pag
 
   // Breadcrumb items
   const breadcrumbItems = [
-    { name: 'Home', url: `https://oac-digital.com/${locale}` },
-    { name: 'Industries', url: `https://oac-digital.com/${locale}/industries` },
-    { name: industryConfig.name, url: `https://oac-digital.com/${locale}/industries/${industry}` }
+    { name: 'Home', url: `https://www.oacdigital.biz/${locale}` },
+    { name: 'Industries', url: `https://www.oacdigital.biz/${locale}/industries` },
+    { name: industryConfig.name, url: `https://www.oacdigital.biz/${locale}/industries/${industry}` }
   ];
 
   return (

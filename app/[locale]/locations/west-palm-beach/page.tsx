@@ -16,7 +16,7 @@ export default function WestPalmBeachPage() {
                 <title>{t('meta.title')}</title>
                 <meta name="description" content={t('meta.description')} />
                 <LocationSpecificSchema
-                    pageUrl="https://oac-digital.com/locations/west-palm-beach"
+                    pageUrl="https://www.oacdigital.biz/locations/west-palm-beach"
                     locationName="West Palm Beach"
                     nearbyAreas={["Boca Raton", "Delray Beach", "Jupiter"]}
                     serviceName="Digital Marketing"

@@ -183,15 +183,15 @@ export async function generateMetadata({ params: { locale, district } }: PagePro
     openGraph: {
       title,
       description,
-      url: `https://oac-digital.com/${locale}/areas/${district}`,
+      url: `https://www.oacdigital.biz/${locale}/areas/${district}`,
       type: 'website',
       locale: locale === 'es' ? 'es_US' : 'en_US',
     },
     alternates: {
-      canonical: `https://oac-digital.com/${locale}/areas/${district}`,
+      canonical: `https://www.oacdigital.biz/${locale}/areas/${district}`,
       languages: {
-        'en': `https://oac-digital.com/en/areas/${district}`,
-        'es': `https://oac-digital.com/es/areas/${district}`,
+        'en': `https://www.oacdigital.biz/en/areas/${district}`,
+        'es': `https://www.oacdigital.biz/es/areas/${district}`,
       }
     }
   };
@@ -210,9 +210,9 @@ export default async function DistrictPage({ params: { locale, district } }: Pag
 
   // Breadcrumb items
   const breadcrumbItems = [
-    { name: 'Home', url: `https://oac-digital.com/${locale}` },
-    { name: 'Service Areas', url: `https://oac-digital.com/${locale}/areas` },
-    { name: districtConfig.name, url: `https://oac-digital.com/${locale}/areas/${district}` }
+    { name: 'Home', url: `https://www.oacdigital.biz/${locale}` },
+    { name: 'Service Areas', url: `https://www.oacdigital.biz/${locale}/areas` },
+    { name: districtConfig.name, url: `https://www.oacdigital.biz/${locale}/areas/${district}` }
   ];
 
   return (

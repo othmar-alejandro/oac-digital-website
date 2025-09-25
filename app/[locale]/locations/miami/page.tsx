@@ -16,7 +16,7 @@ export default function MiamiPage() {
                 <title>{t('meta.title')}</title>
                 <meta name="description" content={t('meta.description')} />
                 <LocationSpecificSchema
-                    pageUrl="https://oac-digital.com/locations/miami"
+                    pageUrl="https://www.oacdigital.biz/locations/miami"
                     locationName="Miami"
                     nearbyAreas={["Miami Beach", "Coral Gables", "Doral"]}
                     serviceName="Digital Marketing"

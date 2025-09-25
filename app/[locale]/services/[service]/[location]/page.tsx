@@ -335,15 +335,15 @@ export async function generateMetadata({ params: { locale, service, location } }
     openGraph: {
       title,
       description,
-      url: `https://oac-digital.com/${locale}/services/${service}/${location}`,
+      url: `https://www.oacdigital.biz/${locale}/services/${service}/${location}`,
       type: 'website',
       locale: locale === 'es' ? 'es_US' : 'en_US',
     },
     alternates: {
-      canonical: `https://oac-digital.com/${locale}/services/${service}/${location}`,
+      canonical: `https://www.oacdigital.biz/${locale}/services/${service}/${location}`,
       languages: {
-        'en': `https://oac-digital.com/en/services/${service}/${location}`,
-        'es': `https://oac-digital.com/es/services/${service}/${location}`,
+        'en': `https://www.oacdigital.biz/en/services/${service}/${location}`,
+        'es': `https://www.oacdigital.biz/es/services/${service}/${location}`,
       }
     }
   };
@@ -363,10 +363,10 @@ export default async function ServiceLocationPage({ params: { locale, service, l
 
   // Breadcrumb items
   const breadcrumbItems = [
-    { name: 'Home', url: `https://oac-digital.com/${locale}` },
-    { name: 'Services', url: `https://oac-digital.com/${locale}/services` },
-    { name: serviceConfig.name, url: `https://oac-digital.com/${locale}/services/${service}` },
-    { name: locationConfig.city, url: `https://oac-digital.com/${locale}/services/${service}/${location}` }
+    { name: 'Home', url: `https://www.oacdigital.biz/${locale}` },
+    { name: 'Services', url: `https://www.oacdigital.biz/${locale}/services` },
+    { name: serviceConfig.name, url: `https://www.oacdigital.biz/${locale}/services/${service}` },
+    { name: locationConfig.city, url: `https://www.oacdigital.biz/${locale}/services/${service}/${location}` }
   ];
 
   return (

@@ -351,15 +351,15 @@ export async function generateMetadata({ params: { locale, season } }: PageProps
     openGraph: {
       title,
       description,
-      url: `https://oac-digital.com/${locale}/campaigns/${season}`,
+      url: `https://www.oacdigital.biz/${locale}/campaigns/${season}`,
       type: 'article',
       locale: locale === 'es' ? 'es_US' : 'en_US',
     },
     alternates: {
-      canonical: `https://oac-digital.com/${locale}/campaigns/${season}`,
+      canonical: `https://www.oacdigital.biz/${locale}/campaigns/${season}`,
       languages: {
-        'en': `https://oac-digital.com/en/campaigns/${season}`,
-        'es': `https://oac-digital.com/es/campaigns/${season}`,
+        'en': `https://www.oacdigital.biz/en/campaigns/${season}`,
+        'es': `https://www.oacdigital.biz/es/campaigns/${season}`,
       }
     }
   };
@@ -378,9 +378,9 @@ export default async function CampaignPage({ params: { locale, season } }: PageP
 
   // Breadcrumb items
   const breadcrumbItems = [
-    { name: 'Home', url: `https://oac-digital.com/${locale}` },
-    { name: 'Campaigns', url: `https://oac-digital.com/${locale}/campaigns` },
-    { name: campaignConfig.title, url: `https://oac-digital.com/${locale}/campaigns/${season}` }
+    { name: 'Home', url: `https://www.oacdigital.biz/${locale}` },
+    { name: 'Campaigns', url: `https://www.oacdigital.biz/${locale}/campaigns` },
+    { name: campaignConfig.title, url: `https://www.oacdigital.biz/${locale}/campaigns/${season}` }
   ];
 
   return (
