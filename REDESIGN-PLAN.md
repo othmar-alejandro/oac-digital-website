@@ -57,7 +57,8 @@ Higgsfield balance on 2026-10-12: 263.5 credits (Starter). Enough for one short 
 - Working copy of the prototype: `.redesign/prototype/` (served locally; Claude Design holds an older copy without images).
 - Done: desktop page, all sections, both themes, real assets (logos, two headshots, five site captures, ChatGPT and Google proof, Pace dashboard with demo data, Brokie agent thread with client details removed).
 - Audit 2026-10-12 (Fable): 22/32. Root cause of "faded": surfaces 1.03 to 1.09 apart in dark mode. Fixed: surface scale, inverted pain band, light hero board with typing search bar, 72% secondary text, italic phrase on all 7 headlines, scroll reveals on 28 elements, nav transparent until scrolled, four built demo screens (WhatsApp agent, automation timeline, CRM record, booking app), Steep-style section links, footer logo 560px, numbers and scroll hint removed. Re-rendered clean: 0 errors, 0 broken images, both themes.
-- Left: Othmar's sign-off on desktop; Higgsfield hero backdrop (needs spend OK); phone layout; contact form + calendar step; Spanish layout pass.
+- 2026-10-12, second pass: four Higgsfield scene plates (gpt_image_2_5, 4 x 0.25 credits = 1 credit) with blank frontal phones, measured screen rectangles, built UIs composited inside (WhatsApp agent, automation timeline, CRM record, booking app). Real Telegram screenshot of Brokie in the assistant section, client name, address, phone and prices blurred; the raw file stays out of the repo. Full signature logo in nav and footer. Dark theme fully dark again. Rendered clean: 0 errors, 0 broken images.
+- Left: Othmar's sign-off on desktop; Higgsfield hero backdrop (optional); phone layout; contact form + calendar step; Spanish layout pass.
 - Broke & Fixed does not show in ChatGPT yet, so no AI-search claim is made for them. Their story is the agent team.
 
 ## Rules learned
@@ -73,7 +74,7 @@ Every rejection becomes a rule here and applies to all later sections.
 8. Dark navy is the default theme, with a working light toggle. Every color is a token so both themes come from one set of components.
 9. Anti-AI rules for every section: real captures and photos, never text-in-a-box standing in for an image; no glow gradients; no uppercase label above headings; vary the section type so no two neighbours share a layout; boxes only where something is contained, hairlines elsewhere; gold appears once per view.
 11. Headline emphasis is a system, not a tic (audit 2026-10-12): one italic phrase per headline, ink-colored; cobalt only in the hero. Section links in sentence case ("Services ›") are allowed above a heading because they are links, not labels.
-12. Tonal range: adjacent surfaces must differ by a contrast ratio of 1.3 or more, or they are the same color. Dark theme inverts the pain-point band to paper; the hero board is light on dark and dark on light.
+12. Tonal range: adjacent surfaces must differ by a contrast ratio of 1.3 or more, or they are the same color. Dark stays fully dark (Othmar's call); range in dark comes from the light hero board, white proof cards, the cobalt story band and the photo plates, not from inverted bands.
 13. Every section headline reveals on scroll (mask wipe + rise), then its description, then its control. Nothing below the hero sits static.
-10. Full signature logo only at 500px wide or more (brand kit rule). Nav and small sizes use the "A" avatar plus the name in type.
+10. Nav and footer use the full signature logo (Othmar's call, 2026-10-12, overriding the kit's 500px rule). One transparent file for both themes; no wordmark text beside it.
 3. No default shadcn look. The page must read as custom and expensive: motion, depth and type per the premium build standard.
