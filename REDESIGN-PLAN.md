@@ -7,7 +7,7 @@ Brand kit: `~/Documents/Codex/2026-09-16/i-r/outputs/oac-brand-kit/` (navy `#061
 ## Phases
 
 - [x] **0 Baseline** · build passes on the branch
-- [ ] **1 Structure + copy** · EN + ES for all 12 sections · gate: Othmar approves
+- [x] **1 Structure + copy** · EN + ES for all 12 sections · gate: Othmar approves
 - [ ] **2 Design direction** · nav + hero + footer, 3 directions in Claude Design · gate: Othmar picks one
 - [ ] **3 Full homepage design** · desktop + mobile · gate: Othmar approves
 - [ ] **4 Assets** · hero loop + stills, real screenshots · gate: Othmar approves each, spend capped
@@ -19,6 +19,21 @@ Brand kit: `~/Documents/Codex/2026-09-16/i-r/outputs/oac-brand-kit/` (navy `#061
 - [ ] **8 Leads + CRM v1** · Neon `leads`, real contact form, `/admin/leads`
 - [ ] **9 Challenge + launch** · Codex review, preview, production · gate: Othmar says ship
 
+## Premium build standard (applies to phases 2 to 7)
+
+The home page is not built from default shadcn parts. Radix stays only where it does accessibility work (FAQ accordion, mobile menu dialog, form).
+
+- **One signature moment:** scroll-scrubbed hero sequence. AI video (Higgsfield) → frames (ffmpeg) → canvas tied to scroll. Poster image first, frames lazy-loaded, lighter version on phones, static under reduced motion.
+- **Motion system:** GSAP + ScrollTrigger for scroll choreography, Lenis for smooth scroll (run on the GSAP ticker). Custom easing only. Nothing pops in.
+- **Type:** a real display face at large scale. No Roboto, Inter or Arial. Chosen in phase 2.
+- **Material:** floating glass nav pill, nested "double bezel" cards, hairlines, fine grain. No 1px gray borders, no stock drop shadows, no thick Lucide icons.
+- **Layout:** asymmetric bento and editorial splits, a pinned horizontal work gallery. No centered hero over three equal cards.
+- **Micro-interactions:** press states on every button, cursor-aware work tiles, live-site screenshots that scroll inside device frames.
+- **No WebGL/3D scene:** heavy on phones, where this audience is. The scrubbed sequence carries the wow.
+- **Guardrails:** animate transform and opacity only; blur only on fixed elements; Lighthouse performance stays at or above the phase 0 score.
+
+Higgsfield balance on 2026-10-12: 263.5 credits (Starter). Enough for one short hero clip, not a multi-scene build.
+
 ## Receipts
 
 ### Phase 0 (2026-10-12)
@@ -28,9 +43,22 @@ Brand kit: `~/Documents/Codex/2026-09-16/i-r/outputs/oac-brand-kit/` (navy `#061
 - Lighthouse, mobile, `/en`, local production build: performance 77, accessibility 100, SEO 85. LCP 5.8 s, CLS 0, TBT 80 ms.
 - Known before redesign: contact form does not submit anywhere (`components/contact/contact-form.tsx`); `app/[locale]/page.tsx` sets its title through `next/head`, which the app router ignores.
 
+### Phase 1 (2026-10-12)
+
+- Copy: `REDESIGN-COPY.md`, draft 4. Hero A chosen by Othmar: "More customers. Less busywork."
+- Checks: 13 blocks in EN + ES; banned-word and dash grep clean; no prices; one ask (free consultation).
+- Every result line has a source: Noah G August 2026 report (2,215 → 8,666 monthly Google impressions, Feb to Jul), Fitoria June 2026 report (1,463 → 2,904 impressions April to June; 36 → 54 pages on page one), three screenshots in `.redesign/proof/`.
+- Still open, not blocking: ChatGPT screenshot for Broke & Fixed; each client's OK to publish their numbers (naming them is already cleared).
+- Decided: booking calendar = Cal.com synced to Google Calendar, shown after the form so the lead is saved even if no time is picked (phase 8). Booking-app concept image in phase 4. No privacy or turnaround FAQ until there is a real answer.
+- Work-page candidates from GitHub, beyond the six on the home page: ProEdge Security, Argoticlean, Integrity Mitigation, 2 Step Ahead, AAAA Transport, Asciende system, MyProgressBud app, Monster Truck Stories, customs duty calculator (RD), Broke & Fixed OS.
+
 ## Rules learned
 
 Every rejection becomes a rule here and applies to all later sections.
 
 1. Brand direction is the brand kit above, not the black + `#F4AF25` palette in the `/oac-brand` skill.
 2. One phase at a time; finish and test before the next.
+4. Positioning is an AI agency that sells results. Websites are one of ten services. Never open with "your website".
+5. No prices anywhere on the site. The one ask is a free consultation.
+6. Unfinished projects may be shown, tagged "In progress". Mockups are tagged "Concept". Result claims need a screenshot behind them.
+3. No default shadcn look. The page must read as custom and expensive: motion, depth and type per the premium build standard.
