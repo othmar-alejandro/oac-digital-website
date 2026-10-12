@@ -9,8 +9,8 @@ Brand kit: `~/Documents/Codex/2026-09-16/i-r/outputs/oac-brand-kit/` (navy `#061
 - [x] **0 Baseline** · build passes on the branch
 - [x] **1 Structure + copy** · EN + ES for all 12 sections · gate: Othmar approves
 - [x] **2 Design direction** · Steep-style editorial, dark default with light toggle · chosen by Othmar 2026-10-12
-- [ ] **3 Full homepage design** · desktop + mobile · gate: Othmar approves
-- [ ] **4 Assets** · hero loop + stills, real screenshots · gate: Othmar approves each, spend capped
+- [x] **3 Full homepage design** · desktop + phone, EN + ES, interactive form · approved by Othmar 2026-10-12
+- [x] **4 Assets** · 17 files in `public/images/home/` (2.3 MB) · all shown on the approved page
 - [ ] **5 Foundation build** · tokens, fonts, logo, nav, footer · gate: Othmar tests preview
 - [ ] **6a Build top** · hero + local clients strip
 - [ ] **6b Build middle** · pain points + what I build + work glimpse
@@ -75,7 +75,23 @@ Higgsfield balance on 2026-10-12: 263.5 credits (Starter). Enough for one short 
   - Not done: Spanish alt text on images; light theme on phone was not screenshotted; tablet widths (761 to 1100px) not designed, the two-column tour crops there.
 - 2026-10-12, thirteenth pass: static form replaced by a one-question-at-a-time flow (Othmar asked for an interactive form). Steps: name → what you need help with (ten plain-language service chips, multi-select, an "i" on each that explains it in one sentence, "Not sure yet" is exclusive) → website (optional, or "I don't have one yet") → phone + email (both required) → pick a time or skip → confirmation with their name, slot and chosen services. Progress line, step counter, Back keeps every answer, Enter continues, field is focused on each step, inline errors in plain words. Tested end to end by typing through it: empty name, no service, short phone, bad email, back and forth, slot pick, English and Spanish, phone width. 343 Spanish strings now.
   - Fixed on the way: the component's update hook never received the previous state, so switching back from Spanish to English did nothing and step focus never fired; the browser's own email check was swallowing the submit.
-- Left: Othmar's approval to close phase 3.
+- **Phase 3 closed 2026-10-12.** Othmar approved the form, the phone layout and the Spanish. Standing choices: Spanish hero is "Menos papeleo"; tablet widths (761 to 1100px) are handled in the build, not designed separately.
+
+### Phase 4 (2026-10-12)
+
+No hero video (the hero is built UI). Final set copied to `public/images/home/`, only what the page references:
+
+| File | What | Real or generated |
+|---|---|---|
+| `logo-sig.png`, `avatar.png` | Brand kit signature logo and "A" mark | real |
+| `othmar.jpg`, `othmar-2.jpg` | Founder photos | real |
+| `site-*.jpg` (5) | Live captures of client sites, taken 2026-10-12 | real |
+| `chatgpt-fitoria.png` | Unedited ChatGPT answer | real |
+| `telegram.jpg` | Brokie agent team; client name, address, phone and prices blurred | real, redacted |
+| `pace.png` | Pace dashboard with its own demo-data label | real product, demo data |
+| `pain-1..5.jpg` | Scene photos for the day-in-the-life cards, no people | generated (Higgsfield) |
+
+Higgsfield spend for the whole project: 2.25 credits. Not shipped: the four hand-held-phone plates, the Noah G ChatGPT and Google crops, the composed logo lockups. `public/images/brand/` (copied earlier, 8 files) is unused by the page and can be trimmed to the favicon sources in phase 5.
 - Broke & Fixed does not show in ChatGPT yet, so no AI-search claim is made for them. Their story is the agent team.
 
 ## Rules learned
