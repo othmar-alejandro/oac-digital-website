@@ -1,32 +1,13 @@
 "use client";
 
-import { Link } from "@/i18n/navigation"; // Import locale-aware Link
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { NavItem } from "@/types";
-import { Facebook, Twitter, Instagram, Linkedin, Github } from "lucide-react";
+import { Link } from "@/i18n/navigation";
+import { useTx } from "@/lib/home-i18n";
+import { CONTACT, NAV_LINKS, SERVICE_GROUPS, SERVICES_HREF } from "./nav-data";
 
-// Define structure without titles, titles will come from translations
+// Internal links kept for SEO: locations, industries, districts and resources.
 const footerSections = [
-  {
-    key: 'company', // Key for section title translation
-    items: [
-      { key: 'about', href: "/about" },
-      { key: 'services', href: "/services" },
-      { key: 'portfolio', href: "/portfolio" },
-      { key: 'blog', href: "/blog" },
-      { key: 'contact', href: "/contact" },
-    ],
-  },
-  {
-    key: 'services', // Key for section title translation
-    items: [
-      { key: 'webDesign', href: "/services#web-design" },
-      { key: 'seo', href: "/services#seo" },
-      { key: 'digitalMarketing', href: "/services#digital-marketing" },
-      { key: 'aiSolutions', href: "/services#ai-solutions" },
-    ],
-  },
   {
     key: 'locations', // Popular locations
     items: [
@@ -69,76 +50,84 @@ const footerSections = [
   },
 ];
 
+const SOCIAL = [
+  { label: "Instagram", href: "https://www.instagram.com/oacdigital_/" },
+  { label: "Facebook", href: "https://www.facebook.com/profile.php?id=61556018600563" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/omar-alejandro-1a39bb2a3/" },
+  { label: "GitHub", href: "https://github.com/Genuino-01" },
+];
+
 export function Footer() {
-  const t = useTranslations("Footer"); // Initialize translation function
+  const t = useTranslations("Footer");
+  const tx = useTx();
+  // Section titles in the message files carry a leading emoji; the redesign drops it.
+  const plain = (s: string) => s.replace(/^[^A-Za-zÀ-ÿ]+/, "");
 
   return (
-    <footer className="bg-primary-dark text-white">
-      <div className="container mx-auto py-16 px-4 md:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-7 gap-8">
-          <div>
-            <Link href="/" className="inline-block mb-6">
-              <Image
-                src="/images/logo-oac.png"
-                alt={t('logoAlt')} // Use translation
-                width={150}
-                height={60}
-                className="h-12 w-auto"
-              />
-            </Link>
-            <p className="text-gray-400 mb-6">
-              {t('description')} {/* Use translation */}
-            </p>
-            <div className="flex space-x-4">
-              <Link href="https://www.facebook.com/profile.php?id=61556018600563" aria-label={t('facebookAria')} className="text-gray-400 hover:text-accent transition-colors" target="_blank" rel="noopener noreferrer"> {/* Use translation */}
-                <Facebook size={20} />
-              </Link>
-              <Link href="https://www.instagram.com/oacdigital_/" aria-label={t('instagramAria')} className="text-gray-400 hover:text-accent transition-colors" target="_blank" rel="noopener noreferrer"> {/* Use translation */}
-                <Instagram size={20} />
-              </Link>
-              <Link href="https://www.linkedin.com/in/omar-alejandro-1a39bb2a3/" aria-label={t('linkedinAria')} className="text-gray-400 hover:text-accent transition-colors" target="_blank" rel="noopener noreferrer"> {/* Use translation */}
-                <Linkedin size={20} />
-              </Link>
-              <Link href="https://github.com/Genuino-01" aria-label={t('githubAria')} className="text-gray-400 hover:text-accent transition-colors" target="_blank" rel="noopener noreferrer"> {/* Use translation */}
-                <Github size={20} />
-              </Link>
+    <footer className="oa oa-page">
+      <div className="oa-wrap oa-foot">
+        <div className="oa-fg">
+          <div className="oa-col oa-fgw" style={{ lineHeight: 1.5, gap: 14 }}>
+            <span className="oa-mut" style={{ maxWidth: 300 }}>
+              {tx("Websites, AI agents and automations for South Florida businesses.")}
+            </span>
+            <div className="oa-row" style={{ gap: 16, flexWrap: "wrap" }}>
+              {SOCIAL.map((s) => (
+                <a key={s.label} className="oa-sm" href={s.href} target="_blank" rel="noopener noreferrer">
+                  {s.label}
+                </a>
+              ))}
             </div>
           </div>
+          <div className="oa-col">
+            <span className="oa-fh">{tx("Services")}</span>
+            {SERVICE_GROUPS.map((g) => (
+              <Link key={g.title} href={SERVICES_HREF}>
+                {tx(g.title)}
+              </Link>
+            ))}
+          </div>
+          <div className="oa-col">
+            <span className="oa-fh">{tx("Company")}</span>
+            {NAV_LINKS.map((l) => (
+              <Link key={l.href} href={l.href}>
+                {tx(l.title)}
+              </Link>
+            ))}
+            <Link href="/blog">{t("sections.company.items.blog")}</Link>
+            <Link href="/contact">{t("sections.company.items.contact")}</Link>
+          </div>
+          <div className="oa-col">
+            <span className="oa-fh">{tx("Contact")}</span>
+            <a href={CONTACT.phoneHref}>{CONTACT.phone}</a>
+            <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
+            <a href={CONTACT.instagramHref} target="_blank" rel="noopener noreferrer">
+              {CONTACT.instagram}
+            </a>
+          </div>
+        </div>
 
+        <div className="oa-seo">
           {footerSections.map((section) => (
-            <div key={section.key}>
-              <h3 className="text-lg font-bold mb-4">{t(`sections.${section.key}.title`)}</h3> {/* Use translation */}
-              <ul className="space-y-2">
-                {section.items.map((item) => (
-                  <li key={item.key}>
-                    <Link
-                      href={item.href}
-                      className="text-gray-400 hover:text-accent transition-colors"
-                    >
-                      {t(`sections.${section.key}.items.${item.key}`)} {/* Use translation */}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+            <div key={section.key} className="oa-col">
+              <span className="oa-fh">{plain(t(`sections.${section.key}.title`))}</span>
+              {section.items.map((item) => (
+                <Link key={item.key} href={item.href}>
+                  {t(`sections.${section.key}.items.${item.key}`)}
+                </Link>
+              ))}
             </div>
           ))}
         </div>
 
-        <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm mb-4 md:mb-0">
-            {t('copyright', { year: new Date().getFullYear() })} {/* Use translation with variable */}
-          </p>
-          <div className="flex space-x-6 text-sm text-gray-400">
-            <Link href="/privacy-policy" className="hover:text-accent transition-colors">
-              {t('privacyPolicy')} {/* Use translation */}
-            </Link>
-            <Link href="/terms-of-service" className="hover:text-accent transition-colors">
-              {t('termsOfService')} {/* Use translation */}
-            </Link>
-            <Link href="/sitemap" className="hover:text-accent transition-colors">
-              {t('sitemap')} {/* Use translation */}
-            </Link>
-          </div>
+        <Image className="oa-flogo" src="/images/home/logo-sig.png" width={800} height={277} alt="OAC Digital Innovations" />
+
+        <div className="oa-row oa-fine oa-mut">
+          <span>{t("copyright", { year: new Date().getFullYear() })}</span>
+          <span className="oa-row" style={{ gap: 20 }}>
+            <Link href="/privacy-policy">{t("privacyPolicy")}</Link>
+            <Link href="/terms-of-service">{t("termsOfService")}</Link>
+          </span>
         </div>
       </div>
     </footer>

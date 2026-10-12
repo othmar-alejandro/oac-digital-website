@@ -1,7 +1,9 @@
 import React from 'react'; // Add explicit React import
 import '../globals.css'; // Adjusted path for globals.css
+import '../redesign.css';
 import type { Metadata } from 'next';
-import { Playfair_Display, Roboto } from 'next/font/google'; // Added Roboto
+import { Newsreader } from 'next/font/google';
+import localFont from 'next/font/local';
 // import { notFound } from 'next/navigation'; // No longer needed here
 import { NextIntlClientProvider } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server'; // Import setRequestLocale
@@ -13,15 +15,18 @@ import { Analytics } from "@vercel/analytics/next"
 import LocalBusinessSchema from '@/components/shared/LocalBusinessSchema'
 import OrganizationSchema from '@/components/shared/OrganizationSchema'
 
-const playfair = Playfair_Display({
+const newsreader = Newsreader({
     subsets: ['latin'],
-    variable: '--font-playfair',
+    style: ['normal', 'italic'],
+    axes: ['opsz'],
+    adjustFontFallback: false,
+    variable: '--font-newsreader',
 });
 
-const roboto = Roboto({ // Added Roboto configuration
-    subsets: ['latin'],
-    weight: ['400', '500', '700'], // Include desired weights
-    variable: '--font-roboto',
+const geist = localFont({
+    src: '../fonts/Geist-Variable.woff2',
+    weight: '100 900',
+    variable: '--font-geist',
 });
 
 // Define base metadata values optimized for local SEO dominance
@@ -196,16 +201,16 @@ rel="preload"
             </head>
             <body
                 className={cn(
-                    roboto.variable, // Changed from inter.variable
-                    playfair.variable,
+                    geist.variable,
+                    newsreader.variable,
                     'font-sans antialiased'
                 )}
             >
                 <NextIntlClientProvider locale={locale} messages={messages}>
                     <ThemeProvider
                         attribute="class"
-                        defaultTheme="light"
-                        enableSystem
+                        defaultTheme="dark"
+                        enableSystem={false}
                         disableTransitionOnChange
                     >
                         {children}

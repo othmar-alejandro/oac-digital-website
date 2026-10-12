@@ -94,6 +94,16 @@ No hero video (the hero is built UI). Final set copied to `public/images/home/`,
 Higgsfield spend for the whole project: 2.25 credits. Not shipped: the four hand-held-phone plates, the Noah G ChatGPT and Google crops, the composed logo lockups. `public/images/brand/` (copied earlier, 8 files) is unused by the page and can be trimmed to the favicon sources in phase 5.
 - Broke & Fixed does not show in ChatGPT yet, so no AI-search claim is made for them. Their story is the agent team.
 
+### Phase 5 (2026-10-12, built, waiting on Othmar's test)
+
+- Real code now. New site-wide header (signature logo, mega menu, phone drawer, EN/ES switch, theme toggle, glass ask) and footer (new columns, the four SEO link groups kept, signature logo), in `components/layout/`.
+- `app/redesign.css`: the prototype's styles, namespaced `oa-*` / `--o-*` so they cannot collide with the existing site. `lib/home-i18n.ts`: the 343 Spanish strings, looked up by the English text.
+- Fonts: Newsreader (next/font/google) and Geist (local file, `app/fonts/`), replacing Playfair and Roboto. Default theme dark.
+- Tokens in `app/globals.css` mapped to the brand kit. **The pages not yet redesigned stay light in both themes** on purpose: they hardcode white panels, and letting them follow the dark theme made text invisible on the programmatic SEO pages. Until those pages are redesigned the site is dark chrome around light content.
+- Checks: `npm run build` passes (307 pages), lint clean, sitemap serves 324 URLs, EN ↔ ES switch keeps the path, theme toggle works, mega menu and drawer open, 0px sideways scroll at 390px. Looked at: home, About, an industry page, a programmatic service page, EN and ES.
+- Pre-existing, not touched: 20 MISSING_MESSAGE errors during build (Faqs, PrivacyPolicy, TermsOfService, FaqAccordion, ContactPage.hours) that exist on main without these changes.
+- Not done yet: the homepage body is still the old one (phase 6); the ask points to `/contact` until the new form ships in 6c; the footer no longer links `/sitemap`, which was a dead link.
+
 ## Rules learned
 
 Every rejection becomes a rule here and applies to all later sections.
