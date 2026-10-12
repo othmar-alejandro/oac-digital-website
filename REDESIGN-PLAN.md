@@ -23,7 +23,7 @@ Brand kit: `~/Documents/Codex/2026-09-16/i-r/outputs/oac-brand-kit/` (navy `#061
 
 The home page is not built from default shadcn parts. Radix stays only where it does accessibility work (FAQ accordion, mobile menu dialog, form).
 
-- **One signature moment:** scroll-scrubbed hero sequence. AI video (Higgsfield) → frames (ffmpeg) → canvas tied to scroll. Poster image first, frames lazy-loaded, lighter version on phones, static under reduced motion.
+- **One signature moment:** pinned hero scroll story built from real UI fragments (ChatGPT answer, agent reply, booking, client number) that fly in and dock as you scroll. GSAP ScrollTrigger, no video. Phones get a static stacked version; reduced motion shows everything in place.
 - **Motion system:** GSAP + ScrollTrigger for scroll choreography, Lenis for smooth scroll (run on the GSAP ticker). Custom easing only. Nothing pops in.
 - **Type:** a real display face at large scale. No Roboto, Inter or Arial. Chosen in phase 2.
 - **Material:** floating glass nav pill, nested "double bezel" cards, hairlines, fine grain. No 1px gray borders, no stock drop shadows, no thick Lucide icons.
@@ -61,4 +61,6 @@ Every rejection becomes a rule here and applies to all later sections.
 4. Positioning is an AI agency that sells results. Websites are one of ten services. Never open with "your website".
 5. No prices anywhere on the site. The one ask is a free consultation.
 6. Unfinished projects may be shown, tagged "In progress". Mockups are tagged "Concept". Result claims need a screenshot behind them.
+7. Design reference is Steep (steep.app): editorial serif headlines with the last words in italic, calm near-monochrome surfaces, one rare accent, floating product fragments, word-by-word reveals. Take the system, not the layout or assets.
+8. Dark navy is the default theme, with a working light toggle. Every color is a token so both themes come from one set of components.
 3. No default shadcn look. The page must read as custom and expensive: motion, depth and type per the premium build standard.
