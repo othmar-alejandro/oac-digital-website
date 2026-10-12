@@ -8,7 +8,7 @@ Brand kit: `~/Documents/Codex/2026-09-16/i-r/outputs/oac-brand-kit/` (navy `#061
 
 - [x] **0 Baseline** · build passes on the branch
 - [x] **1 Structure + copy** · EN + ES for all 12 sections · gate: Othmar approves
-- [ ] **2 Design direction** · nav + hero + footer, 3 directions in Claude Design · gate: Othmar picks one
+- [x] **2 Design direction** · Steep-style editorial, dark default with light toggle · chosen by Othmar 2026-10-12
 - [ ] **3 Full homepage design** · desktop + mobile · gate: Othmar approves
 - [ ] **4 Assets** · hero loop + stills, real screenshots · gate: Othmar approves each, spend capped
 - [ ] **5 Foundation build** · tokens, fonts, logo, nav, footer · gate: Othmar tests preview
@@ -51,6 +51,13 @@ Higgsfield balance on 2026-10-12: 263.5 credits (Starter). Enough for one short 
 - Still open, not blocking: ChatGPT screenshot for Broke & Fixed; each client's OK to publish their numbers (naming them is already cleared).
 - Decided: booking calendar = Cal.com synced to Google Calendar, shown after the form so the lead is saved even if no time is picked (phase 8). Booking-app concept image in phase 4. No privacy or turnaround FAQ until there is a real answer.
 - Work-page candidates from GitHub, beyond the six on the home page: ProEdge Security, Argoticlean, Integrity Mitigation, 2 Step Ahead, AAAA Transport, Asciende system, MyProgressBud app, Monster Truck Stories, customs duty calculator (RD), Broke & Fixed OS.
+
+### Phase 3 (open)
+
+- Working copy of the prototype: `.redesign/prototype/` (served locally; Claude Design holds an older copy without images).
+- Done: desktop page, all sections, both themes, real assets (logos, two headshots, five site captures, ChatGPT and Google proof, Pace dashboard with demo data, Brokie agent thread with client details removed).
+- Left: Othmar's sign-off on desktop; phone layout; contact form + calendar step; Spanish layout pass.
+- Broke & Fixed does not show in ChatGPT yet, so no AI-search claim is made for them. Their story is the agent team.
 
 ## Rules learned
 
