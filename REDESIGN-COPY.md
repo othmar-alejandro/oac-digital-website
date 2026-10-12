@@ -59,7 +59,7 @@ One ask on the whole page: **get a free consultation**. No prices anywhere on th
 | | EN | ES |
 |---|---|---|
 | Line under | We build the websites, AI agents and automations that find your customers, answer them right away and keep them coming back. You run the business. | Construimos los sitios web, agentes de IA y automatizaciones que encuentran a tus clientes, les responden al momento y los hacen volver. Tú te dedicas a tu negocio. |
-| Button | Get a free consultation | Pide tu consulta gratis |
+| Button | Get my free consultation | Quiero mi consulta gratis |
 | Under button | No pitch. Just what we'd build first. | Sin venta. Solo lo que construiríamos primero. |
 
 ## 2. Local clients strip
@@ -156,7 +156,7 @@ Othmar's call (2026-10-12): no monthly stats on the page. Proof is stated as bef
 | Heading | Start with a free look at your business. | Empieza con una revisión gratis de tu negocio. |
 | Body | We look at how customers find you, how fast they get an answer and where they slip away. You leave knowing what we'd build first and why. Use it with us or without us. | Revisamos cómo te encuentran tus clientes, qué tan rápido reciben respuesta y dónde se te escapan. Sales sabiendo qué construiríamos primero y por qué. Úsalo con nosotros o sin nosotros. |
 | Three checks | How you show up on Google, Bing and ChatGPT · What happens to a lead after hours · Where your client list and follow-up live today | Cómo apareces en Google, Bing y ChatGPT · Qué pasa con un cliente que escribe fuera de horario · Dónde viven hoy tu lista de clientes y tu seguimiento |
-| Button | Get a free consultation | Pide tu consulta gratis |
+| Button | Get my free consultation | Quiero mi consulta gratis |
 
 ## 8. Who we serve
 
