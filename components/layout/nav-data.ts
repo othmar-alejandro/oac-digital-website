@@ -36,8 +36,8 @@ export const NAV_LINKS = [
 
 export const SERVICES_HREF = "/services";
 
-// The one ask. Points at the contact page until the homepage form ships, then becomes "/#consult".
-export const CONSULT_HREF = "/contact";
+// The one ask: the consultation form at the bottom of the homepage.
+export const CONSULT_HREF = "/#consult";
 
 export const CONTACT = {
   phone: "786-340-1053",

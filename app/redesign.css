@@ -415,3 +415,11 @@
 .oa-seo a, .oa-fg a { transition: color .2s; } .oa-seo a:hover, .oa-fg a:hover, .oa-fine a:hover { color: var(--o-gold); }
 .oa-nav .oa-lk { transition: color .2s; } .oa-nav .oa-lk:hover { color: var(--o-gold); }
 @media (max-width: 760px) { .oa-seo { grid-template-columns: 1fr 1fr; } }
+
+/* Homepage controls that are real buttons in the build (spans in the prototype). */
+.oa-slog, .oa-fqq { appearance: none; background: none; border: 0; border-radius: 0; color: inherit; font-family: inherit; text-align: left; cursor: pointer; }
+.oa-slog { padding: 0 0 10px; border-bottom: 2px solid transparent; font-size: inherit; }
+.oa-fqq { width: 100%; }
+.oa-slog:focus-visible, .oa-fqq:focus-visible { outline: 2px solid var(--o-gold); outline-offset: 4px; }
+#consult, #how { scroll-margin-top: 96px; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }

@@ -12,9 +12,7 @@ Brand kit: `~/Documents/Codex/2026-09-16/i-r/outputs/oac-brand-kit/` (navy `#061
 - [x] **3 Full homepage design** · desktop + phone, EN + ES, interactive form · approved by Othmar 2026-10-12
 - [x] **4 Assets** · 17 files in `public/images/home/` (2.3 MB) · all shown on the approved page
 - [ ] **5 Foundation build** · tokens, fonts, logo, nav, footer · gate: Othmar tests preview
-- [ ] **6a Build top** · hero + local clients strip
-- [ ] **6b Build middle** · pain points + what I build + work glimpse
-- [ ] **6c Build bottom** · how it works + pricing + who I serve + about + FAQ + final ask
+- [ ] **6 Homepage build** (6a, 6b, 6c merged at Othmar's request 2026-10-12) · all 11 sections live in the Next.js site · built, gate: Othmar tests
 - [ ] **7 Motion** · reduced-motion respected, no layout shift, performance not below baseline
 - [ ] **8 Leads + CRM v1** · Neon `leads`, real contact form, `/admin/leads`
 - [ ] **9 Challenge + launch** · Codex review, preview, production · gate: Othmar says ship
@@ -103,6 +101,16 @@ Higgsfield spend for the whole project: 2.25 credits. Not shipped: the four hand
 - Checks: `npm run build` passes (307 pages), lint clean, sitemap serves 324 URLs, EN ↔ ES switch keeps the path, theme toggle works, mega menu and drawer open, 0px sideways scroll at 390px. Looked at: home, About, an industry page, a programmatic service page, EN and ES.
 - Pre-existing, not touched: 20 MISSING_MESSAGE errors during build (Faqs, PrivacyPolicy, TermsOfService, FaqAccordion, ContactPage.hours) that exist on main without these changes.
 - Not done yet: the homepage body is still the old one (phase 6); the ask points to `/contact` until the new form ships in 6c; the footer no longer links `/sitemap`, which was a dead link.
+
+### Phase 6 (2026-10-12, built, waiting on Othmar's test)
+
+- Othmar saw the new header over the old homepage and asked for the rest, so 6a to 6c were built as one slice.
+- `components/home/v2/` (hero, static, tour, home, consult-form, data), `app/[locale]/page.tsx` now a server component with EN/ES metadata. Old `components/home/*` are unused by the homepage and left in place.
+- `npm run build`: 307 pages, exit 0. Type-check clean. Lint: only `<img>` warnings. The 20 MISSING_MESSAGE errors are the same ones on main.
+- Browser run at 1440 and 390, `/en` and `/es`: no horizontal overflow, no broken images, 38 of 38 reveals fire, no console errors except the Vercel insights script (404 on localhost only).
+- Clicked through: hero scroll story, 6 service tabs, 3 client stories, FAQ, the form (each error message, Not sure yet is exclusive, Back keeps answers, slot and confirmation), light and dark, nav button from `/about` lands on the form.
+- Not done yet: the form sends nothing (phase 8) while its last screen says "You'll get a text to confirm"; image alt text and client trade lines are English on `/es`; tablet widths unchecked; Lighthouse not rerun (phase 7).
+- Screenshots: `.redesign/design/p6-*.jpg`.
 
 ## Rules learned
 
