@@ -429,3 +429,22 @@
 .oa-ah1 { font-size: 76px; line-height: 1.03; letter-spacing: -.024em; max-width: 1080px; }
 .oa-ah1 .oa-it { color: var(--o-gold); }
 @media (max-width: 760px) { .oa-ahero { padding-top: 56px; } .oa-ah1 { font-size: 40px; } }
+.oa-facts { list-style: none; display: flex; flex-wrap: wrap; margin: 56px 0 0; padding: 0; border-top: 1px solid var(--o-line); }
+.oa-facts li { padding: 18px 28px 0 0; margin-right: 28px; font-size: 15px; border-right: 1px solid var(--o-line); }
+.oa-facts li:last-child { border-right: 0; margin-right: 0; }
+.oa-wont { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 64px; }
+.oa-no { position: relative; padding: 32px 32px 36px; border-radius: 20px; background: var(--o-card); box-shadow: 0 0 0 1px var(--o-line); }
+.oa-nox { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 9999px; border: 1px solid var(--o-gold); color: var(--o-gold); font-size: 18px; line-height: 1; margin-bottom: 22px; }
+.oa-not { font-size: 30px; line-height: 1.12; letter-spacing: -.012em; margin: 0 0 12px; }
+.oa-proofs { margin-top: 64px; border-bottom: 1px solid var(--o-line); }
+.oa-proof { display: grid; grid-template-columns: 240px 1fr auto; gap: 40px; align-items: center; padding: 28px 0; border-top: 1px solid var(--o-line); color: inherit; text-decoration: none; }
+.oa-proof .oa-not { margin-bottom: 6px; transition: transform .45s cubic-bezier(.22,1,.36,1); }
+.oa-proof:hover .oa-not { transform: translateX(8px); }
+.oa-proof:hover .oa-simg { transform: scale(1.03); }
+.oa-aend { display: flex; flex-direction: column; align-items: flex-start; gap: 28px; padding: 144px 0; border-top: 1px solid var(--o-line); }
+@media (max-width: 760px) {
+  .oa-facts { margin-top: 36px; display: grid; grid-template-columns: 1fr 1fr; } .oa-facts li { border-right: 0; margin-right: 0; padding: 14px 12px 0 0; font-size: 14px; }
+  .oa-wont { grid-template-columns: 1fr; margin-top: 40px; } .oa-no { padding: 24px; } .oa-not { font-size: 24px; }
+  .oa-proofs { margin-top: 40px; } .oa-proof { grid-template-columns: 1fr; gap: 16px; padding: 24px 0; }
+  .oa-aend { padding: 88px 0; }
+}
