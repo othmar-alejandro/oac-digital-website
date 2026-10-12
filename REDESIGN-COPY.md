@@ -1,4 +1,4 @@
-# Homepage copy · draft 5
+# Homepage copy · draft 6
 
 Phase 1. Positioning: **AI agency that sells results.** Websites are one of ten services. Voice is "we". EN and ES for every section. `[OTHMAR]` marks a fact only you have.
 
@@ -129,8 +129,8 @@ Same three groups and ten services as the mega menu, with these longer lines.
 
 | Project | What we did | Proof on file | Result line EN | Línea ES |
 |---|---|---|---|---|
-| Noah G Paint & Design | Website, SEO, AI search, Pace dashboard | August 2026 report; ChatGPT + Google screenshots (2026-10-12) | Ask ChatGPT for the best painting contractor in Kendall and it names Noah G first. On Google, "paint contractors near me" shows him at the top. His site went from 2,215 Google appearances a month to 8,666 in five months. | Pregúntale a ChatGPT por el mejor contratista de pintura en Kendall y nombra primero a Noah G. En Google, "paint contractors near me" lo muestra arriba. Su sitio pasó de aparecer 2,215 veces al mes en Google a 8,666 en cinco meses. |
-| Fitoria Tile & Marble | Website, SEO, AI search | June 2026 report; ChatGPT screenshot (2026-10-12) | Ask ChatGPT for the best tile contractor nearby and Fitoria is the first name on the list. Their Google appearances doubled in two months, and 54 of their pages now sit on page one. | Pregúntale a ChatGPT por el mejor instalador de losas de la zona y Fitoria es el primer nombre de la lista. Sus apariciones en Google se duplicaron en dos meses, y 54 de sus páginas ya están en la primera página. |
+| Noah G Paint & Design | Website, SEO, AI search, Pace dashboard | August 2026 report; ChatGPT + Google screenshots (2026-10-12) | Before we started, Noah G didn't show up on Google. Now ask ChatGPT for the best painting contractor in Kendall and it names him first. The phone started ringing. | Antes de empezar, Noah G no aparecía en Google. Ahora pregúntale a ChatGPT por el mejor contratista de pintura en Kendall y lo nombra primero. El teléfono empezó a sonar. |
+| Fitoria Tile & Marble | Website, SEO, AI search | June 2026 report; ChatGPT screenshot (2026-10-12) | Fitoria wasn't showing up on Google when we started. Now ChatGPT lists them first for tile contractors nearby, and the phone started ringing. | Fitoria no aparecía en Google cuando empezamos. Ahora ChatGPT los pone primero entre los instaladores de losas de la zona, y el teléfono empezó a sonar. |
 | Broke & Fixed Home Solutions | Website, Brokie agent team | Telegram screenshot (2026-10-12), raw file kept out of the repo because it holds client details | Broke & Fixed has its own team of AI agents in Telegram: one for proposals, one for leads and estimates, others for SEO, social and video. | Broke & Fixed tiene su propio equipo de agentes de IA en Telegram: uno para propuestas, uno para prospectos y presupuestos, otros para SEO, redes y video. |
 | Keep Her Light Alive Foundation | Website | live site | A memorial foundation's site that people are finding and visiting. | El sitio de una fundación conmemorativa que la gente encuentra y visita. |
 | South Florida Mold Help (southfloridamoldhelp.com) | Bilingual website | live site | New. A bilingual site for mold help in Miami-Dade, south Broward and the Keys. | Nuevo. Un sitio bilingüe de ayuda con moho en Miami-Dade, el sur de Broward y los Cayos. |
@@ -138,7 +138,7 @@ Same three groups and ten services as the mega menu, with these longer lines.
 | Booking app for repeat-client businesses | App | image made in phase 4 | Tagged **Concept**. | Etiqueta **Concepto**. |
 | Custom CRM | CRM | in build | Tagged **In progress**. | Etiqueta **En desarrollo**. |
 
-Numbers above come from the monthly SEO reports OAC prepared (Google Search Console). Those reports are marked confidential, so the figures go live only with each client's OK.
+Othmar's call (2026-10-12): no monthly stats on the page. Proof is stated as before/after and outcome ("wasn't on Google", "the phone started ringing"), backed by the dated screenshots. Report figures stay in the receipts only.
 
 ## 6. How it works
 
