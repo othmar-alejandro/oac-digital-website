@@ -67,7 +67,13 @@ Higgsfield balance on 2026-10-12: 263.5 credits (Starter). Enough for one short 
 - 2026-10-12, ninth pass: primary buttons given a Liquid Glass material (gold-tinted translucent fill, backdrop blur, bright top-left rim via masked gradient border, specular highlight that slides on hover, lift on hover, scale + brighten on press). Secondary "ghost" buttons stay flat on purpose. Applied only to the primary pill class.
 - 2026-10-12, tenth pass: glass buttons kept (Othmar). CTA type: weight 600, slight negative tracking, arrow inside a translucent chip at the button's trailing edge; secondary text links at 600 with a gold arrow. Labels switched to first person ("Get my free consultation") in hero, mega menu and closing; nav keeps "Free consultation".
 - 2026-10-12, eleventh pass: four in-section CTAs added (approved by Othmar), same single ask with a section-specific lead-in: after the services demos ("Not sure which one you need? That's what the call is for."), after the day cards ("Which one is yours?"), after Three steps ("Step one is free."), after the FAQ ("Ask the rest on the call."). Local server now sends `Cache-Control: no-store`; the browser had been caching `HomeSections.dc.html`, so plain refreshes could show stale sections.
-- Left: phone layout; contact form + calendar step; Spanish layout pass (go-ahead pending).
+- 2026-10-12, twelfth pass (the last three phase 3 items):
+  - **Phone layout** (760px and below): hamburger + full-screen drawer (three service groups, links, language, theme, the ask); static stacked hero with no scroll story; demos cropped and scaled inside their box; every grid to one column. Measured at 390px: 0px horizontal overflow, no element past the right edge, EN and ES.
+  - **Consultation form**: name, phone, email (optional), what's going on; submit saves first, then offers six time slots or "skip, just call me"; confirmation state. All CTAs on the page now scroll to it. Prototype only: nothing is sent or stored (real wiring is phase 8, Neon + Cal.com).
+  - **Spanish**: working EN/ES switch in the nav and drawer. 290 strings in `.redesign/prototype/es.js`, keyed by the English text, which becomes the source for `messages/es.json` at build. Checked: 0 strings left in English after switching, 0 overflow on desktop and phone, tab changes stay in Spanish.
+  - Bugs found and fixed in this pass: a class name shared by the hero stage and the demo stage; a stray rule shrinking the founder photo to 16px; demo screens escaping their box on phones.
+  - Not done: Spanish alt text on images; light theme on phone was not screenshotted; tablet widths (761 to 1100px) not designed, the two-column tour crops there.
+- Left: Othmar's approval to close phase 3.
 - Broke & Fixed does not show in ChatGPT yet, so no AI-search claim is made for them. Their story is the agent team.
 
 ## Rules learned

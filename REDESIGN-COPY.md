@@ -52,7 +52,7 @@ One ask on the whole page: **get a free consultation**. No prices anywhere on th
 | | EN | ES |
 |---|---|---|
 | Eyebrow | AI agency · Miami · English and Spanish | Agencia de IA · Miami · Inglés y español |
-| A | More customers. Less busywork. | Más clientes. Menos trabajo de oficina. |
+| A | More customers. Less busywork. | Más clientes. Menos papeleo. |
 | B | Never lose a customer to a slow reply again. | No vuelvas a perder un cliente por contestar tarde. |
 | C | Your business answers, books and follows up. Even when you can't. | Tu negocio contesta, agenda y da seguimiento. Aunque tú no puedas. |
 
