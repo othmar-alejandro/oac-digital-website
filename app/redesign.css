@@ -423,3 +423,9 @@
 .oa-slog:focus-visible, .oa-fqq:focus-visible { outline: 2px solid var(--o-gold); outline-offset: 4px; }
 #consult, #how { scroll-margin-top: 96px; }
 @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+
+/* About page */
+.oa-ahero { padding-top: 120px; }
+.oa-ah1 { font-size: 76px; line-height: 1.03; letter-spacing: -.024em; max-width: 1080px; }
+.oa-ah1 .oa-it { color: var(--o-gold); }
+@media (max-width: 760px) { .oa-ahero { padding-top: 56px; } .oa-ah1 { font-size: 40px; } }

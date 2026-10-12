@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { Link } from "@/i18n/navigation";
 import { useTx } from "@/lib/home-i18n";
 import { Arrow } from "@/components/layout/header";
@@ -9,6 +9,7 @@ import { FAQS, PAINS, SITES, STORIES } from "./data";
 import { Hero } from "./hero";
 import { About, Agents, Results, Steps } from "./static";
 import { Tour } from "./tour";
+import { useReveal } from "./use-reveal";
 
 function ConsultLine({ lead, em, className = "" }: { lead: string; em: string; className?: string }) {
   const tx = useTx();
@@ -224,23 +225,7 @@ function Closing() {
 }
 
 export function HomeV2() {
-  const root = useRef<HTMLDivElement>(null);
-
-  // Scroll reveals: each .oa-rv gets .oa-in once, the first time it enters the viewport.
-  useEffect(() => {
-    const els = root.current?.querySelectorAll(".oa-rv") ?? [];
-    const io = new IntersectionObserver(
-      (entries) =>
-        entries.forEach((e) => {
-          if (!e.isIntersecting) return;
-          e.target.classList.add("oa-in");
-          io.unobserve(e.target);
-        }),
-      { rootMargin: "0px 0px -12% 0px" },
-    );
-    els.forEach((el) => io.observe(el));
-    return () => io.disconnect();
-  }, []);
+  const root = useReveal<HTMLDivElement>();
 
   return (
     <div className="oa oa-page" ref={root}>

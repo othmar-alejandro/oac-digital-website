@@ -344,7 +344,30 @@ const ES: Record<string, string> = {
   "Email": "Correo",
   "We need a phone number to call you.": "Necesitamos un teléfono para llamarte.",
   "That email doesn't look right.": "Ese correo no parece correcto.",
-  "Thanks,": "Gracias,"
+  "Thanks,": "Gracias,",
+  // About page
+  "Too many owners are the employee who works the most and": "Demasiados dueños son el empleado que más trabaja y",
+  "gets paid the least.": "el que menos cobra.",
+  "OAC Digital Innovations is an AI agency in Miami. We help local businesses get organized and grow, in English and Spanish.": "OAC Digital Innovations es una agencia de IA en Miami. Ayudamos a los negocios locales a organizarse y crecer, en español y en inglés.",
+  "From Othmar": "De parte de Othmar",
+  "Founder. Artificial intelligence graduate, Miami Dade College.": "Fundador. Graduado en inteligencia artificial, Miami Dade College.",
+  "I've been in business since 2016. Not this company. Other businesses, before OAC existed.": "Estoy en los negocios desde 2016. No con esta empresa. Con otros negocios, antes de que existiera OAC.",
+  "So I know what a business needs and how it's run. I know what an owner goes through when nobody showed them another way, or when there is nobody to hand the work to.": "Por eso sé lo que necesita un negocio y cómo se maneja. Sé por lo que pasa un dueño cuando nadie le enseñó otra forma, o cuando no tiene a quién pasarle el trabajo.",
+  "That is how you end up doing everything yourself. You stop being the owner and become the employee who works the most and gets paid the least. If the business only grows by taking more of your hours, making more money doesn't fix it.": "Así terminas haciéndolo todo tú. Dejas de ser el dueño y te conviertes en el empleado que más trabaja y el que menos cobra. Si el negocio solo crece quitándote más horas, ganar más dinero no lo arregla.",
+  "I'm an artificial intelligence graduate from Miami Dade College. OAC Digital Innovations is where I put that to work for owners in the spot I've been in.": "Soy graduado en inteligencia artificial de Miami Dade College. En OAC Digital Innovations pongo eso a trabajar para dueños que están donde yo estuve.",
+  "A disorganized business": "Un negocio desorganizado",
+  "always leaks.": "siempre tiene fugas.",
+  "A lead nobody called back. A client nobody reminded. A quote that stayed in a notebook. None of it looks like much on the day it happens.": "Un contacto al que nadie le devolvió la llamada. Un cliente al que nadie le recordó. Un presupuesto que se quedó en una libreta. Nada de eso parece gran cosa el día que pasa.",
+  "What partner": "Qué significa",
+  "means here.": "ser tu aliado.",
+  "Someone in your corner": "Alguien de tu lado",
+  "We don't take a share of your business and we don't want one. Partner means you have people to call who know how your business runs and want it to grow.": "No nos quedamos con una parte de tu negocio ni la queremos. Ser tu aliado significa que tienes a quién llamar: gente que sabe cómo funciona tu negocio y quiere que crezca.",
+  "Organized first": "Primero, organizado",
+  "Before we add anything, we look at how leads, clients and jobs move through your business today, and we close the places where they get lost.": "Antes de agregar nada, miramos cómo se mueven hoy los contactos, los clientes y los trabajos en tu negocio, y cerramos los puntos donde se pierden.",
+  "Then growth": "Después, crecer",
+  "Once nothing slips, we bring more people in: search, your website, and AI agents and automations that answer and follow up for you.": "Cuando ya nada se escapa, traemos más gente: búsqueda, tu sitio web, y agentes de IA y automatizaciones que responden y dan seguimiento por ti.",
+  "Tell us where": "Cuéntanos a dónde",
+  "your hours go.": "se van tus horas.",
 };
 
 /** Returns a translator for the redesigned pages: English in, Spanish out on /es, English otherwise. */
