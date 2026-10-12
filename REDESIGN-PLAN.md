@@ -63,4 +63,6 @@ Every rejection becomes a rule here and applies to all later sections.
 6. Unfinished projects may be shown, tagged "In progress". Mockups are tagged "Concept". Result claims need a screenshot behind them.
 7. Design reference is Steep (steep.app): editorial serif headlines with the last words in italic, calm near-monochrome surfaces, one rare accent, floating product fragments, word-by-word reveals. Take the system, not the layout or assets.
 8. Dark navy is the default theme, with a working light toggle. Every color is a token so both themes come from one set of components.
+9. Anti-AI rules for every section: real captures and photos, never text-in-a-box standing in for an image; no glow gradients; no uppercase label above headings; italic accent in the hero and closing only; vary the section type so no two neighbours share a layout; boxes only where something is contained, hairlines elsewhere; gold appears once per view.
+10. Full signature logo only at 500px wide or more (brand kit rule). Nav and small sizes use the "A" avatar plus the name in type.
 3. No default shadcn look. The page must read as custom and expensive: motion, depth and type per the premium build standard.
