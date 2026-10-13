@@ -1,41 +1,28 @@
-"use client";
-
-import React from 'react';
-import { useTranslations } from "next-intl";
+import type { Metadata } from "next";
 import { Layout } from "@/components/layout/layout";
-import { HeroSection } from "@/components/home/hero-section";
-import { ServicesOverview } from "@/components/home/services-overview";
-import { ProcessSection } from "@/components/home/process-section";
-import { PortfolioPreview } from "@/components/home/portfolio-preview";
-import { LocationsReach } from "@/components/home/locations-reach";
-import { BlogPreview } from "@/components/home/blog-preview";
-import { CTASection } from "@/components/home/cta-section";
-import Head from 'next/head';
+import { HomeV2 } from "@/components/home/v2/home";
 
-export default function Home({ params: { locale } }: { params: { locale: string } }) {
-    const t = useTranslations("HomePage.hero");
+const META = {
+  en: {
+    title: "OAC Digital Innovations | AI agency for local businesses in Miami",
+    description:
+      "We set up AI agents, automations, websites and search so local businesses in South Florida get found, answer every lead and keep their clients. Free consultation, in English or Spanish.",
+  },
+  es: {
+    title: "OAC Digital Innovations | Agencia de IA para negocios locales en Miami",
+    description:
+      "Montamos agentes de IA, automatizaciones, sitios web y búsqueda para que los negocios locales del sur de Florida aparezcan, respondan cada contacto y conserven a sus clientes. Consulta gratis, en español o inglés.",
+  },
+};
 
-    return (
-        <>
-            <Head>
-                <title>OAC Digital - Web Design, SEO, and Digital Marketing</title>
-                <meta
-                    name="description"
-                    content="OAC Digital offers top-tier web design, SEO, and comprehensive digital marketing services to elevate your brand's online presence. Discover our innovative solutions."
-                />
-            </Head>
-            <Layout>
-                <HeroSection
-                    headline={t('headline')}
-                    subHeadline={t('subHeadline')}
-                />
-                <ServicesOverview />
-                <ProcessSection />
-                <PortfolioPreview />
-                <LocationsReach />
-                <BlogPreview />
-                <CTASection />
-            </Layout>
-        </>
-    );
+export function generateMetadata({ params: { locale } }: { params: { locale: string } }): Metadata {
+  return locale === "es" ? META.es : META.en;
+}
+
+export default function Home() {
+  return (
+    <Layout>
+      <HomeV2 />
+    </Layout>
+  );
 }

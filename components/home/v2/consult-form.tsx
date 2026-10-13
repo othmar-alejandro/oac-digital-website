@@ -1,0 +1,208 @@
+"use client";
+
+import { FormEvent, useEffect, useRef, useState } from "react";
+import { useLocale } from "next-intl";
+import { useTx } from "@/lib/home-i18n";
+import { Arrow } from "@/components/layout/header";
+import { NOT_SURE, SV } from "./data";
+
+const STEP_LABELS = ["1 of 4", "2 of 4", "3 of 4", "4 of 4", ""];
+const DONE = 4;
+const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+/**
+ * One question per screen: name, what they need, website, then phone + email.
+ * The last step posts the lead to /api/leads; the confirmation only shows once it is saved.
+ */
+export function ConsultForm() {
+  const tx = useTx();
+  const locale = useLocale();
+  const [step, setStep] = useState(0);
+  const [name, setName] = useState("");
+  const [picks, setPicks] = useState<number[]>([]);
+  const [info, setInfo] = useState(-1);
+  const [site, setSite] = useState("");
+  const [noSite, setNoSite] = useState(false);
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [trap, setTrap] = useState("");
+  const [sending, setSending] = useState(false);
+  const [err, setErr] = useState("");
+  const card = useRef<HTMLDivElement>(null);
+  const first = useRef(true);
+
+  // Focus the field of each new step, but never steal focus on first paint.
+  useEffect(() => {
+    if (first.current) {
+      first.current = false;
+      return;
+    }
+    card.current?.querySelector<HTMLInputElement>(".oa-fin:not(:disabled)")?.focus({ preventScroll: true });
+  }, [step]);
+
+  const go = (n: number) => {
+    setErr("");
+    setStep(n);
+  };
+
+  const send = async () => {
+    setErr("");
+    setSending(true);
+    try {
+      const res = await fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, phone, email, website: noSite ? "" : site, noWebsite: noSite, services: picks.map((i) => SV[i][0]), locale, company: trap }),
+      });
+      if (!res.ok) throw new Error(String(res.status));
+      setStep(DONE);
+    } catch {
+      setErr("That didn't go through. Try again, or email us at Ocasilla@oacdigital.biz.");
+    } finally {
+      setSending(false);
+    }
+  };
+
+  const next = (e: FormEvent) => {
+    e.preventDefault();
+    if (sending) return;
+    if (step === 0) return name.trim().length < 2 ? setErr("Tell us your name so we know who to ask for.") : go(1);
+    if (step === 1) return picks.length ? go(2) : setErr("Pick at least one, or choose Not sure yet.");
+    if (step === 2) return go(3);
+    if (step === 3) {
+      if (phone.replace(/\D/g, "").length < 7) return setErr("We need a phone number to call you.");
+      if (!EMAIL.test(email.trim())) return setErr("That email doesn't look right.");
+      send();
+    }
+  };
+
+  const togglePick = (i: number) => {
+    setInfo(i);
+    setErr("");
+    setPicks((p) => {
+      if (i === NOT_SURE) return p.includes(i) ? [] : [i];
+      const rest = p.filter((x) => x !== NOT_SURE);
+      return rest.includes(i) ? rest.filter((x) => x !== i) : [...rest, i];
+    });
+  };
+
+  const firstName = name.trim().split(" ")[0];
+
+  const actions = (
+    <>
+      <span className="oa-ferr" role="alert">
+        {err && tx(err)}
+      </span>
+      <div className="oa-row oa-fact">
+        <button className="oa-pill oa-fbtn2" type="submit" disabled={sending}>
+          {tx(sending ? "Sending…" : step === 3 ? "Send" : "Continue")}
+          <Arrow />
+        </button>
+        <span className="oa-sm oa-ent">{tx("or press Enter ↵")}</span>
+      </div>
+    </>
+  );
+
+  return (
+    <div className="oa-fcard oa-rv oa-rv2" id="consult" ref={card}>
+      <div className="oa-pbar">
+        <div className={`oa-pb oa-p${step === DONE ? 5 : step}`} />
+      </div>
+      <div className="oa-row oa-fhead">
+        <button className={`oa-back${step > 0 && step < DONE ? "" : " oa-hid"}`} type="button" onClick={() => go(step - 1)}>
+          {tx("← Back")}
+        </button>
+        <span className="oa-sm">{STEP_LABELS[step] && tx(STEP_LABELS[step])}</span>
+      </div>
+
+      {step === 0 && (
+        <form className="oa-col oa-fstep" onSubmit={next} noValidate>
+          <label className="oa-serif oa-fq2" htmlFor="f-name">
+            {tx("First, what's your name?")}
+          </label>
+          <input id="f-name" className="oa-fin" type="text" autoComplete="name" placeholder={tx("Your first and last name")} value={name} onChange={(e) => setName(e.target.value)} />
+          {actions}
+        </form>
+      )}
+
+      {step === 1 && (
+        <form className="oa-col oa-fstep" onSubmit={next} noValidate>
+          <span className="oa-sm">
+            {tx("Nice to meet you,")} {firstName}
+          </span>
+          <span className="oa-serif oa-fq2">{tx("What do you need help with?")}</span>
+          <span className="oa-sm">{tx("Pick as many as you like.")}</span>
+          <div className="oa-svgrid">
+            {SV.map(([label], i) => (
+              <div key={label} className={`oa-svc2${picks.includes(i) ? " oa-on" : ""}`}>
+                <button className="oa-svcb" type="button" aria-pressed={picks.includes(i)} onClick={() => togglePick(i)}>
+                  {tx(label)}
+                </button>
+                <button className="oa-svci" type="button" aria-label={`${tx(label)}: ?`} onClick={() => setInfo(i)}>
+                  i
+                </button>
+              </div>
+            ))}
+          </div>
+          <div className="oa-expl" aria-live="polite">
+            {tx(info >= 0 ? SV[info][1] : "Tap the i next to any of them to see what it means, in plain words.")}
+          </div>
+          {actions}
+        </form>
+      )}
+
+      {step === 2 && (
+        <form className="oa-col oa-fstep" onSubmit={next} noValidate>
+          <label className="oa-serif oa-fq2" htmlFor="f-site">
+            {tx("Do you have a website?")}
+          </label>
+          <span className="oa-sm">{tx("Optional. It helps us look before we talk.")}</span>
+          <input id="f-site" className="oa-fin" type="text" inputMode="url" placeholder={tx("yourbusiness.com")} disabled={noSite} value={noSite ? "" : site} onChange={(e) => setSite(e.target.value)} />
+          <button className={`oa-chipb${noSite ? " oa-on" : ""}`} type="button" aria-pressed={noSite} onClick={() => setNoSite(!noSite)}>
+            {tx("I don't have one yet")}
+          </button>
+          {actions}
+        </form>
+      )}
+
+      {step === 3 && (
+        <form className="oa-col oa-fstep" onSubmit={next} noValidate>
+          <span className="oa-serif oa-fq2">{tx("Where can we reach you?")}</span>
+          <label className="oa-fl2">
+            <span>{tx("Phone")}</span>
+            <input className="oa-fin" type="tel" autoComplete="tel" placeholder="786-555-0123" value={phone} onChange={(e) => setPhone(e.target.value)} />
+          </label>
+          {/* Honeypot: hidden from people, filled by bots. */}
+          <input type="text" name="company" tabIndex={-1} autoComplete="off" aria-hidden="true" value={trap} onChange={(e) => setTrap(e.target.value)} style={{ position: "absolute", left: -9999, width: 1, height: 1, opacity: 0 }} />
+          <label className="oa-fl2">
+            <span>{tx("Email")}</span>
+            <input className="oa-fin" type="email" autoComplete="email" placeholder={tx("you@yourbusiness.com")} value={email} onChange={(e) => setEmail(e.target.value)} />
+          </label>
+          {actions}
+        </form>
+      )}
+
+      {step === DONE && (
+        <div className="oa-col oa-fstep" style={{ alignItems: "flex-start" }}>
+          <span className="oa-ok">{tx("You're in")}</span>
+          <span className="oa-serif oa-fq2">
+            {tx("Thanks,")} {firstName}
+          </span>
+          <span className="oa-serif" style={{ fontSize: 28, lineHeight: 1.15 }}>
+            {tx("We'll call you within one business day.")}
+          </span>
+          <div className="oa-svgrid">
+            {picks.map((i) => (
+              <span key={i} className="oa-svc2 oa-on" style={{ padding: "7px 14px", fontSize: 14 }}>
+                {tx(SV[i][0])}
+              </span>
+            ))}
+          </div>
+          <span className="oa-sm" style={{ fontSize: 15 }}>
+            {tx("We have your answers. Talk soon.")}
+          </span>
+        </div>
+      )}
+    </div>
+  );
+}

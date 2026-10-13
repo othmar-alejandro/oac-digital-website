@@ -9,11 +9,11 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-roboto)'], // Changed from --font-inter
-        display: ['var(--font-playfair)'],
+        sans: ['var(--font-geist)', 'system-ui', 'sans-serif'],
+        display: ['var(--font-newsreader)', 'Georgia', 'serif'],
       },
       colors: {
-        'primary-dark': '#121212',
+        'primary-dark': '#061321',
         'primary-light': '#ffffff',
         // Removed redundant hex accent colors, using HSL var below
         'text-light': '#F8F9FA',
