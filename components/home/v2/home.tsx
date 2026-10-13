@@ -165,7 +165,7 @@ function Faq() {
   const tx = useTx();
   const [open, setOpen] = useState(0);
   return (
-    <div className="oa-sec" style={{ paddingTop: 0 }}>
+    <div className="oa-sec oa-faqsec" style={{ paddingTop: 0 }}>
       <div className="oa-wrap oa-split">
         <div className="oa-stk">
           <h2 className="oa-serif oa-h2 oa-rv">

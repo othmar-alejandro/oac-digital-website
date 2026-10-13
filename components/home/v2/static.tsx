@@ -167,7 +167,7 @@ export function Steps() {
 export function About() {
   const tx = useTx();
   return (
-    <div className="oa-sec">
+    <div className="oa-sec" style={{ paddingTop: 0 }}>
       <div className="oa-wrap">
         <div className="oa-about">
           <div className="oa-col" style={{ gap: "18px" }}>

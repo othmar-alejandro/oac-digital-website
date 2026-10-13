@@ -448,3 +448,11 @@
   .oa-proofs { margin-top: 40px; } .oa-proof { grid-template-columns: 1fr; gap: 16px; padding: 24px 0; }
   .oa-aend { padding: 88px 0; }
 }
+
+/* Section rhythm on desktop: no doubled gaps. */
+@media (min-width: 761px) {
+  /* The pinned hero is as tall as the screen but its cards end ~660px down; pull the client strip up into the empty part. */
+  .oa-work { position: relative; z-index: 1; margin-top: calc(644px - max(100vh - 68px, 700px)); }
+  .oa-faqsec { padding-bottom: 96px; }
+  .oa-end { padding-top: 96px; }
+}
