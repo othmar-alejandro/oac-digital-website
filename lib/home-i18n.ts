@@ -378,7 +378,7 @@ const ES: Record<string, string> = {
   "We won't hold your site hostage": "No nos quedamos con tu sitio",
   "Your domain, your site, your accounts and your logins are in your name. If you ever leave, everything goes with you.": "Tu dominio, tu sitio, tus cuentas y tus accesos quedan a tu nombre. Si algún día te vas, te lo llevas todo.",
   "We won't disappear": "No desaparecemos",
-  "You have our number. We call back within one business day, and we're still a call away after it goes live.": "Tienes nuestro número. Te devolvemos la llamada en un día hábil, y seguimos a una llamada después de que salga en vivo.",
+  "You have a direct line to us. We call back within one business day, and we're still a call away after it goes live.": "Tienes línea directa con nosotros. Te devolvemos la llamada en un día hábil, y seguimos a una llamada después de que salga en vivo.",
   "We won't tell you AI fixes everything": "No te decimos que la IA lo arregla todo",
   "AI won't fix a business that does bad work. It fixes the part where good businesses lose customers to slow replies and forgotten follow-ups.": "La IA no arregla un negocio que hace mal su trabajo. Arregla la parte donde los buenos negocios pierden clientes por respuestas lentas y seguimientos olvidados.",
   "We won't go live without you": "No salimos en vivo sin ti",

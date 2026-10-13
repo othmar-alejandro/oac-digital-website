@@ -18,7 +18,7 @@ const FACTS = ["In business since 2016", "AI graduate, Miami Dade College", "In 
 
 const WONT = [
   { title: "We won't hold your site hostage", text: "Your domain, your site, your accounts and your logins are in your name. If you ever leave, everything goes with you." },
-  { title: "We won't disappear", text: "You have our number. We call back within one business day, and we're still a call away after it goes live." },
+  { title: "We won't disappear", text: "You have a direct line to us. We call back within one business day, and we're still a call away after it goes live." },
   { title: "We won't tell you AI fixes everything", text: "AI won't fix a business that does bad work. It fixes the part where good businesses lose customers to slow replies and forgotten follow-ups." },
   { title: "We won't go live without you", text: "You see it working first. You ask for changes. It goes live when you say it's right." },
 ];

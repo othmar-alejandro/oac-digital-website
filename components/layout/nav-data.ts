@@ -40,8 +40,6 @@ export const SERVICES_HREF = "/services";
 export const CONSULT_HREF = "/#consult";
 
 export const CONTACT = {
-  phone: "786-340-1053",
-  phoneHref: "tel:+17863401053",
   email: "Ocasilla@oacdigital.biz",
   instagram: "@oacdigital_",
   instagramHref: "https://www.instagram.com/oacdigital_/",

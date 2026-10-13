@@ -214,7 +214,6 @@ function Closing() {
             <div>
               <div style={{ fontWeight: 500 }}>Othmar Casilla</div>
               <div className="oa-sm">{tx("Founder, OAC Digital Innovations")}</div>
-              <div className="oa-sm">786-340-1053</div>
             </div>
           </div>
         </div>

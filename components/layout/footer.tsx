@@ -99,7 +99,6 @@ export function Footer() {
           </div>
           <div className="oa-col">
             <span className="oa-fh">{tx("Contact")}</span>
-            <a href={CONTACT.phoneHref}>{CONTACT.phone}</a>
             <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
             <a href={CONTACT.instagramHref} target="_blank" rel="noopener noreferrer">
               {CONTACT.instagram}
