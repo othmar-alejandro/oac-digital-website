@@ -112,6 +112,14 @@ Higgsfield spend for the whole project: 2.25 credits. Not shipped: the four hand
 - Not done yet: the form sends nothing (phase 8) while its last screen says "You'll get a text to confirm"; image alt text and client trade lines are English on `/es`; tablet widths unchecked; Lighthouse not rerun (phase 7).
 - Screenshots: `.redesign/design/p6-*.jpg`.
 
+### Phase 8, first part (2026-10-12)
+
+- Leads save to the `leads` table in the Supabase project `oac-leads` (free plan), through `app/api/leads/route.ts`. Othmar chose Supabase over Neon for launch.
+- The public key can only insert a new lead: reading and deleting with it return 401 (checked with curl).
+- Form test on `/es`: a real submission created one row; an invalid request got 400; the honeypot stored nothing; a forced failure kept the visitor on the step with an error.
+- Placeholder time slots removed. The form ends on "We'll call you within one business day."
+- Still open: notification when a lead arrives, `/admin/leads`, calendar.
+
 ## Rules learned
 
 Every rejection becomes a rule here and applies to all later sections.

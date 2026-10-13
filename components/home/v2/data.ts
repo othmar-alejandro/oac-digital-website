@@ -48,9 +48,6 @@ export const SV: [string, string][] = [
 ];
 export const NOT_SURE = 9;
 
-// chisle: placeholder slots; real availability comes from the calendar in phase 8.
-export const SLOTS: [string, string][] = [["Tue, Oct 13", "10:00 am"], ["Tue, Oct 13", "2:00 pm"], ["Wed, Oct 14", "9:00 am"], ["Wed, Oct 14", "4:00 pm"], ["Thu, Oct 15", "11:00 am"], ["Fri, Oct 16", "1:00 pm"]];
-
 export const SITES = [
   { name: "Noah G Paint & Design", trade: "Painting, Miami", img: "/images/home/site-noahgpaint.jpg", url: "https://www.noahgpaint.net/" },
   { name: "Fitoria Tile & Marble", trade: "Tile and marble, Miami", img: "/images/home/site-fitoria.jpg", url: "https://fitoriatileandmarble.com/" },

@@ -1,19 +1,22 @@
 "use client";
 
 import { FormEvent, useEffect, useRef, useState } from "react";
+import { useLocale } from "next-intl";
 import { useTx } from "@/lib/home-i18n";
 import { Arrow } from "@/components/layout/header";
-import { NOT_SURE, SLOTS, SV } from "./data";
+import { NOT_SURE, SV } from "./data";
 
-const STEP_LABELS = ["1 of 4", "2 of 4", "3 of 4", "4 of 4", "Last step", ""];
+const STEP_LABELS = ["1 of 4", "2 of 4", "3 of 4", "4 of 4", ""];
+const DONE = 4;
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 /**
- * One question per screen: name, what they need, website, phone + email, then a time.
- * chisle: nothing is sent or stored yet; wiring to the leads API and the calendar is phase 8.
+ * One question per screen: name, what they need, website, then phone + email.
+ * The last step posts the lead to /api/leads; the confirmation only shows once it is saved.
  */
 export function ConsultForm() {
   const tx = useTx();
+  const locale = useLocale();
   const [step, setStep] = useState(0);
   const [name, setName] = useState("");
   const [picks, setPicks] = useState<number[]>([]);
@@ -22,7 +25,8 @@ export function ConsultForm() {
   const [noSite, setNoSite] = useState(false);
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
-  const [slot, setSlot] = useState(-1);
+  const [trap, setTrap] = useState("");
+  const [sending, setSending] = useState(false);
   const [err, setErr] = useState("");
   const card = useRef<HTMLDivElement>(null);
   const first = useRef(true);
@@ -41,15 +45,34 @@ export function ConsultForm() {
     setStep(n);
   };
 
+  const send = async () => {
+    setErr("");
+    setSending(true);
+    try {
+      const res = await fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, phone, email, website: noSite ? "" : site, noWebsite: noSite, services: picks.map((i) => SV[i][0]), locale, company: trap }),
+      });
+      if (!res.ok) throw new Error(String(res.status));
+      setStep(DONE);
+    } catch {
+      setErr("That didn't go through. Try again, or email us at Ocasilla@oacdigital.biz.");
+    } finally {
+      setSending(false);
+    }
+  };
+
   const next = (e: FormEvent) => {
     e.preventDefault();
+    if (sending) return;
     if (step === 0) return name.trim().length < 2 ? setErr("Tell us your name so we know who to ask for.") : go(1);
     if (step === 1) return picks.length ? go(2) : setErr("Pick at least one, or choose Not sure yet.");
     if (step === 2) return go(3);
     if (step === 3) {
       if (phone.replace(/\D/g, "").length < 7) return setErr("We need a phone number to call you.");
       if (!EMAIL.test(email.trim())) return setErr("That email doesn't look right.");
-      go(4);
+      send();
     }
   };
 
@@ -64,7 +87,6 @@ export function ConsultForm() {
   };
 
   const firstName = name.trim().split(" ")[0];
-  const picked = slot >= 0 ? SLOTS[slot] : null;
 
   const actions = (
     <>
@@ -72,8 +94,8 @@ export function ConsultForm() {
         {err && tx(err)}
       </span>
       <div className="oa-row oa-fact">
-        <button className="oa-pill oa-fbtn2" type="submit">
-          {tx("Continue")}
+        <button className="oa-pill oa-fbtn2" type="submit" disabled={sending}>
+          {tx(sending ? "Sending…" : step === 3 ? "Send" : "Continue")}
           <Arrow />
         </button>
         <span className="oa-sm oa-ent">{tx("or press Enter ↵")}</span>
@@ -84,10 +106,10 @@ export function ConsultForm() {
   return (
     <div className="oa-fcard oa-rv oa-rv2" id="consult" ref={card}>
       <div className="oa-pbar">
-        <div className={`oa-pb oa-p${step}`} />
+        <div className={`oa-pb oa-p${step === DONE ? 5 : step}`} />
       </div>
       <div className="oa-row oa-fhead">
-        <button className={`oa-back${step > 0 && step < 5 ? "" : " oa-hid"}`} type="button" onClick={() => go(step - 1)}>
+        <button className={`oa-back${step > 0 && step < DONE ? "" : " oa-hid"}`} type="button" onClick={() => go(step - 1)}>
           {tx("← Back")}
         </button>
         <span className="oa-sm">{STEP_LABELS[step] && tx(STEP_LABELS[step])}</span>
@@ -150,6 +172,8 @@ export function ConsultForm() {
             <span>{tx("Phone")}</span>
             <input className="oa-fin" type="tel" autoComplete="tel" placeholder="786-555-0123" value={phone} onChange={(e) => setPhone(e.target.value)} />
           </label>
+          {/* Honeypot: hidden from people, filled by bots. */}
+          <input type="text" name="company" tabIndex={-1} autoComplete="off" aria-hidden="true" value={trap} onChange={(e) => setTrap(e.target.value)} style={{ position: "absolute", left: -9999, width: 1, height: 1, opacity: 0 }} />
           <label className="oa-fl2">
             <span>{tx("Email")}</span>
             <input className="oa-fin" type="email" autoComplete="email" placeholder={tx("you@yourbusiness.com")} value={email} onChange={(e) => setEmail(e.target.value)} />
@@ -158,42 +182,14 @@ export function ConsultForm() {
         </form>
       )}
 
-      {step === 4 && (
-        <div className="oa-col oa-fstep">
-          <span className="oa-serif oa-fq2">{tx("Got it. Want to pick a time?")}</span>
-          <span className="oa-sm" style={{ fontSize: 15 }}>
-            {tx("Choose one, or skip it and we'll call you within one business day.")}
-          </span>
-          <div className="oa-slots">
-            {SLOTS.map(([day, time], i) => (
-              <button
-                key={day + time}
-                className="oa-slot"
-                type="button"
-                onClick={() => {
-                  setSlot(i);
-                  go(5);
-                }}
-              >
-                <b>{tx(day)}</b>
-                <span>{time}</span>
-              </button>
-            ))}
-          </div>
-          <button className="oa-skip" type="button" onClick={() => go(5)}>
-            {tx("Skip, just call me")}
-          </button>
-        </div>
-      )}
-
-      {step === 5 && (
+      {step === DONE && (
         <div className="oa-col oa-fstep" style={{ alignItems: "flex-start" }}>
           <span className="oa-ok">{tx("You're in")}</span>
           <span className="oa-serif oa-fq2">
             {tx("Thanks,")} {firstName}
           </span>
           <span className="oa-serif" style={{ fontSize: 28, lineHeight: 1.15 }}>
-            {picked ? tx(picked[0]) : tx("We'll call you within one business day.")} {picked && <span style={{ color: "var(--o-gold)" }}>{picked[1]}</span>}
+            {tx("We'll call you within one business day.")}
           </span>
           <div className="oa-svgrid">
             {picks.map((i) => (
@@ -203,7 +199,7 @@ export function ConsultForm() {
             ))}
           </div>
           <span className="oa-sm" style={{ fontSize: 15 }}>
-            {tx("You'll get a text to confirm. Talk soon.")}
+            {tx("We have your answers. Talk soon.")}
           </span>
         </div>
       )}

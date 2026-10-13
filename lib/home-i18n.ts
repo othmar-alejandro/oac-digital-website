@@ -391,6 +391,10 @@ const ES: Record<string, string> = {
   "Your first and last name": "Tu nombre y apellido",
   "yourbusiness.com": "tunegocio.com",
   "you@yourbusiness.com": "tu@tunegocio.com",
+  "Send": "Enviar",
+  "Sending…": "Enviando…",
+  "That didn't go through. Try again, or email us at Ocasilla@oacdigital.biz.": "No se pudo enviar. Inténtalo de nuevo, o escríbenos a Ocasilla@oacdigital.biz.",
+  "We have your answers. Talk soon.": "Ya tenemos tus respuestas. Hablamos pronto.",
 };
 
 /** Returns a translator for the redesigned pages: English in, Spanish out on /es, English otherwise. */
