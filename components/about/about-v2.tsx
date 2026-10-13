@@ -8,8 +8,8 @@ import { SITES, STORIES } from "@/components/home/v2/data";
 import { useReveal } from "@/components/home/v2/use-reveal";
 
 const STORY = [
-  "I've been in business since 2016. I know what it costs to be the one who does everything.",
-  "Before OAC there were other businesses. I learned what a business needs and how it's run, and what an owner goes through when nobody showed them another way or there is nobody to hand the work to.",
+  "Before I built systems for owners, I was the owner doing everything myself.",
+  "I've been in business since 2016, in other companies before OAC. That's where I learned what a business needs and how it's run, and what an owner goes through when nobody showed them another way or there is nobody to hand the work to.",
   "That is how you end up doing everything yourself. You stop being the owner and become the employee who works the most and gets paid the least. If the business only grows by taking more of your hours, making more money doesn't fix it.",
   "I'm an artificial intelligence graduate from Miami Dade College. OAC Digital Innovations is where I put that to work for owners in the spot I've been in.",
 ];
