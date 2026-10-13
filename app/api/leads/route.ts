@@ -30,23 +30,29 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "invalid" }, { status: 400 });
   }
 
-  const res = await fetch(`${SUPABASE_URL}/rest/v1/leads`, {
-    method: "POST",
-    headers: { apikey: SUPABASE_KEY, "Content-Type": "application/json", Prefer: "return=minimal" },
-    body: JSON.stringify({
-      name,
-      phone,
-      email,
-      website: website || null,
-      no_website: body.noWebsite === true,
-      services,
-      locale: body.locale === "es" ? "es" : "en",
-    }),
-    cache: "no-store",
-  });
-
-  if (!res.ok) {
-    console.error("lead insert failed", res.status, await res.text());
+  try {
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/leads`, {
+      method: "POST",
+      headers: { apikey: SUPABASE_KEY, "Content-Type": "application/json", Prefer: "return=minimal" },
+      body: JSON.stringify({
+        name,
+        phone,
+        email,
+        website: website || null,
+        no_website: body.noWebsite === true,
+        services,
+        locale: body.locale === "es" ? "es" : "en",
+      }),
+      cache: "no-store",
+      // Don't leave the visitor waiting if the database is slow or unreachable.
+      signal: AbortSignal.timeout(8000),
+    });
+    if (!res.ok) {
+      console.error("lead insert failed", res.status, await res.text());
+      return NextResponse.json({ error: "unavailable" }, { status: 502 });
+    }
+  } catch (error) {
+    console.error("lead insert failed", error);
     return NextResponse.json({ error: "unavailable" }, { status: 502 });
   }
   return NextResponse.json({ ok: true });
