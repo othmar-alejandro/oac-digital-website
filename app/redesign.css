@@ -456,3 +456,7 @@
   .oa-faqsec { padding-bottom: 96px; }
   .oa-end { padding-top: 96px; }
 }
+
+/* Keep the glass highlight inside the button; it used to slide out past the left edge. */
+.oa-pill { overflow: hidden; }
+.oa-ghost { overflow: visible; }
