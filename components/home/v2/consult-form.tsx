@@ -98,7 +98,7 @@ export function ConsultForm() {
           <label className="oa-serif oa-fq2" htmlFor="f-name">
             {tx("First, what's your name?")}
           </label>
-          <input id="f-name" className="oa-fin" type="text" autoComplete="name" value={name} onChange={(e) => setName(e.target.value)} />
+          <input id="f-name" className="oa-fin" type="text" autoComplete="name" placeholder={tx("Your first and last name")} value={name} onChange={(e) => setName(e.target.value)} />
           {actions}
         </form>
       )}
@@ -135,7 +135,7 @@ export function ConsultForm() {
             {tx("Do you have a website?")}
           </label>
           <span className="oa-sm">{tx("Optional. It helps us look before we talk.")}</span>
-          <input id="f-site" className="oa-fin" type="text" inputMode="url" placeholder="yourbusiness.com" disabled={noSite} value={noSite ? "" : site} onChange={(e) => setSite(e.target.value)} />
+          <input id="f-site" className="oa-fin" type="text" inputMode="url" placeholder={tx("yourbusiness.com")} disabled={noSite} value={noSite ? "" : site} onChange={(e) => setSite(e.target.value)} />
           <button className={`oa-chipb${noSite ? " oa-on" : ""}`} type="button" aria-pressed={noSite} onClick={() => setNoSite(!noSite)}>
             {tx("I don't have one yet")}
           </button>
@@ -148,11 +148,11 @@ export function ConsultForm() {
           <span className="oa-serif oa-fq2">{tx("Where can we reach you?")}</span>
           <label className="oa-fl2">
             <span>{tx("Phone")}</span>
-            <input className="oa-fin" type="tel" autoComplete="tel" value={phone} onChange={(e) => setPhone(e.target.value)} />
+            <input className="oa-fin" type="tel" autoComplete="tel" placeholder="786-555-0123" value={phone} onChange={(e) => setPhone(e.target.value)} />
           </label>
           <label className="oa-fl2">
             <span>{tx("Email")}</span>
-            <input className="oa-fin" type="email" autoComplete="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+            <input className="oa-fin" type="email" autoComplete="email" placeholder={tx("you@yourbusiness.com")} value={email} onChange={(e) => setEmail(e.target.value)} />
           </label>
           {actions}
         </form>

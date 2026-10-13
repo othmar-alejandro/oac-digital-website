@@ -388,6 +388,9 @@ const ES: Record<string, string> = {
   "Website": "Sitio web",
   "The first call is": "La primera llamada es",
   "You tell us where your hours go. You leave knowing what we'd build first, and you decide after that. We call back within one business day.": "Nos cuentas a dónde se van tus horas. Sales sabiendo qué construiríamos primero, y decides después. Te devolvemos la llamada en un día hábil.",
+  "Your first and last name": "Tu nombre y apellido",
+  "yourbusiness.com": "tunegocio.com",
+  "you@yourbusiness.com": "tu@tunegocio.com",
 };
 
 /** Returns a translator for the redesigned pages: English in, Spanish out on /es, English otherwise. */
