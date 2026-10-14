@@ -76,7 +76,7 @@ export function Hero() {
               </Link>
             </div>
           </div>
-          <div className="oa-board oa-tick">
+          <div className="oa-board oa-tick oa-mrv">
             <div className="oa-row oa-bhead">
               <div className="oa-ask">
                 <span className="oa-typed">
@@ -92,7 +92,7 @@ export function Hero() {
               </span>
             </div>
           </div>
-          <div className="oa-art oa-a1">
+          <div className="oa-art oa-mrv oa-a1">
             <img className="oa-shot" src="/images/home/chatgpt-fitoria.png" alt="ChatGPT answer listing Fitoria Tile and Marble first for best tile contractor near me" loading="lazy" decoding="async" />
             <div className="oa-cap">
               <span>
@@ -103,7 +103,7 @@ export function Hero() {
               </span>
             </div>
           </div>
-          <div className="oa-art oa-a2">
+          <div className="oa-art oa-mrv oa-a2">
             <img className="oa-shot" style={{ objectPosition: "center 16%" }} src="/images/home/telegram.jpg" alt="Telegram screenshot of the Brokie agent team built for Broke and Fixed" loading="lazy" decoding="async" />
             <div className="oa-cap">
               <span>
@@ -114,7 +114,7 @@ export function Hero() {
               </span>
             </div>
           </div>
-          <div className="oa-art oa-a3 oa-col" style={{ padding: "0", gap: "0", alignItems: "stretch" }}>
+          <div className="oa-art oa-mrv oa-a3 oa-col" style={{ padding: "0", gap: "0", alignItems: "stretch" }}>
             <div className="oa-row" style={{ justifyContent: "space-between", padding: "10px 14px", borderBottom: "1px solid var(--o-line)", fontSize: "13px" }}>
               <span style={{ fontWeight: "500" }}>
                 {tx("Leads & jobs")}
@@ -173,7 +173,7 @@ export function Hero() {
               </span>
             </div>
           </div>
-          <div className="oa-art oa-a4 oa-col" style={{ gap: "6px" }}>
+          <div className="oa-art oa-mrv oa-a4 oa-col" style={{ gap: "6px" }}>
             <div className="oa-row" style={{ justifyContent: "space-between" }}>
               <span className="oa-sm">
                 {tx("WhatsApp · Thu 10:00 am")}

@@ -460,3 +460,10 @@
 /* Keep the glass highlight inside the button; it used to slide out past the left edge. */
 .oa-pill { overflow: hidden; }
 .oa-ghost { overflow: visible; }
+
+/* Phones have no pinned hero story, so its board and cards rise in as they scroll into view instead. */
+@media (max-width: 760px) and (prefers-reduced-motion: no-preference) {
+  .oa-mrv { opacity: 0; transform: translateY(26px); transition: opacity .9s cubic-bezier(.22,1,.36,1), transform .9s cubic-bezier(.22,1,.36,1); }
+  .oa-board.oa-mrv { transition-delay: .6s; }
+  .oa-mrv.oa-in { opacity: 1; transform: none; }
+}
