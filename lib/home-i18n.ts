@@ -399,6 +399,9 @@ const ES: Record<string, string> = {
   ...PAGES_ES,
 };
 
+/** Translator for server code (metadata), where hooks are not available. */
+export const translate = (locale: string) => (en: string) => (locale === "es" ? ES[en] ?? en : en);
+
 /** Returns a translator for the redesigned pages: English in, Spanish out on /es, English otherwise. */
 export function useTx() {
   const locale = useLocale();

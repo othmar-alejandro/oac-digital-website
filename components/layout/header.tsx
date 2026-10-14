@@ -76,7 +76,7 @@ export function Header() {
                       <div key={group.title} className={`oa-mcol${i === 0 ? " oa-mcol1" : ""}`}>
                         <p className="oa-mh">{tx(group.title)}</p>
                         {group.items.map((item) => (
-                          <Link key={item.title} className="oa-mi" href={SERVICES_HREF}>
+                          <Link key={item.title} className="oa-mi" href={item.href}>
                             <p className="oa-mt">{tx(item.title)}</p>
                             <p className="oa-md">{tx(item.desc)}</p>
                           </Link>
@@ -128,7 +128,7 @@ export function Header() {
           <div key={group.title} className="oa-dgrp">
             <span className="oa-dh">{tx(group.title)}</span>
             {group.items.map((item) => (
-              <Link key={item.title} href={SERVICES_HREF}>
+              <Link key={item.title} href={item.href}>
                 {tx(item.title)}
               </Link>
             ))}

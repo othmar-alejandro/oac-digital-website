@@ -120,6 +120,15 @@ Higgsfield spend for the whole project: 2.25 credits. Not shipped: the four hand
 - Placeholder time slots removed. The form ends on "We'll call you within one business day."
 - Still open: notification when a lead arrives, `/admin/leads`, calendar.
 
+### Inner pages, slices 1 to 3 (2026-10-13, built, waiting on Othmar's test)
+
+- Page plan: `~/.claude/plans/pasted-content-id-000b-let-s-see-enchanted-wombat.md`. Data and copy for 10 services, 4 trades and 20 use cases were written in an earlier session.
+- Built: `/services` (three groups, ten cards), 10 service pages, `/use-cases` and 20 use case pages, 4 trade pages under `/industries` (home-services, barbers-salons, healthcare, real-estate). `/contact` redirects to the homepage form. Menu items link to their service page; "Use cases" added to the nav; sitemap reads the data files.
+- Templates in `components/pages/`, built only from homepage parts in `app/redesign.css`. No new images.
+- `npm run build`: 374 pages (was 307), exit 0. `scripts/check-content.mjs` ok. Every string on the new pages has Spanish.
+- Browser at 1440 and 390, `/en` and `/es`, 14 page types: no sideways scroll, no broken images, no page errors. Reveals fire on the 6 pages rechecked at normal scroll speed.
+- Not done: Work page and case studies (slice 4), city and district pages (5), blog, FAQ, legal, cuts and redirects (6), second batch of trades (7). Service pages have no FAQ block yet. Legal, restaurants, retail and automotive keep the old page.
+
 ## Rules learned
 
 Every rejection becomes a rule here and applies to all later sections.
