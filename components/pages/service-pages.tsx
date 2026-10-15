@@ -6,7 +6,8 @@ import { SERVICE_PAGES } from "@/lib/service-pages";
 import { SERVICES, type Service } from "@/lib/services";
 import { USE_CASES } from "@/lib/use-cases";
 import { Arrow } from "@/components/layout/header";
-import { Ask, DemoStage, PageHero, PageShell, ProofBand, UseCaseCard } from "./parts";
+import { Ask, DemoStage, PageHero, PageShell, ProofBand, UseCaseCard, gridClass } from "./parts";
+import { SeoReport, SiteStack } from "./visuals";
 
 const GROUPS = Array.from(new Set(SERVICES.map((s) => s.group)));
 
@@ -39,7 +40,7 @@ export function ServicesIndex() {
                   {tx(group)}
                 </h2>
               </div>
-              <div className="oa-ucgrid">
+              <div className={gridClass(SERVICES.filter((s) => s.group === group).length)}>
                 {SERVICES.filter((s) => s.group === group).map((s, i) => (
                   <ServiceCard key={s.slug} service={s} className={i % 3 === 1 ? "oa-rv2" : i % 3 === 2 ? "oa-rv3" : ""} />
                 ))}
@@ -59,25 +60,32 @@ export function ServicePageView({ slug }: { slug: Service["slug"] }) {
   const page = SERVICE_PAGES[slug];
   const useCases = USE_CASES.filter((u) => u.service === slug);
   const siblings = SERVICES.filter((s) => s.group === service.group && s.slug !== slug);
-  const visual = page.demo || page.shot;
+  const Visual = page.visual === "sites" ? SiteStack : page.visual === "seo" ? SeoReport : null;
+  const hasVisual = Boolean(Visual || page.demo || page.shot);
+  const more = [...siblings.map((s) => ({ service: s })), { all: true as const }];
 
   return (
     <PageShell>
-      <PageHero crumb={{ label: service.group, href: "/services" }} title={service.title} sub={service.desc} />
-
-      <div className="oa-sec" style={{ paddingTop: 0 }}>
-        <div className={`oa-wrap${visual ? " oa-pgrid" : ""}`}>
-          <div className="oa-col" style={{ gap: 40 }}>
-            <p className="oa-serif oa-hon oa-rv" style={{ maxWidth: 720 }}>
+      {/* The hero carries the explanation and the visual together, so nothing is said twice. */}
+      <div className="oa-sec oa-gridbg oa-ahero" style={{ position: "relative" }}>
+        <div className={`oa-wrap${hasVisual ? " oa-pgrid" : ""}`}>
+          <div className="oa-col" style={{ gap: 28 }}>
+            <div>
+              <Link className="oa-sl oa-rv" href="/services">
+                {tx(service.group)} <span>›</span>
+              </Link>
+              <h1 className="oa-serif oa-h2 oa-ah1 oa-rv">{tx(service.title)}</h1>
+            </div>
+            <p className="oa-mut oa-rv oa-rv2" style={{ fontSize: 20, lineHeight: 1.5, maxWidth: 560, margin: 0 }}>
               {tx(page.plain)}
             </p>
             <div>
-              <h2 className="oa-sl oa-rv" style={{ marginBottom: 8 }}>
+              <h2 className="oa-sl oa-rv" style={{ marginBottom: 4 }}>
                 {tx("What you")} {tx("get.")}
               </h2>
               {page.gets.map((line, i) => (
-                <div key={line} className={`oa-res oa-rv${i === page.gets.length - 1 ? " oa-resl" : ""}`} style={{ padding: "22px 0" }}>
-                  <p className="oa-rs" style={{ color: "var(--o-ink)", fontSize: 20, maxWidth: 560 }}>
+                <div key={line} className={`oa-res oa-rv${i === page.gets.length - 1 ? " oa-resl" : ""}`} style={{ padding: "18px 0" }}>
+                  <p className="oa-rs" style={{ color: "var(--o-ink)", fontSize: 18, maxWidth: 560 }}>
                     <span className="oa-stepn">0{i + 1}</span>
                     {tx(line)}
                   </p>
@@ -85,7 +93,7 @@ export function ServicePageView({ slug }: { slug: Service["slug"] }) {
               ))}
             </div>
           </div>
-          <DemoStage demo={page.demo} shot={page.shot} />
+          {Visual ? <Visual /> : <DemoStage demo={page.demo} shot={page.shot} />}
         </div>
       </div>
 
@@ -97,7 +105,7 @@ export function ServicePageView({ slug }: { slug: Service["slug"] }) {
             <h2 className="oa-serif oa-h2 oa-rv">
               {tx("Where it's")} <span className="oa-em">{tx("used.")}</span>
             </h2>
-            <div className="oa-ucgrid" style={{ marginTop: 56 }}>
+            <div className={gridClass(useCases.length)} style={{ marginTop: 56 }}>
               {useCases.map((u, i) => (
                 <UseCaseCard key={u.slug} useCase={u} className={i % 3 === 1 ? "oa-rv2" : i % 3 === 2 ? "oa-rv3" : ""} />
               ))}
@@ -111,17 +119,20 @@ export function ServicePageView({ slug }: { slug: Service["slug"] }) {
           <h2 className="oa-serif oa-h2 oa-rv">
             {tx("In the same")} <span className="oa-em">{tx("group.")}</span>
           </h2>
-          <div className="oa-ucgrid" style={{ marginTop: 56 }}>
-            {siblings.map((s, i) => (
-              <ServiceCard key={s.slug} service={s} className={i % 3 === 1 ? "oa-rv2" : i % 3 === 2 ? "oa-rv3" : ""} />
-            ))}
-            <Link className="oa-uc oa-ucall oa-rv" href="/services">
-              <p className="oa-serif oa-not">{tx("All services")}</p>
-              <span className="oa-pill oa-ghost oa-ucgo">
-                {tx("Services")}
-                <Arrow />
-              </span>
-            </Link>
+          <div className={gridClass(more.length)} style={{ marginTop: 56 }}>
+            {more.map((m, i) =>
+              "service" in m ? (
+                <ServiceCard key={m.service.slug} service={m.service} className={i % 3 === 1 ? "oa-rv2" : i % 3 === 2 ? "oa-rv3" : ""} />
+              ) : (
+                <Link key="all" className="oa-uc oa-ucall oa-rv" href="/services">
+                  <p className="oa-serif oa-not">{tx("All services")}</p>
+                  <span className="oa-pill oa-ghost oa-ucgo">
+                    {tx("Services")}
+                    <Arrow />
+                  </span>
+                </Link>
+              ),
+            )}
           </div>
         </div>
       </div>

@@ -1,13 +1,16 @@
 import type { ServiceSlug } from "./services";
 
 // What each service page says beyond the menu line. English strings; translate at render with useTx().
-// `demo` is a built screen from components/home/v2 (shown with example data); `shot` is a real capture; `proof` names a client story in STORIES.
+// `demo` is a built screen from components/home/v2 (shown with example data); `shot` is a real capture;
+// `visual` is a coded panel from components/pages/visuals.tsx; `proof` names a client story in STORIES.
+// Rule: a client never appears twice on one page, so the proof band names a different client from the visual.
 
 export type ServicePage = {
   plain: string;
   gets: [string, string, string];
   demo?: "wa" | "auto" | "crm" | "app";
   shot?: { src: string; alt: string; cap: string };
+  visual?: "sites" | "seo";
   proof?: string;
 };
 
@@ -19,8 +22,7 @@ export const SERVICE_PAGES: Record<ServiceSlug, ServicePage> = {
       "English, Spanish or both.",
       "You see it working and ask for changes before it goes live.",
     ],
-    shot: { src: "/images/home/site-noahgpaint.jpg", alt: "Noah G Paint and Design website", cap: "A live client site: Noah G Paint & Design." },
-    proof: "Noah G Paint & Design",
+    visual: "sites",
   },
   seo: {
     plain: "When someone nearby searches for what you do, your business should be what they find. We set that up on Google and on Bing.",
@@ -29,7 +31,7 @@ export const SERVICE_PAGES: Record<ServiceSlug, ServicePage> = {
       "The setup search engines need to read your site.",
       "It builds over time. We tell you that before we start.",
     ],
-    shot: { src: "/images/home/site-fitoria.jpg", alt: "Fitoria Tile and Marble website", cap: "A live client site: Fitoria Tile & Marble." },
+    visual: "seo",
     proof: "Fitoria Tile & Marble",
   },
   "ai-search": {
@@ -40,7 +42,7 @@ export const SERVICE_PAGES: Record<ServiceSlug, ServicePage> = {
       "Nobody controls what an AI answers. We make you the business it can find.",
     ],
     shot: { src: "/images/home/chatgpt-fitoria.png", alt: "ChatGPT answer listing Fitoria Tile and Marble first for best tile contractor near me", cap: "ChatGPT, unedited. Client: Fitoria Tile & Marble." },
-    proof: "Fitoria Tile & Marble",
+    proof: "Noah G Paint & Design",
   },
   automations: {
     plain: "The reply, the reminder, the review request and the follow-up go out without you touching them.",
@@ -96,7 +98,6 @@ export const SERVICE_PAGES: Record<ServiceSlug, ServicePage> = {
       "It shows what needs you today.",
     ],
     shot: { src: "/images/home/pace.png", alt: "Pace dashboard showing sold this month, the three things to do today and blocked jobs", cap: "Pace, built for a Miami painting contractor. Shown with demo data." },
-    proof: "Noah G Paint & Design",
   },
   "business-ai": {
     plain: "A private AI that knows your prices, your services and your policies. You and your team ask it what you'd ask your most experienced employee.",
