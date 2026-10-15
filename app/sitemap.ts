@@ -16,7 +16,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: 'services', priority: 0.95, changeFrequency: 'weekly' as const }, // Primary conversion page
     { path: 'portfolio', priority: 0.85, changeFrequency: 'weekly' as const },
     { path: 'use-cases', priority: 0.9, changeFrequency: 'weekly' as const },
-    { path: 'blog', priority: 0.7, changeFrequency: 'daily' as const },
     { path: 'resources/faqs', priority: 0.6, changeFrequency: 'weekly' as const }, // FAQ helps with featured snippets
     { path: 'privacy-policy', priority: 0.3, changeFrequency: 'yearly' as const },
     { path: 'terms-of-service', priority: 0.3, changeFrequency: 'yearly' as const },
@@ -68,45 +67,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: 'monthly' as const
   }));
 
-  // Tool comparison pages
-  const comparisons = [
-    'shopify-vs-woocommerce', 'wordpress-vs-nextjs', 'google-ads-vs-facebook-ads',
-    'mailchimp-vs-klaviyo', 'hubspot-vs-salesforce'
-  ];
-  const comparisonPages = comparisons.map(comparison => ({
-    path: `compare/${comparison}`,
-    priority: 0.7,
-    changeFrequency: 'monthly' as const
-  }));
-
-  // Seasonal campaign pages
-  const seasonalCampaigns = [
-    'holiday-marketing-2025', 'back-to-school-2025', 'summer-business-boost-2025',
-    'new-year-digital-transformation-2025', 'spring-cleaning-digital-2025'
-  ];
-  const campaignPages = seasonalCampaigns.map(season => ({
-    path: `campaigns/${season}`,
-    priority: 0.6,
-    changeFrequency: 'monthly' as const
-  }));
-
-  // Service package pages
-  const servicePackages = [
-    'web-design-and-seo', 'seo-and-digital-marketing', 'web-design-and-digital-marketing', 'seo-and-ai-solutions'
-  ];
-  const packagePages = servicePackages.map(packageName => ({
-    path: `packages/${packageName}`,
-    priority: 0.7,
-    changeFrequency: 'monthly' as const
-  }));
-
   // Combine all existing pages (removed LLM training pages to prevent 404s)
   // Service and use case pages from the data files
   const servicePages = [...SERVICES.map((s) => s.slug), 'digital-marketing', 'ai-solutions'].map((slug) => ({ path: `services/${slug}`, priority: 0.9, changeFrequency: 'weekly' as const }));
   const workPages = CASE_STUDIES.map((c) => ({ path: `portfolio/${c.slug}`, priority: 0.8, changeFrequency: 'monthly' as const }));
   const useCasePages = USE_CASES.map((u) => ({ path: `use-cases/${u.slug}`, priority: 0.8, changeFrequency: 'monthly' as const }));
 
-  const allPages = [...servicePages, ...useCasePages, ...workPages, ...corePages, ...locations, ...serviceLocationPages, ...industryPages, ...districtPages, ...comparisonPages, ...campaignPages, ...packagePages];
+  const allPages = [...servicePages, ...useCasePages, ...workPages, ...corePages, ...locations, ...serviceLocationPages, ...industryPages, ...districtPages];
 
   // Generate sitemap entries for each locale and page
   const sitemapEntries: MetadataRoute.Sitemap = [];
@@ -118,36 +85,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
         lastModified: new Date(),
         changeFrequency: page.changeFrequency,
         priority: page.priority,
-      });
-    });
-  });
-
-  // LLM-optimized blog posts for authority and featured snippets
-  const blogPosts = [
-    'ai-web-design-trends-2025',
-    'local-seo-miami-businesses',
-    'chatbot-integration-guide',
-    'next-js-vs-wordpress-performance',
-    'schema-markup-best-practices',
-    'google-ai-overview-optimization-2025',
-    'perplexity-ai-citation-strategies',
-    'chatgpt-business-integration-miami',
-    'voice-search-optimization-south-florida',
-    'ai-content-generation-best-practices',
-    'local-business-ai-automation',
-    'south-florida-digital-transformation',
-    'bilingual-seo-miami-hispanic-market',
-    'ai-powered-customer-service-solutions',
-    'next-js-14-performance-optimization'
-  ];
-
-  locales.forEach(locale => {
-    blogPosts.forEach(post => {
-      sitemapEntries.push({
-        url: `${baseUrl}/${locale}/blog/${post}`,
-        lastModified: new Date(),
-        changeFrequency: 'weekly', // More frequent for LLM freshness
-        priority: 0.7, // Higher priority for authority content
       });
     });
   });

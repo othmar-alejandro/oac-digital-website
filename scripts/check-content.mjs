@@ -3,12 +3,15 @@
 import { SERVICES } from "../lib/services.ts";
 import { VERTICALS } from "../lib/verticals.ts";
 import { USE_CASES } from "../lib/use-cases.ts";
+import { FAQ_GROUPS } from "../lib/faq-page.ts";
 import { CITY_SERVICES } from "../lib/locations.ts";
 import { readdirSync, readFileSync } from "node:fs";
 import { CASE_STUDIES, LISTINGS } from "../lib/work.ts";
 import { PAGES_ES } from "../lib/pages-i18n.ts";
 import { SERVICE_GROUPS } from "../components/layout/nav-data.ts";
 
+// The homepage lookup imports extensionless paths, so read its keys as text instead of importing it.
+const homeKeys = new Set([...readFileSync("lib/home-i18n.ts", "utf8").matchAll(/^\s*"((?:[^"\\]|\\.)+)":/gm)].map((m) => m[1].replace(/\\"/g, '"')));
 const errors = [];
 const services = new Set(SERVICES.map((s) => s.slug));
 const verticals = new Set(VERTICALS.map((v) => v.slug));
@@ -32,6 +35,7 @@ for (const c of CASE_STUDIES) {
   strings.push(c.trade, c.title, c.em, c.sub, c.before, ...c.built, c.outcome, ...c.shots.flatMap((s) => [s.alt, s.cap]));
 }
 for (const c of CITY_SERVICES) strings.push(c.noun, `${c.noun} in`, `${c.noun} near`, ...(c.plain ? [c.plain, ...c.gets, c.hubTitle, c.hubEm] : []));
+for (const g of FAQ_GROUPS) strings.push(g.title, ...g.items.flatMap((i) => [i.q, i.a]));
 for (const l of LISTINGS) strings.push(l.trade, l.what);
 for (const v of verticals) {
   const n = USE_CASES.filter((u) => u.vertical === v).length;
@@ -40,15 +44,13 @@ for (const v of verticals) {
 
 const clock = /^\d{1,2}:\d\d [ap]m$/;
 for (const s of new Set(strings)) {
-  if (!clock.test(s) && !(s in PAGES_ES)) errors.push(`no Spanish: ${s}`);
+  if (!clock.test(s) && !(s in PAGES_ES) && !homeKeys.has(s)) errors.push(`no Spanish: ${s}`);
 }
 // Site rules: no prices, no long dashes.
 for (const s of [...strings, ...Object.values(PAGES_ES)]) {
   if (/[$€]\s?\d|[—–]/.test(s)) errors.push(`price or dash: ${s}`);
 }
 
-// The homepage lookup imports extensionless paths, so read its keys as text instead of importing it.
-const homeKeys = new Set([...readFileSync("lib/home-i18n.ts", "utf8").matchAll(/^\s*"((?:[^"\\]|\\.)+)":/gm)].map((m) => m[1].replace(/\\"/g, '"')));
 const same = new Set(["SEO", "WhatsApp", "Telegram", "Instagram", "Email"]);
 for (const f of readdirSync("components/pages").filter((n) => n.endsWith(".tsx"))) {
   for (const m of readFileSync(`components/pages/${f}`, "utf8").matchAll(/\btx\("((?:[^"\\]|\\.)+)"\)/g)) {

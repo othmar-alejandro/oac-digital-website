@@ -21,11 +21,10 @@ const footerSections = [
   {
     key: 'industries',
     items: [
+      { key: 'homeServices', href: "/industries/home-services" },
+      { key: 'barbersSalons', href: "/industries/barbers-salons" },
       { key: 'healthcare', href: "/industries/healthcare" },
       { key: 'realEstate', href: "/industries/real-estate" },
-      { key: 'legal', href: "/industries/legal" },
-      { key: 'restaurants', href: "/industries/restaurants" },
-      { key: 'retail', href: "/industries/retail" },
     ],
   },
   {
@@ -42,8 +41,6 @@ const footerSections = [
     key: 'resources', // Key for section title translation
     items: [
       { key: 'faqs', href: "/resources/faqs" },
-      { key: 'comparisons', href: "/compare/shopify-vs-woocommerce" },
-      { key: 'servicePackages', href: "/packages/web-design-and-seo" },
       { key: 'privacyPolicy', href: "/privacy-policy" },
       { key: 'termsOfService', href: "/terms-of-service" },
     ],
@@ -94,7 +91,6 @@ export function Footer() {
                 {tx(l.title)}
               </Link>
             ))}
-            <Link href="/blog">{t("sections.company.items.blog")}</Link>
             <Link href="/contact">{t("sections.company.items.contact")}</Link>
           </div>
           <div className="oa-col">

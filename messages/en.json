@@ -52,11 +52,10 @@
             "industries": {
                 "title": "🏭 Industries",
                 "items": {
+                    "homeServices": "Home services",
+                    "barbersSalons": "Barbers and salons",
                     "healthcare": "Healthcare",
-                    "realEstate": "Real Estate",
-                    "legal": "Legal Services",
-                    "restaurants": "Restaurants",
-                    "retail": "Retail"
+                    "realEstate": "Real Estate"
                 }
             },
             "businessDistricts": {
@@ -73,8 +72,6 @@
                 "title": "Resources",
                 "items": {
                     "faqs": "FAQs",
-                    "comparisons": "Tool Comparisons",
-                    "servicePackages": "Service Packages",
                     "privacyPolicy": "Privacy Policy",
                     "termsOfService": "Terms of Service"
                 }
