@@ -460,3 +460,121 @@
 /* Keep the glass highlight inside the button; it used to slide out past the left edge. */
 .oa-pill { overflow: hidden; }
 .oa-ghost { overflow: visible; }
+
+/* Phones have no pinned hero story, so its board and cards rise in as they scroll into view instead. */
+@media (max-width: 760px) and (prefers-reduced-motion: no-preference) {
+  .oa-mrv { opacity: 0; transform: translateY(26px); transition: opacity .9s cubic-bezier(.22,1,.36,1), transform .9s cubic-bezier(.22,1,.36,1); }
+  .oa-board.oa-mrv { transition-delay: .6s; }
+  .oa-mrv.oa-in { opacity: 1; transform: none; }
+}
+
+/* Inner pages: services, trades, use cases. Built from the homepage parts. */
+.oa-pgrid { display: grid; grid-template-columns: 5fr 6fr; gap: 80px; align-items: start; }
+.oa-stepn { display: inline-block; width: 44px; font: 400 15px/1 var(--font-newsreader), Georgia, serif; color: var(--o-gold); }
+.oa-tag { display: inline-flex; align-items: center; white-space: nowrap; padding: 4px 11px; border-radius: 9999px; border: 1px solid var(--o-line); font-size: 12.5px; color: var(--o-mut); }
+.oa-tagb { color: var(--o-gold); border-color: var(--o-gold); }
+.oa-band .oa-tag, .oa-story .oa-tag { border-color: var(--o-bandline); color: var(--o-bandmut); }
+.oa-band .oa-tagb { color: var(--o-goldfill); border-color: var(--o-goldfill); }
+.oa-uct { font: 400 15px/1 var(--font-newsreader), Georgia, serif; color: var(--o-gold); letter-spacing: .01em; white-space: nowrap; }
+.oa-band .oa-uct { color: var(--o-goldfill); }
+.oa-ucgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.oa-uc { display: flex; flex-direction: column; gap: 14px; padding: 28px 28px 26px; border-radius: 20px; background: var(--o-card); box-shadow: 0 0 0 1px var(--o-line); color: inherit; text-decoration: none; transition: box-shadow .3s, transform .45s cubic-bezier(.22,1,.36,1); }
+.oa-uc:hover { transform: translateY(-3px); box-shadow: 0 0 0 1px var(--o-gold); }
+.oa-uc .oa-not { margin: 0; font-size: 26px; }
+.oa-uc .oa-rs { font-size: 16px; }
+.oa-ucgo { margin-top: auto; padding: 8px 0 0; height: auto; align-self: flex-start; font-size: 15px; }
+.oa-ucall { background: transparent; }
+.oa-grp { padding: 56px 0 0; }
+.oa-grp:first-child { padding-top: 0; }
+.oa-grph { display: flex; align-items: baseline; gap: 20px; padding: 0 0 28px; margin-bottom: 28px; border-bottom: 1px solid var(--o-line); color: inherit; text-decoration: none; }
+.oa-grpn { font: 400 40px/1 var(--font-newsreader), Georgia, serif; color: var(--o-gold); opacity: .55; letter-spacing: -.03em; }
+.oa-day { margin-top: 64px; border-bottom: 1px solid var(--o-bandline); }
+.oa-dayrow { display: grid; grid-template-columns: 110px 1fr auto; gap: 32px; align-items: start; padding: 30px 0; border-top: 1px solid var(--o-bandline); color: inherit; text-decoration: none; }
+.oa-dayrow .oa-not { margin: 0 0 8px; transition: transform .45s cubic-bezier(.22,1,.36,1); }
+.oa-dayrow:hover .oa-not { transform: translateX(8px); }
+.oa-dayrow .oa-uct { padding-top: 9px; }
+.oa-facts2 { display: grid; grid-template-columns: 1fr 1fr; gap: 32px 40px; margin-top: 48px; }
+.oa-pgrid .oa-demo { top: 96px; }
+@media (max-width: 1000px) { .oa-ucgrid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 760px) {
+  .oa-pgrid { grid-template-columns: 1fr; gap: 40px; } .oa-pgrid .oa-demo { position: relative; top: 0; }
+  .oa-ucgrid { grid-template-columns: 1fr; gap: 14px; } .oa-uc { padding: 22px; } .oa-uc .oa-not { font-size: 23px; }
+  .oa-grp { padding-top: 40px; } .oa-grph { gap: 14px; } .oa-grpn { font-size: 30px; }
+  .oa-day { margin-top: 40px; } .oa-dayrow { grid-template-columns: 1fr; gap: 12px; padding: 24px 0; } .oa-dayrow .oa-col { align-items: flex-start !important; flex-direction: row; justify-content: space-between; width: 100%; }
+  .oa-facts2 { grid-template-columns: 1fr; gap: 24px; }
+}
+.oa-pshot { margin: 0; padding: 24px; border-radius: 24px; background: var(--o-card); display: flex; flex-direction: column; gap: 14px; position: sticky; top: 96px; }
+.oa-pshot img { width: 100%; max-height: 620px; object-fit: cover; object-position: top; border-radius: 12px; box-shadow: var(--o-shadow); display: block; }
+@media (max-width: 760px) { .oa-pshot { position: static; padding: 16px; } .oa-pshot img { max-height: 460px; } }
+
+/* Grid balance: four cards go two by two. */
+.oa-ucgrid2 { grid-template-columns: repeat(2, 1fr); }
+
+/* Service hero: explanation left, visual right. */
+.oa-ahero .oa-pgrid { align-items: center; }
+
+/* Site stack: three live sites as layered browser windows. */
+.oa-stack { margin: 0; display: flex; flex-direction: column; gap: 16px; }
+.oa-stackin { position: relative; aspect-ratio: 1 / .86; }
+.oa-win { position: absolute; width: 78%; border-radius: 12px; overflow: hidden; background: var(--o-art); box-shadow: var(--o-shadow); transition: transform .6s cubic-bezier(.22,1,.36,1); }
+.oa-win img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; }
+.oa-winbar { display: flex; align-items: center; gap: 6px; height: 26px; padding: 0 12px; background: var(--o-card); font-size: 11px; color: var(--o-mut); }
+.oa-winbar i { width: 8px; height: 8px; border-radius: 50%; background: var(--o-line); }
+.oa-winbar span { margin-left: 10px; }
+.oa-win2 { right: 0; top: 0; transform: rotate(2.2deg); z-index: 1; }
+.oa-win1 { left: 0; top: 18%; transform: rotate(-2.4deg); z-index: 2; }
+.oa-win0 { left: 11%; bottom: 0; z-index: 3; }
+.oa-stack:hover .oa-win2 { transform: rotate(3deg) translate(10px, -8px); }
+.oa-stack:hover .oa-win1 { transform: rotate(-3deg) translate(-10px, -4px); }
+
+/* SEO report card with real Search Console numbers. */
+.oa-seo2 { margin: 0; display: flex; flex-direction: column; gap: 14px; }
+.oa-seocard { border-radius: 20px; background: var(--o-board); color: var(--o-boardink); --o-mut: var(--o-boardmut); --o-line: var(--o-boardline); box-shadow: var(--o-shadow); padding: 24px 26px; }
+.oa-seohd { gap: 12px; padding-bottom: 18px; border-bottom: 1px solid var(--o-line); }
+.oa-seohd b { display: block; font-size: 15px; font-weight: 550; }
+.oa-seohd div span { display: block; font-size: 13px; color: var(--o-mut); }
+.oa-seog { width: 32px; height: 32px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; background: #fff; color: #285AA6; font-weight: 700; box-shadow: 0 0 0 1px var(--o-line); }
+.oa-seosec { padding: 18px 0; border-bottom: 1px solid var(--o-line); }
+.oa-seosec:last-child { border-bottom: 0; padding-bottom: 4px; }
+.oa-seolab { font-size: 13px; color: var(--o-mut); }
+.oa-sbars { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 14px; }
+.oa-sbar { display: flex; flex-direction: column; justify-content: flex-end; align-items: stretch; gap: 6px; }
+.oa-sbarw { height: 120px; display: flex; align-items: flex-end; }
+.oa-sbarf { display: block; width: 100%; background: var(--o-goldfill); border-radius: 4px 4px 0 0; min-height: 4px; }
+.oa-sbarv { font-size: 13px; font-weight: 550; text-align: center; min-height: 16px; }
+.oa-sbarl { font-size: 12px; color: var(--o-mut); text-align: center; }
+.oa-seostat { justify-content: space-between; align-items: center; gap: 16px; }
+.oa-seonum { font: 400 40px/1 var(--font-newsreader), Georgia, serif; letter-spacing: -.02em; }
+.oa-seoq { justify-content: space-between; gap: 16px; padding: 7px 0; font-size: 14px; }
+.oa-seoq b { font-weight: 600; font-variant-numeric: tabular-nums; }
+.oa-seoqh { font-size: 12px; color: var(--o-mut); padding-top: 0; }
+
+@media (max-width: 760px) {
+  .oa-ucgrid2 { grid-template-columns: 1fr; }
+  .oa-stackin { aspect-ratio: 1 / .9; } .oa-win { width: 84%; } .oa-win0 { left: 8%; }
+  .oa-seocard { padding: 20px; } .oa-sbarw { height: 96px; } .oa-seonum { font-size: 32px; }
+}
+
+/* Service hero: words and list on the left, visual on the right; on phones the visual comes before the list. */
+.oa-shero { display: grid; grid-template-columns: 5fr 6fr; grid-template-areas: "text vis" "gets vis"; column-gap: 80px; row-gap: 28px; align-items: start; }
+.oa-shtext { grid-area: text; } .oa-shgets { grid-area: gets; } .oa-shvis { grid-area: vis; align-self: center; }
+.oa-shvis .oa-demo { position: relative; top: 0; }
+
+/* "Ask the business" example panel. */
+.oa-ask2 { margin: 0; display: flex; flex-direction: column; gap: 14px; }
+.oa-askcard { border-radius: 20px; background: var(--o-board); color: var(--o-boardink); --o-mut: var(--o-boardmut); --o-line: var(--o-boardline); box-shadow: var(--o-shadow); padding: 22px 24px; }
+.oa-askcard .oa-seohd div span { display: block; font-size: 13px; color: var(--o-mut); }
+.oa-askcard .oa-tag { color: var(--o-mut); border-color: var(--o-line); }
+.oa-askdot { width: 32px; height: 32px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #F4F6F8, #C79A43 55%, #8A6A22); box-shadow: 0 0 0 1px var(--o-line); }
+.oa-askthread { display: flex; flex-direction: column; gap: 18px; padding: 20px 0; }
+.oa-askq { align-self: flex-end; max-width: 80%; margin: 0; padding: 10px 14px; border-radius: 16px 16px 4px 16px; background: #173F7A; color: #F4F6F8; font-size: 14px; line-height: 1.4; }
+.oa-aska { align-self: flex-start; max-width: 88%; padding: 12px 14px; border-radius: 16px 16px 16px 4px; background: color-mix(in srgb, var(--o-boardink) 7%, transparent); box-shadow: 0 0 0 1px var(--o-line); }
+.oa-aska p { margin: 0; font-size: 14px; line-height: 1.45; }
+.oa-asksrc { display: inline-block; margin-top: 8px; font-size: 11.5px; color: var(--o-mut); padding: 2px 8px; border-radius: 9999px; box-shadow: 0 0 0 1px var(--o-line); }
+.oa-askin { justify-content: space-between; gap: 12px; padding: 12px 14px; border-radius: 9999px; box-shadow: 0 0 0 1px var(--o-line); font-size: 13.5px; color: var(--o-mut); }
+.oa-askin i { font-style: normal; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; background: var(--o-goldfill); color: #061321; }
+@media (max-width: 760px) {
+  .oa-shero { grid-template-columns: 1fr; grid-template-areas: "text" "vis" "gets"; row-gap: 32px; }
+  .oa-askcard { padding: 18px; } .oa-askq, .oa-aska { max-width: 92%; }
+}
+.oa-shvis .oa-pshot { position: relative; top: 0; }

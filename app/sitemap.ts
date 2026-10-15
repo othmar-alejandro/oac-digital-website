@@ -1,4 +1,7 @@
 import { MetadataRoute } from 'next';
+import { SERVICES } from '@/lib/services';
+import { USE_CASES } from '@/lib/use-cases';
+import { VERTICALS } from '@/lib/verticals';
 // Force rebuild
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -11,7 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: 'about', priority: 0.95, changeFrequency: 'weekly' as const }, // Higher priority for brand authority
     { path: 'services', priority: 0.95, changeFrequency: 'weekly' as const }, // Primary conversion page
     { path: 'portfolio', priority: 0.85, changeFrequency: 'weekly' as const },
-    { path: 'contact', priority: 0.8, changeFrequency: 'weekly' as const }, // Contact is crucial for local SEO
+    { path: 'use-cases', priority: 0.9, changeFrequency: 'weekly' as const },
     { path: 'blog', priority: 0.7, changeFrequency: 'daily' as const },
     { path: 'resources/faqs', priority: 0.6, changeFrequency: 'weekly' as const }, // FAQ helps with featured snippets
     { path: 'privacy-policy', priority: 0.3, changeFrequency: 'yearly' as const },
@@ -45,7 +48,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   );
 
   // Industry-specific pages
-  const industries = ['healthcare', 'real-estate', 'legal', 'restaurants', 'retail', 'automotive'];
+  const industries = Array.from(new Set([...VERTICALS.map((v) => v.slug), 'legal', 'restaurants', 'retail', 'automotive']));
   const industryPages = industries.map(industry => ({
     path: `industries/${industry}`,
     priority: 0.6,
@@ -97,7 +100,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   // Combine all existing pages (removed LLM training pages to prevent 404s)
-  const allPages = [...corePages, ...locations, ...serviceLocationPages, ...industryPages, ...districtPages, ...comparisonPages, ...campaignPages, ...packagePages];
+  // Service and use case pages from the data files
+  const servicePages = SERVICES.map((s) => ({ path: `services/${s.slug}`, priority: 0.9, changeFrequency: 'weekly' as const }));
+  const useCasePages = USE_CASES.map((u) => ({ path: `use-cases/${u.slug}`, priority: 0.8, changeFrequency: 'monthly' as const }));
+
+  const allPages = [...servicePages, ...useCasePages, ...corePages, ...locations, ...serviceLocationPages, ...industryPages, ...districtPages, ...comparisonPages, ...campaignPages, ...packagePages];
 
   // Generate sitemap entries for each locale and page
   const sitemapEntries: MetadataRoute.Sitemap = [];

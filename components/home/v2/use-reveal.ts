@@ -1,11 +1,11 @@
 import { useEffect, useRef } from "react";
 
-/** Scroll reveals: each .oa-rv inside the returned ref gets .oa-in once, the first time it enters the viewport. */
+/** Scroll reveals: each .oa-rv (or phone-only .oa-mrv) inside the returned ref gets .oa-in once, the first time it enters the viewport. */
 export function useReveal<T extends HTMLElement>() {
   const root = useRef<T>(null);
 
   useEffect(() => {
-    const els = root.current?.querySelectorAll(".oa-rv") ?? [];
+    const els = root.current?.querySelectorAll(".oa-rv, .oa-mrv") ?? [];
     const io = new IntersectionObserver(
       (entries) =>
         entries.forEach((e) => {

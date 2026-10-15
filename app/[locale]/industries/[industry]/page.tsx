@@ -3,6 +3,13 @@ import { notFound } from 'next/navigation';
 import { setRequestLocale } from 'next-intl/server';
 import { getMessages } from '@/i18n';
 import { ServiceSchema, BreadcrumbSchema, FAQSchema } from '@/components/seo/StructuredData';
+import { Layout } from '@/components/layout/layout';
+import { VerticalPageView } from '@/components/pages/use-case-pages';
+import { pageMeta } from '@/lib/page-meta';
+import { VERTICALS } from '@/lib/verticals';
+
+// The four trades in lib/verticals.ts use the redesigned page. The other industries below keep the old one for now.
+const findVertical = (slug: string) => VERTICALS.find((v) => v.slug === slug);
 
 // Industry configurations
 const industries = {
@@ -178,7 +185,7 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  const industryKeys = Object.keys(industries);
+  const industryKeys = Array.from(new Set([...Object.keys(industries), ...VERTICALS.map((v) => v.slug)]));
   const locales = ['en', 'es'];
 
   const params = [];
@@ -193,6 +200,9 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params: { locale, industry } }: PageProps): Promise<Metadata> {
+  const vertical = findVertical(industry);
+  if (vertical) return pageMeta(locale, `/industries/${vertical.slug}`, vertical.title, vertical.lead);
+
   const industryConfig = industries[industry as keyof typeof industries];
 
   if (!industryConfig) {
@@ -224,6 +234,15 @@ export async function generateMetadata({ params: { locale, industry } }: PagePro
 
 export default async function IndustryPage({ params: { locale, industry } }: PageProps) {
   setRequestLocale(locale);
+
+  const vertical = findVertical(industry);
+  if (vertical) {
+    return (
+      <Layout>
+        <VerticalPageView slug={vertical.slug} />
+      </Layout>
+    );
+  }
 
   const industryConfig = industries[industry as keyof typeof industries];
 

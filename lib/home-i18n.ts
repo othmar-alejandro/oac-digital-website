@@ -1,4 +1,5 @@
 import { useLocale } from "next-intl";
+import { PAGES_ES } from "./pages-i18n";
 
 // chisle: gettext-style lookup keyed by the English string; move to messages/*.json if translators need stable keys.
 const ES: Record<string, string> = {
@@ -395,7 +396,11 @@ const ES: Record<string, string> = {
   "Sending…": "Enviando…",
   "That didn't go through. Try again, or email us at Ocasilla@oacdigital.biz.": "No se pudo enviar. Inténtalo de nuevo, o escríbenos a Ocasilla@oacdigital.biz.",
   "We have your answers. Talk soon.": "Ya tenemos tus respuestas. Hablamos pronto.",
+  ...PAGES_ES,
 };
+
+/** Translator for server code (metadata), where hooks are not available. */
+export const translate = (locale: string) => (en: string) => (locale === "es" ? ES[en] ?? en : en);
 
 /** Returns a translator for the redesigned pages: English in, Spanish out on /es, English otherwise. */
 export function useTx() {
