@@ -58,7 +58,9 @@ export function ServicePageView({ slug }: { slug: Service["slug"] }) {
   const tx = useTx();
   const service = SERVICES.find((s) => s.slug === slug)!;
   const page = SERVICE_PAGES[slug];
-  const useCases = USE_CASES.filter((u) => u.service === slug);
+  const allUseCases = USE_CASES.filter((u) => u.service === slug);
+  // Two rows at most; the rest are one click away.
+  const useCases = allUseCases.slice(0, 6);
   const siblings = SERVICES.filter((s) => s.group === service.group && s.slug !== slug);
   const Visual = page.visual === "sites" ? SiteStack : page.visual === "seo" ? SeoReport : null;
   const hasVisual = Boolean(Visual || page.demo || page.shot);
@@ -110,6 +112,17 @@ export function ServicePageView({ slug }: { slug: Service["slug"] }) {
                 <UseCaseCard key={u.slug} useCase={u} className={i % 3 === 1 ? "oa-rv2" : i % 3 === 2 ? "oa-rv3" : ""} />
               ))}
             </div>
+            {allUseCases.length > useCases.length && (
+              <div className="oa-cline oa-rv">
+                <p className="oa-serif">
+                  {allUseCases.length} {tx("use cases use this service.")}
+                </p>
+                <Link className="oa-pill oa-ghost" href="/use-cases">
+                  {tx("See all use cases")}
+                  <Arrow />
+                </Link>
+              </div>
+            )}
           </div>
         </div>
       )}

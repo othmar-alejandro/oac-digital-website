@@ -277,4 +277,6 @@ export const PAGES_ES: Record<string, string> = {
   "Search term": "Búsqueda",
   "Avg. position": "Posición prom.",
   "From Fitoria Tile & Marble's Google Search Console exports, April to September 2026. Per-day figures are averages for each month's report.": "De las exportaciones de Google Search Console de Fitoria Tile & Marble, de abril a septiembre de 2026. Las cifras por día son promedios del reporte de cada mes.",
+  "use cases use this service.": "casos de uso usan este servicio.",
+  "See all use cases": "Ver todos los casos de uso",
 };

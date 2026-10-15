@@ -148,3 +148,4 @@ Every rejection becomes a rule here and applies to all later sections.
 13. Every section headline reveals on scroll (mask wipe + rise), then its description, then its control. Nothing below the hero sits static.
 10. Nav and footer use the full signature logo (Othmar's call, 2026-10-12, overriding the kit's 500px rule). One transparent file for both themes; no wordmark text beside it.
 3. No default shadcn look. The page must read as custom and expensive: motion, depth and type per the premium build standard.
+16. No image twice on a page, and no two service pages share an image. Spread proof across the client sites instead of leaning on one (Othmar, 2026-10-15). `scripts/check-images.mjs` checks it after a build.

@@ -3,7 +3,8 @@ import type { ServiceSlug } from "./services";
 // What each service page says beyond the menu line. English strings; translate at render with useTx().
 // `demo` is a built screen from components/home/v2 (shown with example data); `shot` is a real capture;
 // `visual` is a coded panel from components/pages/visuals.tsx; `proof` names a client story in STORIES.
-// Rule: a client never appears twice on one page, so the proof band names a different client from the visual.
+// Rule (scripts/check-images.mjs): no image appears twice on a page and no two service pages share an image.
+// A visual and a proof band may name the same client when they show different things (SEO: numbers, then the site).
 
 export type ServicePage = {
   plain: string;

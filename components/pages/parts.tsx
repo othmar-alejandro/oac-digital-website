@@ -14,8 +14,8 @@ const DEMOS = { wa: DemoWa, auto: DemoAuto, crm: DemoCrm, app: DemoApp };
 
 export type Shot = { src: string; alt: string; cap: string };
 
-/** Card grid sized to its count, so four cards sit 2 by 2 instead of leaving one alone on a row. */
-export const gridClass = (count: number) => `oa-ucgrid${count === 4 ? " oa-ucgrid2" : ""}`;
+/** Card grid sized to its count: one, two or four cards use two columns so no card sits alone on a row of three. */
+export const gridClass = (count: number) => `oa-ucgrid${count <= 2 || count === 4 ? " oa-ucgrid2" : ""}`;
 
 /** Page wrapper for the redesigned inner pages: brand surface plus scroll reveals. */
 export function PageShell({ children }: { children: ReactNode }) {
