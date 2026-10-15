@@ -147,6 +147,12 @@ Higgsfield spend for the whole project: 2.25 credits. Not shipped: the four hand
 - Checks: `npm run build` exit 0 (384 pages); `check-content.mjs` now also fails on any literal `tx("...")` in `components/pages/` with no Spanish; `check-images.mjs` covers 162 pages, no image twice; `curl` 200 for every old slug in EN and ES; browser at 1440 and 390 plus light theme, no sideways scroll, no broken images, no English found in the `/es` text of four sampled pages.
 - Not done: `/compare`, `/packages`, `/campaigns` cuts (slice 6). Footer and `ProgrammaticNav` still link to them.
 
+### Pre-merge audit (2026-10-15)
+
+- Crawled the production build from the sitemap and every internal link: 412 URLs. Only non-200 are `/en/contact` and `/es/contact`, the intended 307 to the homepage form.
+- Fixed in this pass: the two parent service pages (`digital-marketing`, `ai-solutions`) were 95 words with no visual; they now carry the same hero as a city page, both child services, use cases and the FAQ. City hubs and districts had no image; they now show the live-sites stack. Barbers, healthcare and real-estate pages show a built demo tagged "Example data". City and service pages got the homepage FAQ with `FAQPage` data (the playbook asks for FAQ and nearby areas on every programmatic page).
+- Still failing the "no empty page, no page without an image" bar, none from slices 4 and 5 (all on `main` before): 44 blog URLs are placeholders ("Full content for blog post {slug} will be displayed here", invented authors Jane Smith and Michael Johnson); `/resources/faqs` is 30 words with no heading; `/compare`, `/packages`, `/campaigns` and the legal, restaurants, retail and automotive industry pages keep the old design and phone number; `/services` and `/use-cases` index pages and one use case (listing description assistant) have no visual.
+
 ## Rules learned
 
 Every rejection becomes a rule here and applies to all later sections.

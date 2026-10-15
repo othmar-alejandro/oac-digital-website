@@ -6,7 +6,7 @@ import { SERVICE_PAGES } from "@/lib/service-pages";
 import { SERVICES, type Service } from "@/lib/services";
 import { USE_CASES } from "@/lib/use-cases";
 import { Arrow } from "@/components/layout/header";
-import { Ask, DemoStage, PageHero, PageShell, ProofBand, UseCaseCard, gridClass } from "./parts";
+import { Ask, DemoStage, FaqBlock, PageHero, PageShell, ProofBand, UseCaseCard, gridClass } from "./parts";
 import { AskYourBusiness, SeoReport, SiteStack } from "./visuals";
 
 const GROUPS = Array.from(new Set(SERVICES.map((s) => s.group)));
@@ -150,6 +150,7 @@ export function ServicePageView({ slug }: { slug: Service["slug"] }) {
         </div>
       </div>
 
+      <FaqBlock />
       <Ask />
     </PageShell>
   );

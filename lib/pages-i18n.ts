@@ -387,4 +387,6 @@ export const PAGES_ES: Record<string, string> = {
   "search and AI search.": "búsqueda y búsqueda con IA.",
   "AI solutions are": "Las soluciones de IA son",
   "agents and automations.": "agentes y automatizaciones.",
+  "Two services,": "Dos servicios,",
+  "one result.": "un solo resultado.",
 };

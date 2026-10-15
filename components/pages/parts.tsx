@@ -1,11 +1,11 @@
 "use client";
 
-import type { ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 import { Link } from "@/i18n/navigation";
 import { useTx } from "@/lib/home-i18n";
 import { Arrow } from "@/components/layout/header";
 import { CONSULT_HREF } from "@/components/layout/nav-data";
-import { STORIES } from "@/components/home/v2/data";
+import { FAQS, STORIES } from "@/components/home/v2/data";
 import { DemoApp, DemoAuto, DemoCrm, DemoWa } from "@/components/home/v2/tour";
 import { useReveal } from "@/components/home/v2/use-reveal";
 import type { UseCase } from "@/lib/use-cases";
@@ -154,6 +154,41 @@ export function Ask() {
           <Arrow />
         </Link>
       </div>
+    </div>
+  );
+}
+
+/** The homepage questions, same markup and same approved answers, with FAQPage data that mirrors them. */
+export function FaqBlock() {
+  const tx = useTx();
+  const [open, setOpen] = useState(0);
+  return (
+    <div className="oa-sec" style={{ paddingTop: 0 }}>
+      <div className="oa-wrap oa-split">
+        <div className="oa-stk">
+          <h2 className="oa-serif oa-h2 oa-rv">
+            {tx("Questions people ask")} <span className="oa-em">{tx("before the call.")}</span>
+          </h2>
+        </div>
+        <div>
+          {FAQS.map((f, i) => (
+            <div key={f.q} className={`oa-fq${i === open ? " oa-open" : ""}`}>
+              <button type="button" className="oa-fqq" aria-expanded={i === open} onClick={() => setOpen(i === open ? -1 : i)}>
+                <span>{tx(f.q)}</span>
+                <span className="oa-plus" aria-hidden="true">
+                  +
+                </span>
+              </button>
+              <div className="oa-fqa">
+                <div className="oa-tdi">
+                  <p className="oa-fqp">{tx(f.a)}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: FAQS.map((f) => ({ "@type": "Question", name: tx(f.q), acceptedAnswer: { "@type": "Answer", text: tx(f.a) } })) }) }} />
     </div>
   );
 }

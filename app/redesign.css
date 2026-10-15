@@ -594,3 +594,8 @@
 .oa-prn { font-size: 17px; max-width: 520px; }
 .oa-pcities { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 40px; }
 @media (max-width: 760px) { .oa-prow { grid-template-columns: 1fr auto; gap: 8px 16px; padding: 20px 0; } .oa-prt { font-size: 24px; } .oa-prn { grid-column: 1 / -1; grid-row: 2; } .oa-prow > :first-child:nth-last-child(2) { grid-column: auto; } }
+.oa-psplit { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 56px; align-items: center; margin-top: 48px; }
+.oa-psplit .oa-plist { margin-top: 0; }
+.oa-psplit .oa-prow { grid-template-columns: 1fr auto; gap: 8px 16px; }
+.oa-psplit .oa-prn { grid-column: 1 / -1; grid-row: 2; }
+@media (max-width: 1000px) { .oa-psplit { grid-template-columns: 1fr; gap: 40px; } }
