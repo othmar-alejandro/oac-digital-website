@@ -3,7 +3,7 @@
 import type { ReactNode } from "react";
 import { Link } from "@/i18n/navigation";
 import { useTx } from "@/lib/home-i18n";
-import { CITIES, CITY_SERVICES, COUNTIES, DISTRICTS, HUB_SLUGS, cityBySlug, cityService, type City } from "@/lib/locations";
+import { CITIES, CITY_SERVICES, COUNTIES, DISTRICTS, cityBySlug, cityHref, cityService } from "@/lib/locations";
 import { SERVICE_PAGES, type ServicePage } from "@/lib/service-pages";
 import { USE_CASES } from "@/lib/use-cases";
 import { VERTICALS } from "@/lib/verticals";
@@ -14,9 +14,6 @@ import { Ask, DemoStage, FaqBlock, PageHero, PageShell, UseCaseCard, gridClass }
 import { AskYourBusiness, SeoReport, SiteStack } from "./visuals";
 
 const stagger = (i: number) => (i % 3 === 1 ? "oa-rv2" : i % 3 === 2 ? "oa-rv3" : "");
-
-/** Hubs live at /locations; every other city is reached through its web design page. */
-const cityHref = (c: City) => (HUB_SLUGS.includes(c.slug as (typeof HUB_SLUGS)[number]) ? `/locations/${c.slug}` : `/services/web-design/${c.slug}`);
 
 function Row({ href, title, note }: { href: string; title: string; note?: string }) {
   return (
@@ -170,7 +167,7 @@ export function PlaceView({ citySlug, districtName, siblings }: { citySlug: stri
       <div className="oa-sec" style={{ paddingTop: 0 }}>
         <div className="oa-wrap">
           <h2 className="oa-serif oa-h2 oa-rv">
-            {tx("What we do in")} <span className="oa-em">{city.name}.</span>
+            {tx("What we do in")} <span className="oa-em">{place}.</span>
           </h2>
           <div className="oa-psplit">
             <div className="oa-plist">

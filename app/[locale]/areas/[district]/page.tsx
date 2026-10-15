@@ -4,7 +4,7 @@ import { Layout } from "@/components/layout/layout";
 import { PlaceView } from "@/components/pages/location-pages";
 import { BreadcrumbSchema } from "@/components/seo/StructuredData";
 import { translate } from "@/lib/home-i18n";
-import { DISTRICTS, cityBySlug, districtBySlug } from "@/lib/locations";
+import { DISTRICTS, cityBySlug, cityHref, districtBySlug } from "@/lib/locations";
 import { LOCALES, pageMeta } from "@/lib/page-meta";
 
 type Props = { params: { locale: string; district: string } };
@@ -31,7 +31,7 @@ export default function DistrictPage({ params: { locale, district } }: Props) {
   const siblings = DISTRICTS.filter((x) => x.slug !== d.slug && cityBySlug(x.city)!.county === city.county);
   return (
     <Layout>
-      <BreadcrumbSchema items={[{ name: "Home", url: base }, { name: city.name, url: `${base}/services/web-design/${city.slug}` }, { name: d.name, url: `${base}/areas/${d.slug}` }]} />
+      <BreadcrumbSchema items={[{ name: "Home", url: base }, { name: city.name, url: `${base}${cityHref(city)}` }, { name: d.name, url: `${base}/areas/${d.slug}` }]} />
       <PlaceView citySlug={city.slug} districtName={d.name} siblings={siblings} />
     </Layout>
   );

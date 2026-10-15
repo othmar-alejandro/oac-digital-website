@@ -54,6 +54,8 @@ export const DISTRICTS: District[] = [
   { slug: "palm-beach-gardens-business-park", name: "Palm Beach Gardens Business Park", city: "palm-beach-gardens", lat: 26.8234, lng: -80.1387 },
 ];
 
+/** Hubs live at /locations; every other city is reached through its web design page. */
+export const cityHref = (c: City) => ((HUB_SLUGS as readonly string[]).includes(c.slug) ? `/locations/${c.slug}` : `/services/web-design/${c.slug}`);
 export const cityBySlug = (slug: string) => CITIES.find((c) => c.slug === slug);
 export const districtBySlug = (slug: string) => DISTRICTS.find((d) => d.slug === slug);
 
