@@ -129,6 +129,30 @@ Higgsfield spend for the whole project: 2.25 credits. Not shipped: the four hand
 - Browser at 1440 and 390, `/en` and `/es`, 14 page types: no sideways scroll, no broken images, no page errors. Reveals fire on the 6 pages rechecked at normal scroll speed.
 - Not done: Work page and case studies (slice 4), city and district pages (5), blog, FAQ, legal, cuts and redirects (6), second batch of trades (7). Service pages have no FAQ block yet. Legal, restaurants, retail and automotive keep the old page.
 
+### Inner pages, slice 4: Work (2026-10-15, built, waiting on Othmar's test)
+
+- `/portfolio` rewritten as an index: three case studies, three listed sites (South Florida Mold Help, D-Tail Wash, Keep Her Light Alive). Case studies at `/portfolio/[slug]` for Noah G, Fitoria and Broke & Fixed, from `lib/work.ts`; template in `components/pages/work-pages.tsx`.
+- Every result sits next to a capture: ChatGPT and Google screenshots (Noah G, Oct 12, copied from `.redesign/proof/` to `public/images/work/`), ChatGPT screenshot and the Search Console card (Fitoria), blurred Telegram capture (Broke & Fixed). Pace is shown with its "demo data" caption. No Higgsfield images: real captures cover every slot.
+- Old template and demo entries dropped. `/portfolio/ai-podcast-creator`, `ai-crm-dashboard`, `general-contractor-website` return 308 to `/portfolio` in EN and ES (`next.config.js`).
+- Checks: `npm run build` exit 0 (380 pages), `check-content.mjs` ok, `check-images.mjs` ok with portfolio added, browser at 1440 and 390 on EN and ES: no sideways scroll, no broken images.
+- Noah G's 2,215 to 8,666 monthly impressions (Feb to Jul) is on the page. Othmar confirmed 2026-10-15 he has the clients' authorization to publish their numbers. Dead code left in place: `components/portfolio/project-card.tsx`, `components/home/portfolio-preview.tsx`, `ProjectItem` in `types/index.ts`.
+
+### Inner pages, slice 5: places (2026-10-15, built, waiting on Othmar's test)
+
+- One data file, `lib/locations.ts`: 26 cities in three counties, 3 city hubs, 11 districts, and the four services that have city pages. Coordinates and zip codes lifted from the old pages; the old district prose (descriptions, business types, landmarks) is gone.
+- Three views in `components/pages/location-pages.tsx`: service in city (`/services/[service]/[location]`, 104 URLs per language kept), hub (`/locations/*`) and district (`/areas/*`). Built from the same homepage parts as slices 2 to 4. No client proof band on city pages: every client is in Miami-Dade and nothing says otherwise.
+- The two old service slugs now have a page: `/services/digital-marketing` (SEO and AI search) and `/services/ai-solutions` (AI agents and automations), each linking to both real services. Before, their city pages' breadcrumbs pointed at a 404. Four new URLs (2 per language); sitemap includes them.
+- Dropped on purpose: the per-city `LocalBusiness` schema. It gave OAC an address, phone and opening hours in every one of 26 cities, which it does not have, and `priceRange: "$$"`. City pages keep `Service` and `Breadcrumb` schema; the Miami base is stated on the page. Dropped the phone number and "Call" button with it (one ask per page); the old number was `(305) 340-5282` if it should come back.
+- Hubs set their title with `generateMetadata`, which fixes the `next/head` bug noted in phase 0.
+- Checks: `npm run build` exit 0 (384 pages); `check-content.mjs` now also fails on any literal `tx("...")` in `components/pages/` with no Spanish; `check-images.mjs` covers 162 pages, no image twice; `curl` 200 for every old slug in EN and ES; browser at 1440 and 390 plus light theme, no sideways scroll, no broken images, no English found in the `/es` text of four sampled pages.
+- Not done: `/compare`, `/packages`, `/campaigns` cuts (slice 6). Footer and `ProgrammaticNav` still link to them.
+
+### Pre-merge audit (2026-10-15)
+
+- Crawled the production build from the sitemap and every internal link: 412 URLs. Only non-200 are `/en/contact` and `/es/contact`, the intended 307 to the homepage form.
+- Fixed in this pass: the two parent service pages (`digital-marketing`, `ai-solutions`) were 95 words with no visual; they now carry the same hero as a city page, both child services, use cases and the FAQ. City hubs and districts had no image; they now show the live-sites stack. Barbers, healthcare and real-estate pages show a built demo tagged "Example data". City and service pages got the homepage FAQ with `FAQPage` data (the playbook asks for FAQ and nearby areas on every programmatic page).
+- Still failing the "no empty page, no page without an image" bar, none from slices 4 and 5 (all on `main` before): 44 blog URLs are placeholders ("Full content for blog post {slug} will be displayed here", invented authors Jane Smith and Michael Johnson); `/resources/faqs` is 30 words with no heading; `/compare`, `/packages`, `/campaigns` and the legal, restaurants, retail and automotive industry pages keep the old design and phone number; `/services` and `/use-cases` index pages and one use case (listing description assistant) have no visual.
+
 ## Rules learned
 
 Every rejection becomes a rule here and applies to all later sections.

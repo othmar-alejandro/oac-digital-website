@@ -6,12 +6,12 @@ import { SERVICE_PAGES } from "@/lib/service-pages";
 import { SERVICES, type Service } from "@/lib/services";
 import { USE_CASES } from "@/lib/use-cases";
 import { Arrow } from "@/components/layout/header";
-import { Ask, DemoStage, PageHero, PageShell, ProofBand, UseCaseCard, gridClass } from "./parts";
+import { Ask, DemoStage, FaqBlock, PageHero, PageShell, ProofBand, UseCaseCard, gridClass } from "./parts";
 import { AskYourBusiness, SeoReport, SiteStack } from "./visuals";
 
 const GROUPS = Array.from(new Set(SERVICES.map((s) => s.group)));
 
-function ServiceCard({ service, className = "" }: { service: Service; className?: string }) {
+export function ServiceCard({ service, className = "" }: { service: Service; className?: string }) {
   const tx = useTx();
   return (
     <Link className={`oa-uc oa-rv ${className}`} href={`/services/${service.slug}`}>
@@ -150,6 +150,7 @@ export function ServicePageView({ slug }: { slug: Service["slug"] }) {
         </div>
       </div>
 
+      <FaqBlock />
       <Ask />
     </PageShell>
   );

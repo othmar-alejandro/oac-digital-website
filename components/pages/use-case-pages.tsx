@@ -54,6 +54,8 @@ export function VerticalPageView({ slug }: { slug: Vertical["slug"] }) {
   const useCases = USE_CASES.filter((u) => u.vertical === slug);
   // Every named client so far is a home services business.
   const stories = slug === "home-services" ? STORIES : [];
+  // A trade with no named client yet shows one of the built screens, tagged as example data.
+  const demo = stories.length ? undefined : useCases.find((x) => x.demo)?.demo;
 
   return (
     <PageShell>
@@ -62,6 +64,15 @@ export function VerticalPageView({ slug }: { slug: Vertical["slug"] }) {
           {tx(vertical.trades)}
         </p>
       </PageHero>
+
+      {demo && (
+        <div className="oa-sec" style={{ paddingTop: 0 }}>
+          <div className="oa-wrap">
+            <DemoStage demo={demo} />
+            <span className="oa-sm" style={{ display: "block", marginTop: 12 }}>{tx("Example data")}</span>
+          </div>
+        </div>
+      )}
 
       <div className="oa-band">
         <div className="oa-wrap">
