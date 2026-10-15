@@ -129,6 +129,14 @@ Higgsfield spend for the whole project: 2.25 credits. Not shipped: the four hand
 - Browser at 1440 and 390, `/en` and `/es`, 14 page types: no sideways scroll, no broken images, no page errors. Reveals fire on the 6 pages rechecked at normal scroll speed.
 - Not done: Work page and case studies (slice 4), city and district pages (5), blog, FAQ, legal, cuts and redirects (6), second batch of trades (7). Service pages have no FAQ block yet. Legal, restaurants, retail and automotive keep the old page.
 
+### Inner pages, slice 4: Work (2026-10-15, built, waiting on Othmar's test)
+
+- `/portfolio` rewritten as an index: three case studies, three listed sites (South Florida Mold Help, D-Tail Wash, Keep Her Light Alive). Case studies at `/portfolio/[slug]` for Noah G, Fitoria and Broke & Fixed, from `lib/work.ts`; template in `components/pages/work-pages.tsx`.
+- Every result sits next to a capture: ChatGPT and Google screenshots (Noah G, Oct 12, copied from `.redesign/proof/` to `public/images/work/`), ChatGPT screenshot and the Search Console card (Fitoria), blurred Telegram capture (Broke & Fixed). Pace is shown with its "demo data" caption. No Higgsfield images: real captures cover every slot.
+- Old template and demo entries dropped. `/portfolio/ai-podcast-creator`, `ai-crm-dashboard`, `general-contractor-website` return 308 to `/portfolio` in EN and ES (`next.config.js`).
+- Checks: `npm run build` exit 0 (380 pages), `check-content.mjs` ok, `check-images.mjs` ok with portfolio added, browser at 1440 and 390 on EN and ES: no sideways scroll, no broken images.
+- Noah G's 2,215 to 8,666 monthly impressions (Feb to Jul) is on the page. Othmar confirmed 2026-10-15 he has the clients' authorization to publish their numbers. Dead code left in place: `components/portfolio/project-card.tsx`, `components/home/portfolio-preview.tsx`, `ProjectItem` in `types/index.ts`.
+
 ## Rules learned
 
 Every rejection becomes a rule here and applies to all later sections.

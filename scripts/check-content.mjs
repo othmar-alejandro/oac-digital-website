@@ -3,6 +3,7 @@
 import { SERVICES } from "../lib/services.ts";
 import { VERTICALS } from "../lib/verticals.ts";
 import { USE_CASES } from "../lib/use-cases.ts";
+import { CASE_STUDIES, LISTINGS } from "../lib/work.ts";
 import { PAGES_ES } from "../lib/pages-i18n.ts";
 import { SERVICE_GROUPS } from "../components/layout/nav-data.ts";
 
@@ -23,6 +24,12 @@ for (const u of USE_CASES) {
   if (!services.has(u.service)) errors.push(`${u.slug}: unknown service ${u.service}`);
   strings.push(u.title, u.time, u.moment, ...u.steps, ...u.connects, u.ownerSees, ...(u.not ? [u.not] : []));
 }
+for (const c of CASE_STUDIES) {
+  if (!verticals.has(c.vertical)) errors.push(`${c.slug}: unknown vertical ${c.vertical}`);
+  for (const sv of c.services) if (!services.has(sv)) errors.push(`${c.slug}: unknown service ${sv}`);
+  strings.push(c.trade, c.title, c.em, c.sub, c.before, ...c.built, c.outcome, ...c.shots.flatMap((s) => [s.alt, s.cap]));
+}
+for (const l of LISTINGS) strings.push(l.trade, l.what);
 for (const v of verticals) {
   const n = USE_CASES.filter((u) => u.vertical === v).length;
   if (n !== 5) errors.push(`${v}: ${n} use cases, expected 5`);

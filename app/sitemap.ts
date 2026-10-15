@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next';
 import { SERVICES } from '@/lib/services';
 import { USE_CASES } from '@/lib/use-cases';
+import { CASE_STUDIES } from '@/lib/work';
 import { VERTICALS } from '@/lib/verticals';
 // Force rebuild
 
@@ -102,9 +103,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Combine all existing pages (removed LLM training pages to prevent 404s)
   // Service and use case pages from the data files
   const servicePages = SERVICES.map((s) => ({ path: `services/${s.slug}`, priority: 0.9, changeFrequency: 'weekly' as const }));
+  const workPages = CASE_STUDIES.map((c) => ({ path: `portfolio/${c.slug}`, priority: 0.8, changeFrequency: 'monthly' as const }));
   const useCasePages = USE_CASES.map((u) => ({ path: `use-cases/${u.slug}`, priority: 0.8, changeFrequency: 'monthly' as const }));
 
-  const allPages = [...servicePages, ...useCasePages, ...corePages, ...locations, ...serviceLocationPages, ...industryPages, ...districtPages, ...comparisonPages, ...campaignPages, ...packagePages];
+  const allPages = [...servicePages, ...useCasePages, ...workPages, ...corePages, ...locations, ...serviceLocationPages, ...industryPages, ...districtPages, ...comparisonPages, ...campaignPages, ...packagePages];
 
   // Generate sitemap entries for each locale and page
   const sitemapEntries: MetadataRoute.Sitemap = [];

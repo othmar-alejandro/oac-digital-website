@@ -4,9 +4,10 @@ import { readFileSync, existsSync } from "node:fs";
 
 const dir = ".next/server/app/en";
 import { USE_CASES } from "../lib/use-cases.ts";
+import { CASE_STUDIES } from "../lib/work.ts";
 import { VERTICALS } from "../lib/verticals.ts";
 
-const pages = ["", "/about", "/services", "/use-cases", ...VERTICALS.map((v) => `/industries/${v.slug}`), ...USE_CASES.map((u) => `/use-cases/${u.slug}`)];
+const pages = ["", "/about", "/services", "/use-cases", "/portfolio", ...CASE_STUDIES.map((c) => `/portfolio/${c.slug}`), ...VERTICALS.map((v) => `/industries/${v.slug}`), ...USE_CASES.map((u) => `/use-cases/${u.slug}`)];
 const services = ["web-design", "seo", "ai-search", "automations", "ai-agents", "ai-personal-assistant", "crm", "client-apps", "custom-tools", "business-ai"];
 const imgs = (html) => [...html.matchAll(/<img[^>]*?src="([^"]+)"/g)].map((m) => m[1]).filter((s) => s.startsWith("/") && !s.includes("logo") && !s.includes("avatar"));
 

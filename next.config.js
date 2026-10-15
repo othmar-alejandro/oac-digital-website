@@ -24,6 +24,12 @@ const nextConfig = {
     ],
     domains: ['oac-digital.com', 'www.oacdigital.biz'],
   },
+  // Old portfolio entries had no real page behind them; send them to the Work index.
+  async redirects() {
+    return [
+      { source: '/:locale(en|es)/portfolio/:slug(ai-podcast-creator|ai-crm-dashboard|general-contractor-website)', destination: '/:locale/portfolio', permanent: true },
+    ];
+  },
   webpack: (config, { dev, isServer }) => {
     // Fix for webpack module resolution issues
     config.resolve.fallback = {
