@@ -599,3 +599,11 @@
 .oa-psplit .oa-prow { grid-template-columns: 1fr auto; gap: 8px 16px; }
 .oa-psplit .oa-prn { grid-column: 1 / -1; grid-row: 2; }
 @media (max-width: 1000px) { .oa-psplit { grid-template-columns: 1fr; gap: 40px; } }
+
+/* Legal text: readable measure, quiet headings. */
+.oa-legal { max-width: 760px; }
+.oa-legal h2 { font-family: var(--o-serif, inherit); font-size: 30px; line-height: 1.15; letter-spacing: -.012em; margin: 48px 0 12px; font-weight: 400; }
+.oa-legal h3, .oa-legal h4 { font-size: 18px; margin: 28px 0 8px; font-weight: 600; }
+.oa-legal p, .oa-legal li { font-size: 17px; line-height: 1.65; color: var(--o-mut); }
+.oa-legal p { margin: 0 0 14px; }
+.oa-legal ul { margin: 0 0 14px; padding-left: 22px; list-style: disc; }

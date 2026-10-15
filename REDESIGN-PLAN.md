@@ -153,6 +153,16 @@ Higgsfield spend for the whole project: 2.25 credits. Not shipped: the four hand
 - Fixed in this pass: the two parent service pages (`digital-marketing`, `ai-solutions`) were 95 words with no visual; they now carry the same hero as a city page, both child services, use cases and the FAQ. City hubs and districts had no image; they now show the live-sites stack. Barbers, healthcare and real-estate pages show a built demo tagged "Example data". City and service pages got the homepage FAQ with `FAQPage` data (the playbook asks for FAQ and nearby areas on every programmatic page).
 - Still failing the "no empty page, no page without an image" bar, none from slices 4 and 5 (all on `main` before): 44 blog URLs are placeholders ("Full content for blog post {slug} will be displayed here", invented authors Jane Smith and Michael Johnson); `/resources/faqs` is 30 words with no heading; `/compare`, `/packages`, `/campaigns` and the legal, restaurants, retail and automotive industry pages keep the old design and phone number; `/services` and `/use-cases` index pages and one use case (listing description assistant) have no visual.
 
+### Inner pages, slice 6: cuts, FAQ, legal (2026-10-15, built, waiting on Othmar's test)
+
+- Cut with 308 redirects, EN and ES and with no locale in the path: `/compare/*` and `/packages/*` to `/services`, `/campaigns/*` to `/`, `/blog` and `/blog/*` to `/services`. Route folders, `components/blog`, the blog and portfolio preview components, `ProgrammaticNav` and `FaqAccordion` are deleted (no importers left). Sitemap no longer lists them.
+- The blog was cut, not restyled: every post was the placeholder line "Full content for blog post {slug} will be displayed here" under invented authors. A real blog comes back when there are real posts.
+- Search Console was not checked for clicks on the 14 cut URLs (no access from here). The rule in the page plan stands: a URL that brings traffic gets rewritten, not redirected. Redirects are in `next.config.js` and reversible.
+- `/resources/faqs` rebuilt: 12 questions in three groups, every answer restating something the site already says, with `FAQPage` data; EN and ES. No prices, no turnaround, no guarantees.
+- Privacy and terms moved into the new shell and given proper titles. Text unchanged, in English on both languages. It is a generic template (it refers to `oacdigital.com`, the site is `oacdigital.biz`, and it does not describe the lead form) and needs a legal review.
+- Footer: industries now lists Home services and Barbers and salons; comparison, package and blog links removed.
+- Checks: build exit 0 (354 pages), crawl of 340 URLs with no 404 and no link to a cut page, `check-content.mjs` ok, no `MISSING_MESSAGE` in the server log.
+
 ## Rules learned
 
 Every rejection becomes a rule here and applies to all later sections.
