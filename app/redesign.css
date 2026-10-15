@@ -554,3 +554,27 @@
   .oa-stackin { aspect-ratio: 1 / .9; } .oa-win { width: 84%; } .oa-win0 { left: 8%; }
   .oa-seocard { padding: 20px; } .oa-sbarw { height: 96px; } .oa-seonum { font-size: 32px; }
 }
+
+/* Service hero: words and list on the left, visual on the right; on phones the visual comes before the list. */
+.oa-shero { display: grid; grid-template-columns: 5fr 6fr; grid-template-areas: "text vis" "gets vis"; column-gap: 80px; row-gap: 28px; align-items: start; }
+.oa-shtext { grid-area: text; } .oa-shgets { grid-area: gets; } .oa-shvis { grid-area: vis; align-self: center; }
+.oa-shvis .oa-demo { position: relative; top: 0; }
+
+/* "Ask the business" example panel. */
+.oa-ask2 { margin: 0; display: flex; flex-direction: column; gap: 14px; }
+.oa-askcard { border-radius: 20px; background: var(--o-board); color: var(--o-boardink); --o-mut: var(--o-boardmut); --o-line: var(--o-boardline); box-shadow: var(--o-shadow); padding: 22px 24px; }
+.oa-askcard .oa-seohd div span { display: block; font-size: 13px; color: var(--o-mut); }
+.oa-askcard .oa-tag { color: var(--o-mut); border-color: var(--o-line); }
+.oa-askdot { width: 32px; height: 32px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #F4F6F8, #C79A43 55%, #8A6A22); box-shadow: 0 0 0 1px var(--o-line); }
+.oa-askthread { display: flex; flex-direction: column; gap: 18px; padding: 20px 0; }
+.oa-askq { align-self: flex-end; max-width: 80%; margin: 0; padding: 10px 14px; border-radius: 16px 16px 4px 16px; background: #173F7A; color: #F4F6F8; font-size: 14px; line-height: 1.4; }
+.oa-aska { align-self: flex-start; max-width: 88%; padding: 12px 14px; border-radius: 16px 16px 16px 4px; background: color-mix(in srgb, var(--o-boardink) 7%, transparent); box-shadow: 0 0 0 1px var(--o-line); }
+.oa-aska p { margin: 0; font-size: 14px; line-height: 1.45; }
+.oa-asksrc { display: inline-block; margin-top: 8px; font-size: 11.5px; color: var(--o-mut); padding: 2px 8px; border-radius: 9999px; box-shadow: 0 0 0 1px var(--o-line); }
+.oa-askin { justify-content: space-between; gap: 12px; padding: 12px 14px; border-radius: 9999px; box-shadow: 0 0 0 1px var(--o-line); font-size: 13.5px; color: var(--o-mut); }
+.oa-askin i { font-style: normal; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; background: var(--o-goldfill); color: #061321; }
+@media (max-width: 760px) {
+  .oa-shero { grid-template-columns: 1fr; grid-template-areas: "text" "vis" "gets"; row-gap: 32px; }
+  .oa-askcard { padding: 18px; } .oa-askq, .oa-aska { max-width: 92%; }
+}
+.oa-shvis .oa-pshot { position: relative; top: 0; }

@@ -104,3 +104,50 @@ export function SeoReport() {
     </figure>
   );
 }
+
+// Example conversation for "Your own business AI". Not built for a client yet, so it is tagged Concept and Example.
+// No prices: the site never shows them.
+const ASK = [
+  { q: "Do we work in Weston?", a: "Yes. Weston is in your service area. Your notes say visits there go on Tuesdays and Thursdays.", src: "Service area" },
+  { q: "A client wants to cancel tomorrow's visit. What's our policy?", a: "Cancelling 24 hours ahead is free. Later than that, your policy keeps the deposit. Want me to draft the reply?", src: "Policies" },
+  { q: "What do we recommend for a shower floor?", a: "Your notes recommend a small matte porcelain mosaic, for grip.", src: "Product notes" },
+];
+
+/** A private assistant answering an owner's questions from the business's own documents. */
+export function AskYourBusiness() {
+  const tx = useTx();
+  return (
+    <figure className="oa-ask2 oa-rv">
+      <div className="oa-askcard">
+        <div className="oa-row oa-seohd" style={{ justifyContent: "space-between" }}>
+          <div className="oa-row" style={{ gap: 12 }}>
+            <span className="oa-askdot" aria-hidden="true" />
+            <div>
+              <b>{tx("Ask the business")}</b>
+              <span>{tx("Private to your team")}</span>
+            </div>
+          </div>
+          <span className="oa-tag">{tx("Concept")}</span>
+        </div>
+        <div className="oa-askthread">
+          {ASK.map((m) => (
+            <div key={m.q} className="oa-col" style={{ gap: 8 }}>
+              <p className="oa-askq">{tx(m.q)}</p>
+              <div className="oa-aska">
+                <p>{tx(m.a)}</p>
+                <span className="oa-asksrc">
+                  {tx("From:")} {tx(m.src)}
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="oa-row oa-askin" aria-hidden="true">
+          <span>{tx("Ask about your prices, services or policies…")}</span>
+          <i>↑</i>
+        </div>
+      </div>
+      <figcaption className="oa-sm">{tx("Example conversation. Answers come from your own documents.")}</figcaption>
+    </figure>
+  );
+}

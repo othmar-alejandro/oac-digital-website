@@ -11,7 +11,7 @@ export type ServicePage = {
   gets: [string, string, string];
   demo?: "wa" | "auto" | "crm" | "app";
   shot?: { src: string; alt: string; cap: string };
-  visual?: "sites" | "seo";
+  visual?: "sites" | "seo" | "ask";
   proof?: string;
 };
 
@@ -107,5 +107,6 @@ export const SERVICE_PAGES: Record<ServiceSlug, ServicePage> = {
       "Your team gets the same answer every time.",
       "It stays inside your business.",
     ],
+    visual: "ask",
   },
 };

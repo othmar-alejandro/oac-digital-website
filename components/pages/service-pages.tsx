@@ -7,7 +7,7 @@ import { SERVICES, type Service } from "@/lib/services";
 import { USE_CASES } from "@/lib/use-cases";
 import { Arrow } from "@/components/layout/header";
 import { Ask, DemoStage, PageHero, PageShell, ProofBand, UseCaseCard, gridClass } from "./parts";
-import { SeoReport, SiteStack } from "./visuals";
+import { AskYourBusiness, SeoReport, SiteStack } from "./visuals";
 
 const GROUPS = Array.from(new Set(SERVICES.map((s) => s.group)));
 
@@ -62,16 +62,16 @@ export function ServicePageView({ slug }: { slug: Service["slug"] }) {
   // Two rows at most; the rest are one click away.
   const useCases = allUseCases.slice(0, 6);
   const siblings = SERVICES.filter((s) => s.group === service.group && s.slug !== slug);
-  const Visual = page.visual === "sites" ? SiteStack : page.visual === "seo" ? SeoReport : null;
-  const hasVisual = Boolean(Visual || page.demo || page.shot);
+  const Visual = page.visual === "sites" ? SiteStack : page.visual === "seo" ? SeoReport : page.visual === "ask" ? AskYourBusiness : null;
   const more = [...siblings.map((s) => ({ service: s })), { all: true as const }];
 
   return (
     <PageShell>
       {/* The hero carries the explanation and the visual together, so nothing is said twice. */}
       <div className="oa-sec oa-gridbg oa-ahero" style={{ position: "relative" }}>
-        <div className={`oa-wrap${hasVisual ? " oa-pgrid" : ""}`}>
-          <div className="oa-col" style={{ gap: 28 }}>
+        {/* Three areas: words, visual, list. On phones the visual sits between the explanation and the list. */}
+        <div className="oa-wrap oa-shero">
+          <div className="oa-col oa-shtext" style={{ gap: 28 }}>
             <div>
               <Link className="oa-sl oa-rv" href="/services">
                 {tx(service.group)} <span>›</span>
@@ -81,21 +81,21 @@ export function ServicePageView({ slug }: { slug: Service["slug"] }) {
             <p className="oa-mut oa-rv oa-rv2" style={{ fontSize: 20, lineHeight: 1.5, maxWidth: 560, margin: 0 }}>
               {tx(page.plain)}
             </p>
-            <div>
-              <h2 className="oa-sl oa-rv" style={{ marginBottom: 4 }}>
-                {tx("What you")} {tx("get.")}
-              </h2>
-              {page.gets.map((line, i) => (
-                <div key={line} className={`oa-res oa-rv${i === page.gets.length - 1 ? " oa-resl" : ""}`} style={{ padding: "18px 0" }}>
-                  <p className="oa-rs" style={{ color: "var(--o-ink)", fontSize: 18, maxWidth: 560 }}>
-                    <span className="oa-stepn">0{i + 1}</span>
-                    {tx(line)}
-                  </p>
-                </div>
-              ))}
-            </div>
           </div>
-          {Visual ? <Visual /> : <DemoStage demo={page.demo} shot={page.shot} />}
+          <div className="oa-shgets">
+            <h2 className="oa-sl oa-rv" style={{ marginBottom: 4 }}>
+              {tx("What you")} {tx("get.")}
+            </h2>
+            {page.gets.map((line, i) => (
+              <div key={line} className={`oa-res oa-rv${i === page.gets.length - 1 ? " oa-resl" : ""}`} style={{ padding: "18px 0" }}>
+                <p className="oa-rs" style={{ color: "var(--o-ink)", fontSize: 18, maxWidth: 560 }}>
+                  <span className="oa-stepn">0{i + 1}</span>
+                  {tx(line)}
+                </p>
+              </div>
+            ))}
+          </div>
+          <div className="oa-shvis">{Visual ? <Visual /> : <DemoStage demo={page.demo} shot={page.shot} />}</div>
         </div>
       </div>
 
