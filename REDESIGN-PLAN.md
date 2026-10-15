@@ -137,6 +137,16 @@ Higgsfield spend for the whole project: 2.25 credits. Not shipped: the four hand
 - Checks: `npm run build` exit 0 (380 pages), `check-content.mjs` ok, `check-images.mjs` ok with portfolio added, browser at 1440 and 390 on EN and ES: no sideways scroll, no broken images.
 - Noah G's 2,215 to 8,666 monthly impressions (Feb to Jul) is on the page. Othmar confirmed 2026-10-15 he has the clients' authorization to publish their numbers. Dead code left in place: `components/portfolio/project-card.tsx`, `components/home/portfolio-preview.tsx`, `ProjectItem` in `types/index.ts`.
 
+### Inner pages, slice 5: places (2026-10-15, built, waiting on Othmar's test)
+
+- One data file, `lib/locations.ts`: 26 cities in three counties, 3 city hubs, 11 districts, and the four services that have city pages. Coordinates and zip codes lifted from the old pages; the old district prose (descriptions, business types, landmarks) is gone.
+- Three views in `components/pages/location-pages.tsx`: service in city (`/services/[service]/[location]`, 104 URLs per language kept), hub (`/locations/*`) and district (`/areas/*`). Built from the same homepage parts as slices 2 to 4. No client proof band on city pages: every client is in Miami-Dade and nothing says otherwise.
+- The two old service slugs now have a page: `/services/digital-marketing` (SEO and AI search) and `/services/ai-solutions` (AI agents and automations), each linking to both real services. Before, their city pages' breadcrumbs pointed at a 404. Four new URLs (2 per language); sitemap includes them.
+- Dropped on purpose: the per-city `LocalBusiness` schema. It gave OAC an address, phone and opening hours in every one of 26 cities, which it does not have, and `priceRange: "$$"`. City pages keep `Service` and `Breadcrumb` schema; the Miami base is stated on the page. Dropped the phone number and "Call" button with it (one ask per page); the old number was `(305) 340-5282` if it should come back.
+- Hubs set their title with `generateMetadata`, which fixes the `next/head` bug noted in phase 0.
+- Checks: `npm run build` exit 0 (384 pages); `check-content.mjs` now also fails on any literal `tx("...")` in `components/pages/` with no Spanish; `check-images.mjs` covers 162 pages, no image twice; `curl` 200 for every old slug in EN and ES; browser at 1440 and 390 plus light theme, no sideways scroll, no broken images, no English found in the `/es` text of four sampled pages.
+- Not done: `/compare`, `/packages`, `/campaigns` cuts (slice 6). Footer and `ProgrammaticNav` still link to them.
+
 ## Rules learned
 
 Every rejection becomes a rule here and applies to all later sections.

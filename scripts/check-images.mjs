@@ -5,9 +5,10 @@ import { readFileSync, existsSync } from "node:fs";
 const dir = ".next/server/app/en";
 import { USE_CASES } from "../lib/use-cases.ts";
 import { CASE_STUDIES } from "../lib/work.ts";
+import { CITIES, CITY_SERVICES, DISTRICTS } from "../lib/locations.ts";
 import { VERTICALS } from "../lib/verticals.ts";
 
-const pages = ["", "/about", "/services", "/use-cases", "/portfolio", ...CASE_STUDIES.map((c) => `/portfolio/${c.slug}`), ...VERTICALS.map((v) => `/industries/${v.slug}`), ...USE_CASES.map((u) => `/use-cases/${u.slug}`)];
+const pages = ["", "/about", "/services", "/use-cases", "/portfolio", ...CASE_STUDIES.map((c) => `/portfolio/${c.slug}`), ...VERTICALS.map((v) => `/industries/${v.slug}`), ...["miami", "fort-lauderdale", "west-palm-beach"].map((h) => `/locations/${h}`), ...DISTRICTS.map((d) => `/areas/${d.slug}`), ...CITY_SERVICES.filter((s) => s.hubTitle).map((s) => `/services/${s.slug}`), ...CITY_SERVICES.flatMap((s) => CITIES.map((c) => `/services/${s.slug}/${c.slug}`)), ...USE_CASES.map((u) => `/use-cases/${u.slug}`)];
 const services = ["web-design", "seo", "ai-search", "automations", "ai-agents", "ai-personal-assistant", "crm", "client-apps", "custom-tools", "business-ai"];
 const imgs = (html) => [...html.matchAll(/<img[^>]*?src="([^"]+)"/g)].map((m) => m[1]).filter((s) => s.startsWith("/") && !s.includes("logo") && !s.includes("avatar"));
 
@@ -24,7 +25,7 @@ for (const p of [...pages, ...services.map((s) => `/services/${s}`)]) {
     // because the homepage layout was approved as is (Telegram in the hero and the agents section, the active story in the strip).
     if (seen.has(src)) (p === "" ? warnings : errors).push(`${p || "/"}: ${src} appears twice`);
     seen.add(src);
-    if (p.startsWith("/services/")) {
+    if (services.some((sv) => p === `/services/${sv}`)) {
       if (owners.has(src) && owners.get(src) !== p) errors.push(`${src} on both ${owners.get(src)} and ${p}`);
       owners.set(src, p);
     }

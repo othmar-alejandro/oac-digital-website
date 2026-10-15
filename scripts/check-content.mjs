@@ -3,6 +3,8 @@
 import { SERVICES } from "../lib/services.ts";
 import { VERTICALS } from "../lib/verticals.ts";
 import { USE_CASES } from "../lib/use-cases.ts";
+import { CITY_SERVICES } from "../lib/locations.ts";
+import { readdirSync, readFileSync } from "node:fs";
 import { CASE_STUDIES, LISTINGS } from "../lib/work.ts";
 import { PAGES_ES } from "../lib/pages-i18n.ts";
 import { SERVICE_GROUPS } from "../components/layout/nav-data.ts";
@@ -29,6 +31,7 @@ for (const c of CASE_STUDIES) {
   for (const sv of c.services) if (!services.has(sv)) errors.push(`${c.slug}: unknown service ${sv}`);
   strings.push(c.trade, c.title, c.em, c.sub, c.before, ...c.built, c.outcome, ...c.shots.flatMap((s) => [s.alt, s.cap]));
 }
+for (const c of CITY_SERVICES) strings.push(c.noun, `${c.noun} in`, `${c.noun} near`, ...(c.plain ? [c.plain, ...c.gets, c.hubTitle, c.hubEm] : []));
 for (const l of LISTINGS) strings.push(l.trade, l.what);
 for (const v of verticals) {
   const n = USE_CASES.filter((u) => u.vertical === v).length;
@@ -44,6 +47,15 @@ for (const s of [...strings, ...Object.values(PAGES_ES)]) {
   if (/[$€]\s?\d|[—–]/.test(s)) errors.push(`price or dash: ${s}`);
 }
 
+// The homepage lookup imports extensionless paths, so read its keys as text instead of importing it.
+const homeKeys = new Set([...readFileSync("lib/home-i18n.ts", "utf8").matchAll(/^\s*"((?:[^"\\]|\\.)+)":/gm)].map((m) => m[1].replace(/\\"/g, '"')));
+const same = new Set(["SEO", "WhatsApp", "Telegram", "Instagram", "Email"]);
+for (const f of readdirSync("components/pages").filter((n) => n.endsWith(".tsx"))) {
+  for (const m of readFileSync(`components/pages/${f}`, "utf8").matchAll(/\btx\("((?:[^"\\]|\\.)+)"\)/g)) {
+    const key = m[1].replace(/\\"/g, '"');
+    if (!same.has(key) && !(key in PAGES_ES) && !homeKeys.has(key)) errors.push(`${f}: no Spanish for tx("${key}")`);
+  }
+}
 if (errors.length) {
   console.error(errors.join("\n"));
   process.exit(1);

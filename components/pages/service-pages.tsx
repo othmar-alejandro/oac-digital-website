@@ -11,7 +11,7 @@ import { AskYourBusiness, SeoReport, SiteStack } from "./visuals";
 
 const GROUPS = Array.from(new Set(SERVICES.map((s) => s.group)));
 
-function ServiceCard({ service, className = "" }: { service: Service; className?: string }) {
+export function ServiceCard({ service, className = "" }: { service: Service; className?: string }) {
   const tx = useTx();
   return (
     <Link className={`oa-uc oa-rv ${className}`} href={`/services/${service.slug}`}>

@@ -1,46 +1,24 @@
-"use client";
-
+import { setRequestLocale } from "next-intl/server";
 import { Layout } from "@/components/layout/layout";
-import { SectionWrapper } from "@/components/common/section-wrapper";
-import { CTASection } from "@/components/home/cta-section";
-import LocationSpecificSchema from "@/components/shared/LocationSpecificSchema";
-import Head from "next/head";
-import { useTranslations } from "next-intl";
+import { PlaceView } from "@/components/pages/location-pages";
+import { BreadcrumbSchema } from "@/components/seo/StructuredData";
+import { translate } from "@/lib/home-i18n";
+import { pageMeta } from "@/lib/page-meta";
 
-export default function MiamiPage() {
-    const t = useTranslations("Locations.Miami");
+type Props = { params: { locale: string } };
 
-    return (
-        <>
-            <Head>
-                <title>{t('meta.title')}</title>
-                <meta name="description" content={t('meta.description')} />
-                <LocationSpecificSchema
-                    pageUrl="https://www.oacdigital.biz/locations/miami"
-                    locationName="Miami"
-                    nearbyAreas={["Miami Beach", "Coral Gables", "Doral"]}
-                    serviceName="Digital Marketing"
-                    serviceCategory="Digital Marketing"
-                />
-            </Head>
-            <Layout>
-                <SectionWrapper bgColor="light">
-                    <div className="text-center">
-                        <h1 className="text-4xl md:text-5xl font-bold mb-4">{t('title')}</h1>
-                        <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8">{t('description')}</p>
-                    </div>
-                    <div>
-                        <h2 className="text-3xl font-bold mb-4">{t('services.title')}</h2>
-                        <ul className="list-disc list-inside">
-                            <li>{t('services.webDesign')}</li>
-                            <li>{t('services.seo')}</li>
-                            <li>{t('services.saas')}</li>
-                            <li>{t('services.marketingAutomation')}</li>
-                        </ul>
-                    </div>
-                </SectionWrapper>
-                <CTASection />
-            </Layout>
-        </>
-    );
+export function generateMetadata({ params: { locale } }: Props) {
+  const tx = translate(locale);
+  return pageMeta(locale, "/locations/miami", `${tx("Websites, AI and automation in")} Miami`, "Websites that bring calls, search that finds you, and agents and automations that answer. For local businesses.");
+}
+
+export default function Page({ params: { locale } }: Props) {
+  setRequestLocale(locale);
+  const base = `https://www.oacdigital.biz/${locale}`;
+  return (
+    <Layout>
+      <BreadcrumbSchema items={[{ name: "Home", url: base }, { name: "Miami", url: `${base}/locations/miami` }]} />
+      <PlaceView citySlug="miami" />
+    </Layout>
+  );
 }
